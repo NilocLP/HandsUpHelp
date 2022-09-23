@@ -1,0 +1,109 @@
+@import "../../core/layout/theme";
+
+@mixin dropdown($width, $height){
+  display: inline-block;
+  //Title
+  .hu-dropdown-title{
+    background: $color-normal-grey;
+    border: 1px solid $color-normal-lightYellow;
+    border-radius: 5px;
+    width: $width;
+    height: $height;
+    @include normalText();
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    justify-content: space-between;
+
+    .hu-dropdown-title-inner{
+      margin-left: $width/23.5;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+
+
+      span.hu-dropdown-title-color {
+        height: $height*0.5;
+        min-width: $height*0.5;
+        border: 1px solid $color-normal-lightYellow;
+        border-radius: 5px;
+      }
+      span.hu-dropdown-title-text {
+        display: inline-block;
+        margin-left: $width * 0.03;
+        @include normalText();
+      }
+
+
+    }
+    .hu-dropdown-title-downarrow{
+      min-width: $height*0.5;
+      height: $height*0.5;
+      @include svg-icon("/www/elements/dropdown/assets/chevron-down.svg", $height*0.5, $height*0.5, $color-normal-lightYellow);
+      margin-right: $width/23.5;
+    }
+
+  }
+  //Options
+  .hu-dropdown-options-container {
+    position: absolute;
+    width: $width;
+    max-height: $height*3+3px;
+    background: $color-normal-grey;
+    border: 1px solid $color-normal-black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: 0px;
+    margin-top: -3px;
+    .hu-dropdown-options {
+
+      &::-webkit-scrollbar {
+        width: 3px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: $color-normal-lightYellow;
+        width: 3px;
+        border-radius: 5px;
+      }
+      &::-webkit-scrollbar-track-piece:start {
+        background: transparent;
+        margin-top: 13px;
+      }
+      &::-webkit-scrollbar-track-piece:end {
+        background: transparent;
+        margin-bottom: 10px;
+      }
+
+      width: 96%;
+      max-height: $height*3+3px;
+      overflow-y: scroll;
+
+      div[hu-option] {
+        &:first-child {
+          margin-top: 3%;
+        }
+        &:last-child {
+          margin-bottom: 3%;
+        }
+        margin: 1.5% 0;
+        padding-left: $width/23.5;
+        height: $height*0.8;
+        display: flex;
+        align-items: center;
+
+        div {
+          height: $height*0.5;
+          width: $height*0.5;
+          border: 1px solid $color-normal-lightYellow;
+          border-radius: 5px;
+        }
+        span {
+          margin-left: 3%;
+          @include normalText();
+        }
+      }
+    }
+  }
+
+}

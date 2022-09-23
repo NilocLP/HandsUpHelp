@@ -16,14 +16,14 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
 document.addEventListener('deviceready', onDeviceReady, false);
-
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
-
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
+    //console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+    //Launch another file after loading
+    window.location.href = "../../screens/calender/calender.html";
 }
+//# sourceMappingURL=startup.js.map

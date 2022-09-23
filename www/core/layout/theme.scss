@@ -1,0 +1,116 @@
+//Colors
+$color-normal-orange: #FDCA00;
+$color-normal-yellow: #FEE402;
+$color-normal-lightYellow: #FFFED5;
+$color-normal-black: #111111;
+$color-normal-grey: #1C1C1C;
+
+$color-special-warning: #FF8585;
+
+//Fonts
+@font-face {
+  font-family: 'IBMPlexSansThai';
+  src: url('../../../www/core/font/IBMPlexSansThai-Light.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'IBMPlexSansThaiLooped';
+  src: url('../../../www/core/font/IBMPlexSansThaiLooped-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'IBMPlexSansThaiLooped';
+  src: url('../../../www/core/font/IBMPlexSansThaiLooped-Medium.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 500;
+}
+
+@mixin largeHeading($fontsize: 24px, $lineHeight: 40px){
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: $fontsize;
+  line-height: $lineHeight;
+  text-align: center;
+  color: $color-normal-lightYellow;
+}
+@mixin smallHeading($fontsize: 20px, $lineHeight: 33px){
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: $fontsize;
+  line-height: $lineHeight;
+  text-align: center;
+  color: $color-normal-lightYellow;
+}
+@mixin bigText($fontsize: 20px, $lineHeight: 33px){
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $fontsize;
+  line-height: $lineHeight;
+  color: $color-normal-lightYellow;
+}
+@mixin normalText($fontsize: 16px, $lineHeight: 26px){
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $fontsize;
+  line-height: $lineHeight;
+  color: $color-normal-lightYellow;
+}
+@mixin smallText($fontsize: 14px, $lineHeight: 23px){
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $fontsize;
+  line-height: $lineHeight;
+  color: $color-normal-lightYellow;
+}
+@mixin tooltip($fontsize: 14px, $lineHeight: 14px){
+  font-family: IBMPlexSansThai, serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: $fontsize;
+  line-height: $lineHeight;
+  color: $color-normal-lightYellow;
+}
+@mixin buttonText($fontsize: 16px, $lineHeight: 26px){
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $fontsize;
+  line-height: $lineHeight;
+  color: $color-normal-black;
+}
+//Other
+@mixin resetDefaultPage(){
+  html{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  body{
+    position: relative;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+@mixin svg-icon($path, $height, $width, $color ) {
+  height: $height;
+  width: $width;
+  background-color: $color;
+  mask-image: url($path);
+  -webkit-mask-image: url($path);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}

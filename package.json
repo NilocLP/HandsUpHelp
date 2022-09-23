@@ -1,23 +1,23 @@
 {
-  "name": "io.cordova.hellocordova",
-  "displayName": "HelloCordova",
+  "name": "de.niloc.handsuphelp",
+  "displayName": "HandsUpHelper",
   "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "main": "index.js",
+  "description": "An app to track how often you raised your hands in school.",
+  "main": "/www/screens/startup/startup.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "ecosystem:cordova"
   ],
-  "author": "Apache Cordova Team",
+  "author": "Niloc",
   "license": "Apache-2.0",
-  "devDependencies": {
-    "cordova-android": "^10.1.2"
-  },
   "cordova": {
     "platforms": [
       "android"
     ]
+  },
+  "devDependencies": {
+    "cordova-android": "^10.1.2"
   }
 }

@@ -1,0 +1,39 @@
+@import "../../core/layout/theme";
+
+@mixin navbar($autolayout: true){
+  position: absolute;
+  width: 107.5%;
+  height: 17.188%;
+  @if $autolayout == true {
+    left: -3.889%;
+    top: 88.75%;
+  }
+  background: $color-normal-black;
+  border-radius: 203px;
+  .navbar_icons{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    top: 18.18%;
+    div {
+      margin: 0 9.167%;
+      &.current{
+        background-color: $color-normal-yellow !important;
+      }
+    }
+
+    #navbar_stats{
+      @include svg-icon("/www/elements/navbar/assets/bar-chart.svg", 5vh, 8.889vw, $color-normal-lightYellow)
+    }
+    #navbar_calender{
+      @include svg-icon("/www/elements/navbar/assets/calendar.svg", 5vh, 8.889vw, $color-normal-lightYellow)
+    }
+    #navbar_settings{
+      @include svg-icon("/www/elements/navbar/assets/cog.svg", 5vh, 8.889vw, $color-normal-lightYellow)
+    }
+  }
+
+}

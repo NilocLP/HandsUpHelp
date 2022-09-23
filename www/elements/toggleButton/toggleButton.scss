@@ -1,0 +1,47 @@
+@import "../../core/layout/theme";
+
+$toggleTransition: left 0.2s ease-out;
+
+@mixin toggleButton($width){
+  display: inline-block;
+
+  .circle{
+    width: $width / 2.5;
+    height: $width / 2.5;
+    border-radius: 300px;
+    position: relative;
+    top: ($width * 0.533333) / 8;
+  }
+
+  .togglebutton{
+    margin: 0;
+    width: $width;
+    height: $width * 0.533333;
+    display: inline-block;
+    border: 2px solid $color-normal-black;
+    border-radius: 300px;
+
+    &.toggled{
+      background: $color-normal-lightYellow;
+      .circle{
+        background: $color-normal-grey;
+        left: $width / 1.875;
+        transition: $toggleTransition;
+      }
+    }
+    &{
+      background: $color-normal-grey;
+      .circle{
+        background: $color-normal-lightYellow;
+        left: $width / 15;
+        transition: $toggleTransition;
+      }
+    }
+  }
+  label{
+    display: none;
+  }
+  input {
+    visibility: hidden;
+  }
+}

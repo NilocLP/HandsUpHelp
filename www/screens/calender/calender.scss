@@ -1,0 +1,26 @@
+@import "../../elements/navbar/navbar";
+@import "../../elements/button/button";
+@import "../../elements/toggleButton/toggleButton";
+@import "../../elements/dropdown/dropdown";
+
+@include resetDefaultPage();
+
+html{
+  background-color: #1B1B1B;
+}
+
+hu-navbar{
+  @include navbar();
+}
+
+hu-button{
+  @include button(135px, 39px)
+}
+hu-togglebutton{
+  @include toggleButton(60px)
+}
+
+hu-dropdown{
+  @include dropdown(200px, 60px);
+
+}
