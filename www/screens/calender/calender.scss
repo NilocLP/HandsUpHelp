@@ -2,6 +2,7 @@
 @import "../../elements/button/button";
 @import "../../elements/toggleButton/toggleButton";
 @import "../../elements/dropdown/dropdown";
+@import "../../elements/inputText/inputText";
 
 @include resetDefaultPage();
 
@@ -22,5 +23,9 @@ hu-togglebutton{
 
 hu-dropdown{
   @include dropdown(200px, 60px);
+}
 
+hu-inputtext{
+
+  @include inputText(120%)
 }

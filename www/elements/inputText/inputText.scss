@@ -1,0 +1,17 @@
+@import "../../core/layout/theme";
+
+@mixin inputText($width, $height: 100%) {
+  display: inline-block;
+  .hu-input{
+    background: transparent;
+    width: $width;
+    height: $height;
+    @include normalText();
+    &::placeholder {
+      @include normalText();
+    }
+    border: 0;
+    border-bottom:  1px solid $color-normal-lightYellow;
+    padding: 0 8px 7px 8px;
+  }
+}
