@@ -6,26 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Time Calender</title>
 
+    <script src="../../elements/navbar/navbar.js" type="module"></script>
+    <script src="../../elements/button/button.js" type="module"></script>
+    <!--   <script src="../../elements/toggleButton/toggleButton.js" type="module"></script>
+       <script src="../../elements/dropdown/dropdown.js" type="module"></script>
+       <script src="../../elements/inputText/inputText.js" type="module"></script>
+       <script src="../../elements/inputDate/inputDate.js" type="module"></script>
+       <script src="../../elements/inputTime/inputTime.js" type="module"></script>-->
 </head>
 <body>
+    <main>
+        <section id="title">
+            <h1>Time Calender</h1>
+        </section>
+        <section id="calender">
+            <div class="heading">
+                <div class="heading-mon heading-title"><span>MON.</span></div>
+                <div class="heading-tue heading-title"><span>TUE.</span></div>
+                <div class="heading-wed heading-title"><span>WED.</span></div>
+                <div class="heading-thu heading-title"><span>THU.</span></div>
+                <div class="heading-fri heading-title"><span>FRI.</span></div>
+            </div>
+            <div class="body">
+                <div class="placeholder"><div></div></div>
+                <div class="placeholder"><div></div></div>
+                <div class="placeholder"><div></div></div>
+            </div>
+        </section>
+        <section id="actions">
+            <div id="currentLesson"><span>Current Lesson: <span id="currentLessonTitle">NONE</span></span></div>
+            <div id="quickActions">
+                <div id="handsUp" class="action">
+                    <hu-button text='Add "Hands Up"' class="smallButton"></hu-button>
+                    <span>Count: <span id="handsUpCount">0</span></span>
+                </div>
+                <div id="taken" class="action">
+                    <hu-button text='Add "Taken"' class="smallButton"></hu-button>
+                    <span>Count: <span id="takenCount">0</span></span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <hu-navbar activepage="1"></hu-navbar>
 
-    <hu-navbar activepage="0"></hu-navbar>
-    <h1>Test</h1>
-    <hu-button text="LOL"></hu-button>
-    <hu-togglebutton checked="true" id="test"></hu-togglebutton>
-    <hu-dropdown placeholder="Select Language...."></hu-dropdown>
-    <hu-inputtext placeholder="lol"></hu-inputtext>
-    <hu-inputdate></hu-inputdate>
-    <hu-inputtime></hu-inputtime>
 
-    <script src="../../elements/button/button.js" type="module"></script>
-    <script src="../../elements/toggleButton/toggleButton.js" type="module"></script>
-    <script src="../../elements/navbar/navbar.js" type="module"></script>
-    <script src="../../elements/dropdown/dropdown.js" type="module"></script>
-    <script src="../../elements/inputText/inputText.js" type="module"></script>
-    <script src="../../elements/inputDate/inputDate.js" type="module"></script>
-    <script src="../../elements/inputTime/inputTime.js" type="module"></script>
-    <script src="calender.js" type="module"></script>
+
 
 </body>
 </html>
