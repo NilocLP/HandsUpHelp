@@ -2,9 +2,16 @@
 
 @mixin inputText($width, $height: 100%) {
   display: inline-block;
+  width: $width;
+  padding-right: 16px;
+  label{
+    display: inherit;
+    max-width: 100%;
+  }
   .hu-input{
+    display: inherit;
     background: transparent;
-    width: $width;
+    max-width: 100%;
     height: $height;
     @include normalText();
     &::placeholder {

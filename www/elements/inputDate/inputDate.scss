@@ -1,0 +1,50 @@
+@import "../../core/layout/theme";
+
+@mixin inputDate($width, $height: 100%) {
+  display: inline-block;
+  min-width: $width;
+  max-width: $width;
+  padding-right: 16px;
+  label{
+    display: inherit;
+    width: 100%;
+  }
+  .hu-input{
+    position: relative;
+    height: $height;
+    display: inherit;
+    background: transparent;
+    width: 100%;
+    @include normalText();
+    &::placeholder {
+      @include normalText();
+    }
+    border: 0;
+    border-bottom:  1px solid $color-normal-lightYellow;
+    padding: 0 8px 6px 8px;
+
+    &:after {
+      content: "";
+      @include svg-icon("../../elements/inputDate/calendar.svg", 25px, 25px, $color-normal-lightYellow);
+      z-index: -1;
+    }
+
+    &::-webkit-calendar-picker-indicator{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      color: transparent;
+      background: transparent;
+      width: 100%;
+      height: 100%;
+    }
+    &::-webkit-clear-button {
+      z-index: 1;
+    }
+    &::-webkit-inner-spin-button {
+      z-index: 1;
+    }
+  }
+}

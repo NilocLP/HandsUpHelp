@@ -88,6 +88,24 @@
   font-style: normal;
   font-weight: 500;
 }
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("../../../www/core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../../www/core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../../www/core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
 html {
   width: 100%;
   height: 100%;
@@ -238,7 +256,7 @@ hu-dropdown .hu-dropdown-title {
   border: 1px solid #FFFED5;
   border-radius: 5px;
   width: 200px;
-  height: 60px;
+  height: 50px;
   font-family: IBMPlexSansThaiLooped, serif;
   font-style: normal;
   font-weight: 400;
@@ -258,8 +276,8 @@ hu-dropdown .hu-dropdown-title .hu-dropdown-title-inner {
   flex-direction: row;
 }
 hu-dropdown .hu-dropdown-title .hu-dropdown-title-inner span.hu-dropdown-title-color {
-  height: 30px;
-  min-width: 30px;
+  height: 25px;
+  min-width: 25px;
   border: 1px solid #FFFED5;
   border-radius: 5px;
 }
@@ -274,10 +292,10 @@ hu-dropdown .hu-dropdown-title .hu-dropdown-title-inner span.hu-dropdown-title-t
   color: #FFFED5;
 }
 hu-dropdown .hu-dropdown-title .hu-dropdown-title-downarrow {
-  min-width: 30px;
-  height: 30px;
-  height: 30px;
-  width: 30px;
+  min-width: 25px;
+  height: 25px;
+  height: 25px;
+  width: 25px;
   background-color: #FFFED5;
   mask-image: url("/www/elements/dropdown/assets/chevron-down.svg");
   -webkit-mask-image: url("/www/elements/dropdown/assets/chevron-down.svg");
@@ -292,7 +310,7 @@ hu-dropdown .hu-dropdown-title .hu-dropdown-title-downarrow {
 hu-dropdown .hu-dropdown-options-container {
   position: absolute;
   width: 200px;
-  max-height: 183px;
+  max-height: 153px;
   background: #1C1C1C;
   border: 1px solid #111111;
   border-bottom-left-radius: 5px;
@@ -302,7 +320,7 @@ hu-dropdown .hu-dropdown-options-container {
 }
 hu-dropdown .hu-dropdown-options-container .hu-dropdown-options {
   width: 96%;
-  max-height: 183px;
+  max-height: 153px;
   overflow-y: scroll;
 }
 hu-dropdown .hu-dropdown-options-container .hu-dropdown-options::-webkit-scrollbar {
@@ -324,7 +342,7 @@ hu-dropdown .hu-dropdown-options-container .hu-dropdown-options::-webkit-scrollb
 hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option] {
   margin: 1.5% 0;
   padding-left: 8.5106382979px;
-  height: 48px;
+  height: 40px;
   display: flex;
   align-items: center;
 }
@@ -335,8 +353,8 @@ hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option]:l
   margin-bottom: 3%;
 }
 hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option] div {
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   border: 1px solid #FFFED5;
   border-radius: 5px;
 }
@@ -352,10 +370,18 @@ hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option] s
 
 hu-inputtext {
   display: inline-block;
+  width: 20px;
+  padding-right: 16px;
+  margin-right: 20px;
+}
+hu-inputtext label {
+  display: inherit;
+  max-width: 100%;
 }
 hu-inputtext .hu-input {
+  display: inherit;
   background: transparent;
-  width: 120%;
+  max-width: 100%;
   height: 100%;
   font-family: IBMPlexSansThaiLooped, serif;
   font-style: normal;
@@ -374,6 +400,73 @@ hu-inputtext .hu-input::placeholder {
   font-size: 16px;
   line-height: 26px;
   color: #FFFED5;
+}
+
+hu-inputdate {
+  display: inline-block;
+  min-width: 150px;
+  max-width: 150px;
+  padding-right: 16px;
+}
+hu-inputdate label {
+  display: inherit;
+  width: 100%;
+}
+hu-inputdate .hu-input {
+  position: relative;
+  height: 100%;
+  display: inherit;
+  background: transparent;
+  width: 100%;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+  border: 0;
+  border-bottom: 1px solid #FFFED5;
+  padding: 0 8px 6px 8px;
+}
+hu-inputdate .hu-input::placeholder {
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+}
+hu-inputdate .hu-input:after {
+  content: "";
+  height: 25px;
+  width: 25px;
+  background-color: #FFFED5;
+  mask-image: url("../../elements/inputDate/calendar.svg");
+  -webkit-mask-image: url("../../elements/inputDate/calendar.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  z-index: -1;
+}
+hu-inputdate .hu-input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: transparent;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+}
+hu-inputdate .hu-input::-webkit-clear-button {
+  z-index: 1;
+}
+hu-inputdate .hu-input::-webkit-inner-spin-button {
+  z-index: 1;
 }
 
 /*# sourceMappingURL=calender.css.map */

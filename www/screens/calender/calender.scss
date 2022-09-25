@@ -3,6 +3,7 @@
 @import "../../elements/toggleButton/toggleButton";
 @import "../../elements/dropdown/dropdown";
 @import "../../elements/inputText/inputText";
+@import "../../elements/inputDate/inputDate";
 
 @include resetDefaultPage();
 
@@ -22,10 +23,14 @@ hu-togglebutton{
 }
 
 hu-dropdown{
-  @include dropdown(200px, 60px);
+  @include dropdown(200px, 50px);
 }
 
 hu-inputtext{
+  @include inputText(20px);
+  margin-right: 20px;
+}
 
-  @include inputText(120%)
+hu-inputdate{
+  @include inputDate(150px)
 }
