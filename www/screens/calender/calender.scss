@@ -4,6 +4,7 @@
 @import "../../elements/dropdown/dropdown";
 @import "../../elements/inputText/inputText";
 @import "../../elements/inputDate/inputDate";
+@import "../../elements/inputTime/inputTime";
 
 @include resetDefaultPage();
 
@@ -33,4 +34,8 @@ hu-inputtext{
 
 hu-inputdate{
   @include inputDate(150px)
+}
+
+hu-inputtime{
+  @include inputTime(80px)
 }
