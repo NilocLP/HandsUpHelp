@@ -15,117 +15,27 @@ html{
 hu-navbar{
   @include navbar();
 }
-.smallButton{
-  @include button(40vw,6.1vh);
+
+hu-button{
+  @include button(135px, 39px)
+}
+hu-togglebutton{
+  @include toggleButton(60px)
 }
 
-main{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-
-}
-//Title Section
-#title{
-  margin-top: 5vh;
-  h1{
-    margin: 0;
-    @include largeHeading()
-  }
+hu-dropdown{
+  @include dropdown(200px, 50px);
 }
 
-//Calender Section
-#calender {
-  margin-top: 3.75vh;
-  height: 50%;
-  width: 80%;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 9.1% 90.9%;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "heading"
-    "body";
-
-  .heading {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-    ". . . . .";
-    grid-area: heading;
-
-    .heading-title{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      @include smallText(12px)
-    }
-  }
-
-  .body {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . .";
-    grid-area: body;
-
-    .placeholder {
-      margin: 3px 6px;
-      border: 1px dashed $color-normal-lightYellow;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      div {
-        @include svg-icon("../../screens/calender/assets/plus.svg", 16px, 16px, $color-normal-lightYellow);
-      }
-    }
-  }
+hu-inputtext{
+  @include inputText(20px);
+  margin-right: 20px;
 }
 
-//Actions Section
-#actions{
-  margin-top: 3.75vh;
-  height: 16.72%;
-  width: 87%;
-
-  #currentLesson{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    @include normalText();
-  }
-  #quickActions{
-    display: flex;
-    margin-top: 2vh;
-    div.action{
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      span{
-        margin-top: 1vh;
-        @include smallText();
-      }
-    }
-  }
+hu-inputdate{
+  @include inputDate(150px)
 }
 
+hu-inputtime{
+  @include inputTime(80px)
+}
