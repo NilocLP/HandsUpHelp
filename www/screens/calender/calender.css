@@ -124,6 +124,497 @@
   font-style: normal;
   font-weight: 500;
 }
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+#calender {
+  margin-top: 3.75vh;
+  height: 50%;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 9.1% 90.9%;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "heading" "body";
+}
+#calender .heading {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: ". . . . .";
+  grid-area: heading;
+}
+#calender .heading .heading-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 23px;
+  color: #FFFED5;
+}
+#calender .body {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . .";
+  grid-area: body;
+}
+#calender .body div {
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#calender .body .placeholder {
+  margin: 3px 6px;
+  border: 1px dashed #FFFED5;
+}
+#calender .body .placeholder div {
+  height: 16px;
+  width: 16px;
+  background-color: #FFFED5;
+  mask-image: url("../../screens/calender/assets/plus.svg");
+  -webkit-mask-image: url("../../screens/calender/assets/plus.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+#hu-calender-input {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: rgba(17, 17, 17, 0.9);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hu-calender-input-content {
+  background-color: #1C1C1C;
+  border-radius: 5px;
+  width: 65.55vw;
+  height: 62.15vh;
+  padding: 3.75vh 4.16vw;
+}
+.hu-calender-input-content h2 {
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 33px;
+  text-align: center;
+  color: #FFFED5;
+  margin: 0;
+}
+.hu-calender-input-content .hu-calender-input-subject {
+  margin-top: 3.75vh;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.hu-calender-input-content .hu-calender-input-subject span.hu-calender-input-subject-text {
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 33px;
+  color: #FFFED5;
+  margin-bottom: 2.18vh;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown {
+  z-index: 20;
+  display: inline-block;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-title {
+  background: #1C1C1C;
+  border: 1px solid #FFFED5;
+  border-radius: 5px;
+  width: 65.5vw;
+  height: 50px;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  justify-content: space-between;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-title .hu-dropdown-title-inner {
+  margin-left: 2.7872340426vw;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 70%;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-title .hu-dropdown-title-inner span.hu-dropdown-title-color {
+  height: 25px;
+  min-width: 25px;
+  border: 1px solid #FFFED5;
+  border-radius: 5px;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-title .hu-dropdown-title-inner span.hu-dropdown-title-text {
+  display: inline-block;
+  margin-left: 1.965vw;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-title .hu-dropdown-title-downarrow {
+  min-width: 25px;
+  height: 25px;
+  height: 25px;
+  width: 25px;
+  background-color: #FFFED5;
+  mask-image: url("/www/elements/dropdown/assets/chevron-down.svg");
+  -webkit-mask-image: url("/www/elements/dropdown/assets/chevron-down.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  margin-right: 2.7872340426vw;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-options-container {
+  position: absolute;
+  width: 65.5vw;
+  max-width: 65.5vw;
+  max-height: 153px;
+  background: #1C1C1C;
+  border: 1px solid #111111;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top: 0px;
+  margin-top: -3px;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-options-container .hu-dropdown-options {
+  width: 96%;
+  max-height: 153px;
+  overflow-y: scroll;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-options-container .hu-dropdown-options::-webkit-scrollbar {
+  width: 3px;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-options-container .hu-dropdown-options::-webkit-scrollbar-thumb {
+  background: #FFFED5;
+  width: 3px;
+  border-radius: 5px;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-options-container .hu-dropdown-options::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+  margin-top: 13px;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-options-container .hu-dropdown-options::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+  margin-bottom: 10px;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option] {
+  margin: 1.5% 0;
+  padding-left: 2.7872340426vw;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option]:first-child {
+  margin-top: 3%;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option]:last-child {
+  margin-bottom: 3%;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option] div {
+  height: 25px;
+  width: 25px;
+  border: 1px solid #FFFED5;
+  border-radius: 5px;
+}
+.hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option] span {
+  margin-left: 3%;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+}
+.hu-calender-input-content .hu-calender-input-time {
+  margin-top: 3.75vh;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-time-text {
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 33px;
+  color: #FFFED5;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-time-double {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  margin-top: 2.18vh;
+  margin-bottom: 2.18vh;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-time-double span.hu-calender-input-time-double-text {
+  max-height: 26px;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+  line-height: 31px;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-time-double hu-togglebutton.hu-calender-input-time-button {
+  display: inline;
+  max-height: 27.466652px;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-time-double hu-togglebutton.hu-calender-input-time-button .circle {
+  width: 17.5298804781px;
+  height: 17.6px;
+  border-radius: 300px;
+  position: relative;
+  top: 2.75px;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-time-double hu-togglebutton.hu-calender-input-time-button .togglebutton {
+  margin: 0;
+  width: 44px;
+  height: 23.466652px;
+  display: inline-block;
+  border: 2px solid #111111;
+  border-radius: 300px;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-time-double hu-togglebutton.hu-calender-input-time-button .togglebutton.toggled {
+  background: #FFFED5;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-time-double hu-togglebutton.hu-calender-input-time-button .togglebutton.toggled .circle {
+  background: #1C1C1C;
+  left: 23.4666666667px;
+  transition: left 0.2s ease-out;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-time-double hu-togglebutton.hu-calender-input-time-button .togglebutton {
+  background: #1C1C1C;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-time-double hu-togglebutton.hu-calender-input-time-button .togglebutton .circle {
+  background: #FFFED5;
+  left: 2.9333333333px;
+  transition: left 0.2s ease-out;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-time-double hu-togglebutton.hu-calender-input-time-button label {
+  display: none;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-time-double hu-togglebutton.hu-calender-input-time-button input {
+  visibility: hidden;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-time-start {
+  margin-bottom: 2.18vh;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-time-end {
+  margin-bottom: 3.75vh;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-text {
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+}
+.hu-calender-input-content .hu-calender-input-time hu-inputtime {
+  z-index: 2;
+  display: inline-block;
+  min-width: 18.35vw;
+  max-width: 18.35vw;
+  padding-right: 16px;
+}
+.hu-calender-input-content .hu-calender-input-time hu-inputtime label {
+  display: inherit;
+  width: 100%;
+}
+.hu-calender-input-content .hu-calender-input-time hu-inputtime .hu-input {
+  position: relative;
+  height: 19px;
+  display: inherit;
+  background: transparent;
+  width: 100%;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23px;
+  color: #FFFED5;
+  border: 0;
+  border-bottom: 1px solid #FFFED5;
+  padding: 0 8px 6px 8px;
+}
+.hu-calender-input-content .hu-calender-input-time hu-inputtime .hu-input::placeholder {
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23px;
+  color: #FFFED5;
+}
+.hu-calender-input-content .hu-calender-input-time hu-inputtime .hu-input:after {
+  content: "";
+  height: 19px;
+  width: 19px;
+  background-color: #FFFED5;
+  mask-image: url("/www/elements/inputTime/clock.svg");
+  -webkit-mask-image: url("/www/elements/inputTime/clock.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  z-index: -1;
+}
+.hu-calender-input-content .hu-calender-input-time hu-inputtime .hu-input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: transparent;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+}
+.hu-calender-input-content .hu-calender-input-time hu-inputtime .hu-input::-webkit-clear-button {
+  z-index: 1;
+}
+.hu-calender-input-content .hu-calender-input-time hu-inputtime .hu-input::-webkit-inner-spin-button {
+  z-index: 1;
+}
+.hu-calender-input-content .hu-calender-input-time .hu-calender-input-time-container {
+  display: flex;
+  justify-content: space-between;
+}
+.hu-calender-input-content hu-button {
+  display: inline-block;
+  width: 100%;
+  height: 6.09vh;
+}
+.hu-calender-input-content hu-button input {
+  width: 100%;
+  height: 6.09vh;
+  background: #FFFED5;
+  border-radius: 5px;
+  border-style: hidden;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+  color: #111111;
+}
+
 html {
   width: 100%;
   height: 100%;
@@ -245,68 +736,6 @@ main {
   line-height: 40px;
   text-align: center;
   color: #FFFED5;
-}
-
-#calender {
-  margin-top: 3.75vh;
-  height: 50%;
-  width: 80%;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 9.1% 90.9%;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas: "heading" "body";
-}
-#calender .heading {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas: ". . . . .";
-  grid-area: heading;
-}
-#calender .heading .heading-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: IBMPlexSansThaiLooped, serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 23px;
-  color: #FFFED5;
-}
-#calender .body {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(10, 1fr);
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas: ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . .";
-  grid-area: body;
-}
-#calender .body .placeholder {
-  margin: 3px 6px;
-  border: 1px dashed #FFFED5;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#calender .body .placeholder div {
-  height: 16px;
-  width: 16px;
-  background-color: #FFFED5;
-  mask-image: url("../../screens/calender/assets/plus.svg");
-  -webkit-mask-image: url("../../screens/calender/assets/plus.svg");
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
 }
 
 #actions {

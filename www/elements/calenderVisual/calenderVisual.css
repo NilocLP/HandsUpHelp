@@ -1,0 +1,81 @@
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+#calender {
+  margin-top: 3.75vh;
+  height: 50%;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 9.1% 90.9%;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "heading" "body";
+}
+#calender .heading {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: ". . . . .";
+  grid-area: heading;
+}
+#calender .heading .heading-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 23px;
+  color: #FFFED5;
+}
+#calender .body {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . .";
+  grid-area: body;
+}
+#calender .body .placeholder {
+  margin: 3px 6px;
+  border: 1px dashed #FFFED5;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#calender .body .placeholder div {
+  height: 16px;
+  width: 16px;
+  background-color: #FFFED5;
+  mask-image: url("../../screens/calender/assets/plus.svg");
+  -webkit-mask-image: url("../../screens/calender/assets/plus.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/*# sourceMappingURL=calenderVisual.css.map */

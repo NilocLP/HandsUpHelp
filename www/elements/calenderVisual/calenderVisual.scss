@@ -1,0 +1,168 @@
+@import "../../core/layout/theme";
+@import "../../elements/inputTime/inputTime";
+@import "../../elements/button/button";
+@import "../../elements/toggleButton/toggleButton";
+@import "../../elements/dropdown/dropdown";
+
+//Main Calender
+#calender {
+  margin-top: 3.75vh;
+  height: 50%;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 9.1% 90.9%;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "heading"
+    "body";
+
+  .heading {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    ". . . . .";
+    grid-area: heading;
+
+    .heading-title{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include smallText(12px)
+    }
+  }
+
+  .body {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    ". . . . ."
+    ". . . . ."
+    ". . . . ."
+    ". . . . ."
+    ". . . . ."
+    ". . . . ."
+    ". . . . ."
+    ". . . . ."
+    ". . . . ."
+    ". . . . .";
+    grid-area: body;
+
+    div{
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .placeholder {
+      margin: 3px 6px;
+      border: 1px dashed $color-normal-lightYellow;
+      div {
+        @include svg-icon("../../screens/calender/assets/plus.svg", 16px, 16px, $color-normal-lightYellow);
+      }
+    }
+
+    .notUsed {
+
+    }
+  }
+}
+
+//Input
+#hu-calender-input{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: $background-overlaying;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hu-calender-input-content{
+  background-color: $color-normal-grey;
+  border-radius: 5px;
+  width: 65.55vw;
+  height: 62.15vh;
+  padding: 3.75vh 4.16vw;
+
+  h2{
+    @include smallHeading();
+    margin: 0;
+  }
+  .hu-calender-input-subject{
+    margin-top: 3.75vh;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    span.hu-calender-input-subject-text{
+      @include bigText();
+      margin-bottom: 2.18vh;
+
+    }
+    hu-dropdown{
+      z-index: 20;
+      @include dropdown(65.5vw,50px);
+    }
+  }
+
+  .hu-calender-input-time{
+    margin-top: 3.75vh;
+
+    .hu-calender-input-time-text{
+      @include bigText();
+
+    }
+
+    .hu-calender-input-time-double{
+      display: flex;
+      justify-content: space-between;
+      height: auto;
+      margin-top: 2.18vh;
+      span.hu-calender-input-time-double-text{
+        max-height: 26px;
+        @include normalText(16px, 26px);
+        line-height: 31px;
+
+      }
+      hu-togglebutton.hu-calender-input-time-button{
+        @include toggleButton(44px);
+      }
+      margin-bottom: 2.18vh;
+    }
+
+    .hu-calender-input-time-start{
+      margin-bottom: 2.18vh;
+    }
+    .hu-calender-input-time-end{
+      margin-bottom: 3.75vh;
+    }
+
+    .hu-calender-input-text{
+      @include normalText();
+    }
+
+    hu-inputtime{
+      z-index: 2;
+      @include inputTime(18.35vw,19px, true)
+    }
+
+    .hu-calender-input-time-container{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  hu-button{
+    @include button(100%,6.09vh)
+  }
+}

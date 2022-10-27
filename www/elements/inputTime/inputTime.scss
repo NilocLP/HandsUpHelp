@@ -1,9 +1,10 @@
 @import "../../core/layout/theme";
 
-@mixin inputTime($width, $height: 100%) {
+@mixin inputTime($width, $height: 100%, $smallText: false) {
   display: inline-block;
   min-width: $width;
   max-width: $width;
+
   padding-right: 16px;
   label{
     display: inherit;
@@ -15,17 +16,29 @@
     display: inherit;
     background: transparent;
     width: 100%;
-    @include normalText();
-    &::placeholder {
+    @if($smallText){
+      @include smallText();
+      &::placeholder {
+        @include smallText();
+      }
+    }@else {
       @include normalText();
+      &::placeholder {
+        @include normalText();
+      }
     }
+
     border: 0;
     border-bottom:  1px solid $color-normal-lightYellow;
     padding: 0 8px 6px 8px;
 
     &:after {
       content: "";
-      @include svg-icon("../../elements/inputTime/clock.svg", 25px, 25px, $color-normal-lightYellow);
+      $svg-size: 25px;
+      @if($smallText){
+        $svg-size: 19px;
+      }
+      @include svg-icon("/www/elements/inputTime/clock.svg", $svg-size, $svg-size, $color-normal-lightYellow);
       z-index: -1;
     }
 

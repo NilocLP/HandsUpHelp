@@ -5,6 +5,7 @@
 @import "../../elements/inputText/inputText";
 @import "../../elements/inputDate/inputDate";
 @import "../../elements/inputTime/inputTime";
+@import "../../elements/calenderVisual/calenderVisual";
 
 @include resetDefaultPage();
 
@@ -18,6 +19,7 @@ hu-navbar{
 .smallButton{
   @include button(40vw,6.1vh);
 }
+
 
 main{
   display: flex;
@@ -33,71 +35,6 @@ main{
   h1{
     margin: 0;
     @include largeHeading()
-  }
-}
-
-//Calender Section
-#calender {
-  margin-top: 3.75vh;
-  height: 50%;
-  width: 80%;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 9.1% 90.9%;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "heading"
-    "body";
-
-  .heading {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-    ". . . . .";
-    grid-area: heading;
-
-    .heading-title{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      @include smallText(12px)
-    }
-  }
-
-  .body {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . .";
-    grid-area: body;
-
-    .placeholder {
-      margin: 3px 6px;
-      border: 1px dashed $color-normal-lightYellow;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      div {
-        @include svg-icon("../../screens/calender/assets/plus.svg", 16px, 16px, $color-normal-lightYellow);
-      }
-    }
   }
 }
 

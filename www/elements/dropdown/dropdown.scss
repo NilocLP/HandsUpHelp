@@ -21,6 +21,7 @@
       display: flex;
       align-items: center;
       flex-direction: row;
+      width: 70%;
 
 
       span.hu-dropdown-title-color {
@@ -49,6 +50,7 @@
   .hu-dropdown-options-container {
     position: absolute;
     width: $width;
+    max-width: $width;
     max-height: $height*3+3px;
     background: $color-normal-grey;
     border: 1px solid $color-normal-black;
