@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="statistics.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistics</title>
+
+    <script src="../../elements/navbar/navbar.js" type="module"></script>
+    <script src="../../elements/dropdown/dropdown.js" type="module"></script>
+    <script src="../../elements/inputDate/inputDate.js" type="module"></script>
+
+</head>
+<body>
+<main>
+    <section id="title">
+        <h1>Statistics</h1>
+    </section>
+    <section id="selection">
+        <div id="selection-subject">
+            <hu-dropdown placeholder="Select a Subject"></hu-dropdown>
+        </div>
+        <div id="selection-dates">
+            <hu-inputdate id="selection-date-start"></hu-inputdate>
+            <span id="selection-date-to">to</span>
+            <hu-inputdate id="selection-date-end"></hu-inputdate>
+        </div>
+    </section>
+    <section id="statistics">
+
+    </section>
+</main>
+<hu-navbar activepage="0"></hu-navbar>
+</body>
+</html>

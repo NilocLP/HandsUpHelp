@@ -4,12 +4,12 @@
   display: inline-block;
   min-width: $width;
   max-width: $width;
-  padding-right: 16px;
   label{
-    display: inherit;
+    display: inline-block;
     width: 100%;
   }
   .hu-input{
+    box-sizing: border-box;
     position: relative;
     height: $height;
     display: inherit;

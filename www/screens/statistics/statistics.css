@@ -697,23 +697,193 @@ hu-navbar .navbar_icons #navbar_settings {
   mask-repeat: no-repeat;
 }
 
-.smallButton {
+hu-inputdate {
   display: inline-block;
-  width: 40vw;
-  height: 6.1vh;
+  min-width: 36.39vw;
+  max-width: 36.39vw;
 }
-.smallButton input {
-  width: 40vw;
-  height: 6.1vh;
-  background: #FFFED5;
-  border-radius: 5px;
-  border-style: hidden;
+hu-inputdate label {
+  display: inline-block;
+  width: 100%;
+}
+hu-inputdate .hu-input {
+  box-sizing: border-box;
+  position: relative;
+  height: 100%;
+  display: inherit;
+  background: transparent;
+  width: 100%;
   font-family: IBMPlexSansThaiLooped, serif;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 16px;
   line-height: 26px;
-  color: #111111;
+  color: #FFFED5;
+  border: 0;
+  border-bottom: 1px solid #FFFED5;
+  padding: 0 8px 6px 8px;
+}
+hu-inputdate .hu-input::placeholder {
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+}
+hu-inputdate .hu-input:after {
+  content: "";
+  height: 25px;
+  width: 25px;
+  background-color: #FFFED5;
+  mask-image: url("../../elements/inputDate/calendar.svg");
+  -webkit-mask-image: url("../../elements/inputDate/calendar.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  z-index: -1;
+}
+hu-inputdate .hu-input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: transparent;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+}
+hu-inputdate .hu-input::-webkit-clear-button {
+  z-index: 1;
+}
+hu-inputdate .hu-input::-webkit-inner-spin-button {
+  z-index: 1;
+}
+
+hu-dropdown {
+  display: inline-block;
+}
+hu-dropdown .hu-dropdown-title {
+  background: #1C1C1C;
+  border: 1px solid #FFFED5;
+  border-radius: 5px;
+  width: 82.2vw;
+  height: 41px;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  justify-content: space-between;
+}
+hu-dropdown .hu-dropdown-title .hu-dropdown-title-inner {
+  margin-left: 3.4978723404vw;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 70%;
+}
+hu-dropdown .hu-dropdown-title .hu-dropdown-title-inner span.hu-dropdown-title-color {
+  height: 20.5px;
+  min-width: 20.5px;
+  border: 1px solid #FFFED5;
+  border-radius: 5px;
+}
+hu-dropdown .hu-dropdown-title .hu-dropdown-title-inner span.hu-dropdown-title-text {
+  display: inline-block;
+  margin-left: 2.466vw;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+}
+hu-dropdown .hu-dropdown-title .hu-dropdown-title-downarrow {
+  min-width: 20.5px;
+  height: 20.5px;
+  height: 20.5px;
+  width: 20.5px;
+  background-color: #FFFED5;
+  mask-image: url("/www/elements/dropdown/assets/chevron-down.svg");
+  -webkit-mask-image: url("/www/elements/dropdown/assets/chevron-down.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  margin-right: 3.4978723404vw;
+}
+hu-dropdown .hu-dropdown-options-container {
+  position: absolute;
+  width: 82.2vw;
+  max-width: 82.2vw;
+  max-height: 126px;
+  background: #1C1C1C;
+  border: 1px solid #111111;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top: 0px;
+  margin-top: -3px;
+}
+hu-dropdown .hu-dropdown-options-container .hu-dropdown-options {
+  width: 96%;
+  max-height: 126px;
+  overflow-y: scroll;
+}
+hu-dropdown .hu-dropdown-options-container .hu-dropdown-options::-webkit-scrollbar {
+  width: 3px;
+}
+hu-dropdown .hu-dropdown-options-container .hu-dropdown-options::-webkit-scrollbar-thumb {
+  background: #FFFED5;
+  width: 3px;
+  border-radius: 5px;
+}
+hu-dropdown .hu-dropdown-options-container .hu-dropdown-options::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+  margin-top: 13px;
+}
+hu-dropdown .hu-dropdown-options-container .hu-dropdown-options::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+  margin-bottom: 10px;
+}
+hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option] {
+  margin: 1.5% 0;
+  padding-left: 3.4978723404vw;
+  height: 32.8px;
+  display: flex;
+  align-items: center;
+}
+hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option]:first-child {
+  margin-top: 3%;
+}
+hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option]:last-child {
+  margin-bottom: 3%;
+}
+hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option] div {
+  height: 20.5px;
+  width: 20.5px;
+  border: 1px solid #FFFED5;
+  border-radius: 5px;
+}
+hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option] span {
+  margin-left: 3%;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
 }
 
 main {
@@ -738,15 +908,19 @@ main {
   color: #FFFED5;
 }
 
-#actions {
-  margin-top: 3.75vh;
-  height: 16.72%;
-  width: 87%;
-}
-#actions #currentLesson {
+#selection {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  margin-top: 3.75vh;
+}
+#selection #selection-dates {
+  margin-top: 2.1875vh;
+  width: 83.5vw;
+  display: flex;
+  justify-content: space-between;
+}
+#selection #selection-dates #selection-date-to {
   font-family: IBMPlexSansThaiLooped, serif;
   font-style: normal;
   font-weight: 400;
@@ -754,24 +928,5 @@ main {
   line-height: 26px;
   color: #FFFED5;
 }
-#actions #quickActions {
-  display: flex;
-  margin-top: 2vh;
-}
-#actions #quickActions div.action {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#actions #quickActions div.action span {
-  margin-top: 1vh;
-  font-family: IBMPlexSansThaiLooped, serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 23px;
-  color: #FFFED5;
-}
 
-/*# sourceMappingURL=calender.css.map */
+/*# sourceMappingURL=statistics.css.map */
