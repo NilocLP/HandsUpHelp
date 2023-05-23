@@ -1,0 +1,35 @@
+@import "../../core/layout/theme";
+
+@mixin pieChart($width, $height, $colorOne, $colorTwo){
+
+  .hu-chart {
+    display: inline-block;
+    height: $width;
+    width: $height;
+    position: relative;
+    border-radius: 50%;
+    background: conic-gradient($colorTwo 0% 0%,$colorOne 0% 100%);
+
+    .hu-chart-bar{
+      position: absolute;
+      width: 0;
+      height: 49%;
+      top: -1px;
+      border-radius: 200px;
+      background-color: $color-normal-grey;
+      border: 2px solid $color-normal-grey;
+    }
+
+    .hu-separator-One{
+        left: calc($width / 2 - 2px);
+        height: 50%;
+
+    }
+    .hu-separator-Two{
+      left: calc($width / 2 - 2px);
+      transform-origin: bottom;
+    }
+  }
+
+
+}

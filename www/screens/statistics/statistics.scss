@@ -6,6 +6,7 @@
 @import "../../elements/inputDate/inputDate";
 @import "../../elements/inputTime/inputTime";
 @import "../../elements/calenderVisual/calenderVisual";
+@import "../../elements/pieChart/pieChart";
 
 @include resetDefaultPage();
 
@@ -22,7 +23,10 @@ hu-inputdate{
 }
 
 hu-dropdown{
-  @include dropdown(82.2vw,41px)
+  @include dropdown(83.5vw,41px)
+}
+hu-piechart{
+  @include pieChart(20.15vh,20.15vh,$color-normal-lightYellow,$color-normal-yellow)
 }
 
 main{
@@ -50,7 +54,6 @@ main{
   margin-top: 3.75vh;
 
   #selection-dates {
-    //TODO Continue Here by giving the Calender Inputs the right margins and sizes
     margin-top: 2.1875vh;
     width: 83.5vw;
     display: flex;
@@ -60,3 +63,43 @@ main{
     }
   }
 }
+
+.stats-text{
+  @include normalText();
+  margin-bottom: 1vh;
+
+}
+#statistics{
+  margin-top: 4.6vh;
+  height: 51vh;
+  width: 83.5vw;
+  h2{
+    @include smallHeading();
+    margin:0
+  }
+
+  #stats-diagram-data{
+    margin-top: 2.2vh;
+    width: 100%;
+
+    display: flex;
+    #stats-data{
+      margin-left: 3.8vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  #stats-average{
+    margin-top: 2.2vh;
+
+    #stats-average-data{
+      margin-top: 2.2vh;
+      display: flex;
+      flex-direction: column;
+
+    }
+  }
+}
+

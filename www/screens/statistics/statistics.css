@@ -615,6 +615,24 @@
   color: #111111;
 }
 
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
 html {
   width: 100%;
   height: 100%;
@@ -771,7 +789,7 @@ hu-dropdown .hu-dropdown-title {
   background: #1C1C1C;
   border: 1px solid #FFFED5;
   border-radius: 5px;
-  width: 82.2vw;
+  width: 83.5vw;
   height: 41px;
   font-family: IBMPlexSansThaiLooped, serif;
   font-style: normal;
@@ -786,7 +804,7 @@ hu-dropdown .hu-dropdown-title {
   justify-content: space-between;
 }
 hu-dropdown .hu-dropdown-title .hu-dropdown-title-inner {
-  margin-left: 3.4978723404vw;
+  margin-left: 3.5531914894vw;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -800,7 +818,7 @@ hu-dropdown .hu-dropdown-title .hu-dropdown-title-inner span.hu-dropdown-title-c
 }
 hu-dropdown .hu-dropdown-title .hu-dropdown-title-inner span.hu-dropdown-title-text {
   display: inline-block;
-  margin-left: 2.466vw;
+  margin-left: 2.505vw;
   font-family: IBMPlexSansThaiLooped, serif;
   font-style: normal;
   font-weight: 400;
@@ -822,12 +840,12 @@ hu-dropdown .hu-dropdown-title .hu-dropdown-title-downarrow {
   mask-position: center;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  margin-right: 3.4978723404vw;
+  margin-right: 3.5531914894vw;
 }
 hu-dropdown .hu-dropdown-options-container {
   position: absolute;
-  width: 82.2vw;
-  max-width: 82.2vw;
+  width: 83.5vw;
+  max-width: 83.5vw;
   max-height: 126px;
   background: #1C1C1C;
   border: 1px solid #111111;
@@ -859,7 +877,7 @@ hu-dropdown .hu-dropdown-options-container .hu-dropdown-options::-webkit-scrollb
 }
 hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option] {
   margin: 1.5% 0;
-  padding-left: 3.4978723404vw;
+  padding-left: 3.5531914894vw;
   height: 32.8px;
   display: flex;
   align-items: center;
@@ -884,6 +902,32 @@ hu-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option] s
   font-size: 16px;
   line-height: 26px;
   color: #FFFED5;
+}
+
+hu-piechart .hu-chart {
+  display: inline-block;
+  height: 20.15vh;
+  width: 20.15vh;
+  position: relative;
+  border-radius: 50%;
+  background: conic-gradient(#FEE402 0% 0%, #FFFED5 0% 100%);
+}
+hu-piechart .hu-chart .hu-chart-bar {
+  position: absolute;
+  width: 0;
+  height: 49%;
+  top: -1px;
+  border-radius: 200px;
+  background-color: #1C1C1C;
+  border: 2px solid #1C1C1C;
+}
+hu-piechart .hu-chart .hu-separator-One {
+  left: calc(10.075vh - 2px);
+  height: 50%;
+}
+hu-piechart .hu-chart .hu-separator-Two {
+  left: calc(10.075vh - 2px);
+  transform-origin: bottom;
 }
 
 main {
@@ -927,6 +971,51 @@ main {
   font-size: 16px;
   line-height: 26px;
   color: #FFFED5;
+}
+
+.stats-text {
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+  margin-bottom: 1vh;
+}
+
+#statistics {
+  margin-top: 4.6vh;
+  height: 51vh;
+  width: 83.5vw;
+}
+#statistics h2 {
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 33px;
+  text-align: center;
+  color: #FFFED5;
+  margin: 0;
+}
+#statistics #stats-diagram-data {
+  margin-top: 2.2vh;
+  width: 100%;
+  display: flex;
+}
+#statistics #stats-diagram-data #stats-data {
+  margin-left: 3.8vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#statistics #stats-average {
+  margin-top: 2.2vh;
+}
+#statistics #stats-average #stats-average-data {
+  margin-top: 2.2vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /*# sourceMappingURL=statistics.css.map */

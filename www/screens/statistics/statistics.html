@@ -9,6 +9,14 @@
     <script src="../../elements/navbar/navbar.js" type="module"></script>
     <script src="../../elements/dropdown/dropdown.js" type="module"></script>
     <script src="../../elements/inputDate/inputDate.js" type="module"></script>
+    <script src="../../elements/pieChart/pieChart.js" type="module"></script>
+    <script>
+        window.onload = init;
+        function init(){
+
+
+        }
+    </script>
 
 </head>
 <body>
@@ -18,7 +26,7 @@
     </section>
     <section id="selection">
         <div id="selection-subject">
-            <hu-dropdown placeholder="Select a Subject"></hu-dropdown>
+            <hu-dropdown placeholder="Select a Subject" id="test"></hu-dropdown>
         </div>
         <div id="selection-dates">
             <hu-inputdate id="selection-date-start"></hu-inputdate>
@@ -27,9 +35,28 @@
         </div>
     </section>
     <section id="statistics">
-
+        <section id="stats-diagram">
+            <h2>Hands Up/Taken Diagram</h2>
+            <div id="stats-diagram-data">
+                <hu-piechart percentage="30" id="lolzz"></hu-piechart>
+                <div id="stats-data">
+                    <span class="stats-text">Hands Up: <span id="stats-data-handsup">10</span></span>
+                    <span class="stats-text">Taken: <span id="stats-data-taken">10</span> </span>
+                    <span class="stats-text">Taken in %: <span id="stats-data-takenPercent">50</span>%</span>
+                </div>
+            </div>
+        </section>
+        <section id="stats-average">
+            <h2>Average Lesson Stats</h2>
+            <div id="stats-average-data">
+                <span class="stats-text">Average “Hands Up” per Lesson: <span id="stats-data-average-handsup">8</span></span>
+                <span class="stats-text">Average “Taken” per Lesson: <span id="stats-data-average-taken">7.98</span></span>
+                <span class="stats-text">Participated Lessons: <span id="stats-data-participated">29</span></span>
+            </div>
+        </section>
     </section>
 </main>
 <hu-navbar activepage="0"></hu-navbar>
 </body>
+
 </html>
