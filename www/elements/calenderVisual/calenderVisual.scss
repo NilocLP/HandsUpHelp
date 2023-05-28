@@ -66,7 +66,7 @@
       margin: 3px 6px;
       border: 1px dashed $color-normal-lightYellow;
       div {
-        @include svg-icon("../../screens/calender/assets/plus.svg", 16px, 16px, $color-normal-lightYellow);
+        @include svg-icon("../../elements/calenderVisual/assets/plus.svg", 16px, 16px, $color-normal-lightYellow);
       }
     }
 

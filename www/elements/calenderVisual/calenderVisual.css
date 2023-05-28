@@ -68,8 +68,8 @@
   height: 16px;
   width: 16px;
   background-color: #FFFED5;
-  mask-image: url("../../screens/calender/assets/plus.svg");
-  -webkit-mask-image: url("../../screens/calender/assets/plus.svg");
+  mask-image: url("assets/plus.svg");
+  -webkit-mask-image: url("assets/plus.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-position: center;
