@@ -8,12 +8,15 @@ class InputText extends HTMLElement{
     }
 
     static get observedAttributes(){
-        return ['placeholder']
+        return ['placeholder','length']
     }
     attributeChangedCallback(name: string, oldValue: string, newValue: string){
         switch (name) {
             case "placeholder":
                 this.placeholderAttributeChanged(newValue);
+                break;
+            case "length":
+                this.maxLengthAttributeChanged(newValue);
                 break;
         }
     }
@@ -22,8 +25,15 @@ class InputText extends HTMLElement{
      * > When the placeholder attribute changes, render a new title with the new value
      * @param newValue - The new value of the attribute.
      */
-    private placeholderAttributeChanged(newValue:String): void{
-        this.renderNewTitle(<string>newValue)
+    private placeholderAttributeChanged(newValue:string): void{
+        this.renderNewTitle(newValue)
+    }
+
+    private maxLengthAttributeChanged(newValue:string): void{
+        if(this.querySelector("input") === null) return;
+        let valueInt = parseInt(newValue);
+        if(isNaN(valueInt)) throw new Error("length Attribute needs to be a number");
+        this.querySelector("input").setAttribute("maxlength", valueInt.toString());
     }
 
     /**
@@ -36,6 +46,8 @@ class InputText extends HTMLElement{
 
                 //ReRender Placeholder
                 if(this.getAttribute("placeholder")) this.placeholderAttributeChanged(this.getAttribute("placeholder"))
+                if(this.getAttribute("length")) this.maxLengthAttributeChanged(this.getAttribute("length"))
+
             })
         });
 

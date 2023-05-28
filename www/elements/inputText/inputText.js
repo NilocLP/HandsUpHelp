@@ -6,12 +6,15 @@ class InputText extends HTMLElement {
         this.render();
     }
     static get observedAttributes() {
-        return ['placeholder'];
+        return ['placeholder', 'length'];
     }
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case "placeholder":
                 this.placeholderAttributeChanged(newValue);
+                break;
+            case "length":
+                this.maxLengthAttributeChanged(newValue);
                 break;
         }
     }
@@ -21,6 +24,14 @@ class InputText extends HTMLElement {
      */
     placeholderAttributeChanged(newValue) {
         this.renderNewTitle(newValue);
+    }
+    maxLengthAttributeChanged(newValue) {
+        if (this.querySelector("input") === null)
+            return;
+        let valueInt = parseInt(newValue);
+        if (isNaN(valueInt))
+            throw new Error("length Attribute needs to be a number");
+        this.querySelector("input").setAttribute("maxlength", valueInt.toString());
     }
     /**
      * It fetches the HTML file and then renders it.
@@ -32,6 +43,8 @@ class InputText extends HTMLElement {
                 //ReRender Placeholder
                 if (this.getAttribute("placeholder"))
                     this.placeholderAttributeChanged(this.getAttribute("placeholder"));
+                if (this.getAttribute("length"))
+                    this.maxLengthAttributeChanged(this.getAttribute("length"));
             });
         });
     }
