@@ -1,6 +1,6 @@
 @import "../../core/layout/theme";
 
-@mixin button($width, $height){
+@mixin button($width, $height,$color: $color-normal-lightYellow){
   display: inline-block;
   width: $width;
   height: $height;
@@ -8,7 +8,7 @@
     width: $width;
     height: $height;
 
-    background: $color-normal-lightYellow;
+    background: $color;
     border-radius: 5px;
     border-style: hidden;
 
