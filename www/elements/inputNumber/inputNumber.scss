@@ -1,18 +1,19 @@
 @import "../../core/layout/theme";
 
-@mixin inputText($width, $height: 100%) {
-  display: inline-block;
+@mixin inputNumber($width, $height: auto) {
+
   width: $width;
-  padding-right: 16px;
-  label{
-    display: inherit;
-    max-width: 100%;
-  }
+  padding-right: 0px;
+  box-sizing: border-box;
+  height: $height;
+  display: flex;
+  align-items: center;
   .hu-input{
-    display: inherit;
+    box-sizing: border-box;
+
     background: transparent;
     max-width: 100%;
-    height: $height;
+    height: auto;
     @include normalText();
     &::placeholder {
       @include normalText();
