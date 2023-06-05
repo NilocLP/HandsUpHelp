@@ -1,0 +1,87 @@
+@import "../../elements/navbar/navbar";
+@import "../../elements/button/button";
+@import "../../elements/toggleButton/toggleButton";
+@import "../../elements/inputNumber/inputNumber";
+@import "../../elements/dropdown/dropdown";
+
+@include resetDefaultPage();
+
+html{
+  background-color: $color-normal-grey;
+}
+hu-navbar{
+  @include navbar();
+}
+hu-togglebutton{
+  @include toggleButton(15vw);
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+}
+
+//Title Section
+#title{
+  margin-top: 5vh;
+  margin-bottom: 3.75vh;
+  h1{
+    margin: 0;
+    @include largeHeading()
+  }
+}
+
+//Settings Section
+#settings{
+  height: 70.63vh;
+  width: 82.2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  #settings-section{
+    .settings-setting {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2.2vh;
+
+      .settings-setting-infoText {
+        h2 {
+          @include bigText();
+          margin: 0;
+        }
+
+        span {
+          @include tooltip()
+        }
+      }
+
+      .settings-setting-element{
+        margin-left: 5px;
+      }
+    }
+  }
+
+  #settings-setting-infoText-button{
+    @include button(5vh, 5vh);
+  }
+
+  #settings-setting-length-input{
+    @include inputNumber(10vw);
+  }
+
+  #settings-setting-language-dropdown{
+    @include dropdown(37.5vw, 32px);
+
+  }
+
+  #settings-resetButton{
+    @include button(82.2vw,6.1vh, $color-special-warning);
+
+  }
+}
+

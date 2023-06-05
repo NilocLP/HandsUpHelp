@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="settings.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+
+    <script src="../../elements/navbar/navbar.js" type="module"></script>
+    <script src="../../elements/button/button.js" type="module"></script>
+    <script src="../../elements/toggleButton/toggleButton.js" type="module"></script>
+    <script src="../../elements/inputNumber/inputNumber.js" type="module"></script>
+    <script src="../../elements/dropdown/dropdown.js" type="module"></script>
+
+</head>
+<body>
+<main>
+    <section id="title">
+        <h1>Settings</h1>
+    </section>
+    <section id="settings">
+        <section id="settings-section">
+            <div id="settings-setting-notify" class="settings-setting">
+                <div class="settings-setting-infoText">
+                    <h2>Notification Counting</h2>
+                    <span>Shows Notifications, when a Lesson is running, with actions to count</span>
+                </div>
+                <hu-togglebutton class="settings-setting-element" checked="true"></hu-togglebutton>
+            </div>
+            <div id="settings-setting-countZero" class="settings-setting">
+                <div class="settings-setting-infoText">
+                    <h2>Count 0 Lessons</h2>
+                    <span>Count Lessons into the Stats, where you never raised you Hands</span>
+                </div>
+                <hu-togglebutton class="settings-setting-element" checked="false"></hu-togglebutton>
+            </div>
+            <div id="settings-setting-subjects" class="settings-setting">
+                <div class="settings-setting-infoText">
+                    <h2>Configure Subjects</h2>
+                </div>
+                <hu-button id="settings-setting-infoText-button">
+                    <img src="assets/arrow.svg" alt="Arrow">
+                </hu-button>
+            </div>
+            <div id="settings-setting-length" class="settings-setting">
+                <div class="settings-setting-infoText">
+                    <h2>Lesson Length</h2>
+                    <span>The default length of a lesson in<br> Minutes</span>
+                </div>
+                <hu-inputnumber placeholder="45" maxValue="99" class="settings-setting-element" id="settings-setting-length-input"></hu-inputnumber>
+            </div>
+            <div id="settings-setting-language" class="settings-setting">
+                <div class="settings-setting-infoText">
+                    <h2>Language</h2>
+                </div>
+                <hu-dropdown placeholder="English" id="settings-setting-language-dropdown"></hu-dropdown>
+            </div>
+        </section>
+        <hu-button id="settings-resetButton">Reset Data</hu-button>
+    </section>
+</main>
+<hu-navbar activepage="0"></hu-navbar>
+
+</body>
+</html>

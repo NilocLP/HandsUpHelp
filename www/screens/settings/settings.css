@@ -1,0 +1,465 @@
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  background-color: #1C1C1C;
+}
+
+hu-navbar {
+  position: absolute;
+  width: 107.5%;
+  height: 17.188%;
+  left: -3.889%;
+  top: 88.75%;
+  background: #111111;
+  border-radius: 203px;
+}
+hu-navbar .navbar_icons {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  top: 18.18%;
+}
+hu-navbar .navbar_icons div {
+  margin: 0 9.167%;
+}
+hu-navbar .navbar_icons div.current {
+  background-color: #FEE402 !important;
+}
+hu-navbar .navbar_icons #navbar_stats {
+  height: 5vh;
+  width: 8.889vw;
+  background-color: #FFFED5;
+  mask-image: url("../../elements/navbar/assets/bar-chart.svg");
+  -webkit-mask-image: url("../../elements/navbar/assets/bar-chart.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+hu-navbar .navbar_icons #navbar_calender {
+  height: 5vh;
+  width: 8.889vw;
+  background-color: #FFFED5;
+  mask-image: url("../../elements/navbar/assets/calendar.svg");
+  -webkit-mask-image: url("../../elements/navbar/assets/calendar.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+hu-navbar .navbar_icons #navbar_settings {
+  height: 5vh;
+  width: 8.889vw;
+  background-color: #FFFED5;
+  mask-image: url("../../elements/navbar/assets/cog.svg");
+  -webkit-mask-image: url("../../elements/navbar/assets/cog.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+hu-togglebutton {
+  display: inline;
+  max-height: 11.999995vw;
+}
+hu-togglebutton .circle {
+  width: 5.9760956175vw;
+  height: 6vw;
+  border-radius: 300px;
+  position: relative;
+  top: 0.9375vw;
+}
+hu-togglebutton .togglebutton {
+  margin: 0;
+  width: 15vw;
+  height: 7.999995vw;
+  display: inline-block;
+  border: 2px solid #111111;
+  border-radius: 300px;
+}
+hu-togglebutton .togglebutton.toggled {
+  background: #FFFED5;
+}
+hu-togglebutton .togglebutton.toggled .circle {
+  background: #1C1C1C;
+  left: 8vw;
+  transition: left 0.2s ease-out;
+}
+hu-togglebutton .togglebutton {
+  background: #1C1C1C;
+}
+hu-togglebutton .togglebutton .circle {
+  background: #FFFED5;
+  left: 1vw;
+  transition: left 0.2s ease-out;
+}
+hu-togglebutton label {
+  display: none;
+}
+hu-togglebutton input {
+  visibility: hidden;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#title {
+  margin-top: 5vh;
+  margin-bottom: 3.75vh;
+}
+#title h1 {
+  margin: 0;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 40px;
+  text-align: center;
+  color: #FFFED5;
+}
+
+#settings {
+  height: 70.63vh;
+  width: 82.2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#settings #settings-section .settings-setting {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.2vh;
+}
+#settings #settings-section .settings-setting .settings-setting-infoText h2 {
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 33px;
+  color: #FFFED5;
+  margin: 0;
+}
+#settings #settings-section .settings-setting .settings-setting-infoText span {
+  font-family: IBMPlexSansThai, serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 14px;
+  color: #FFFED5;
+}
+#settings #settings-section .settings-setting .settings-setting-element {
+  margin-left: 5px;
+}
+#settings #settings-setting-infoText-button {
+  display: inline-block;
+  width: 5vh;
+  height: 5vh;
+}
+#settings #settings-setting-infoText-button button {
+  width: 5vh;
+  height: 5vh;
+  background: #FFFED5;
+  border-radius: 5px;
+  border-style: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+  color: #111111;
+}
+#settings #settings-setting-length-input {
+  width: 10vw;
+  padding-right: 0px;
+  box-sizing: border-box;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+#settings #settings-setting-length-input .hu-input {
+  box-sizing: border-box;
+  background: transparent;
+  max-width: 100%;
+  height: auto;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+  border: 0;
+  border-bottom: 1px solid #FFFED5;
+  padding: 0 8px 7px 8px;
+}
+#settings #settings-setting-length-input .hu-input::placeholder {
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+}
+#settings #settings-setting-language-dropdown {
+  display: inline-block;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-title {
+  background: #1C1C1C;
+  border: 1px solid #FFFED5;
+  border-radius: 5px;
+  width: 37.5vw;
+  height: 32px;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  justify-content: space-between;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-title .hu-dropdown-title-inner {
+  margin-left: 1.5957446809vw;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 70%;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-title .hu-dropdown-title-inner span.hu-dropdown-title-color {
+  height: 16px;
+  min-width: 16px;
+  border: 1px solid #FFFED5;
+  border-radius: 5px;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-title .hu-dropdown-title-inner span.hu-dropdown-title-text {
+  display: inline-block;
+  margin-left: 1.125vw;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-title .hu-dropdown-title-downarrow {
+  min-width: 16px;
+  height: 16px;
+  height: 16px;
+  width: 16px;
+  background-color: #FFFED5;
+  mask-image: url("/www/elements/dropdown/assets/chevron-down.svg");
+  -webkit-mask-image: url("/www/elements/dropdown/assets/chevron-down.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  margin-right: 1.5957446809vw;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-options-container {
+  position: absolute;
+  width: 37.5vw;
+  max-width: 37.5vw;
+  max-height: 99px;
+  background: #1C1C1C;
+  border: 1px solid #111111;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top: 0px;
+  margin-top: -3px;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-options-container .hu-dropdown-options {
+  width: 96%;
+  max-height: 99px;
+  overflow-y: scroll;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-options-container .hu-dropdown-options::-webkit-scrollbar {
+  width: 3px;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-options-container .hu-dropdown-options::-webkit-scrollbar-thumb {
+  background: #FFFED5;
+  width: 3px;
+  border-radius: 5px;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-options-container .hu-dropdown-options::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+  margin-top: 13px;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-options-container .hu-dropdown-options::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+  margin-bottom: 10px;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option] {
+  margin: 1.5% 0;
+  padding-left: 1.5957446809vw;
+  height: 25.6px;
+  display: flex;
+  align-items: center;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option]:first-child {
+  margin-top: 3%;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option]:last-child {
+  margin-bottom: 3%;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option] div {
+  height: 16px;
+  width: 16px;
+  border: 1px solid #FFFED5;
+  border-radius: 5px;
+}
+#settings #settings-setting-language-dropdown .hu-dropdown-options-container .hu-dropdown-options div[hu-option] span {
+  margin-left: 3%;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+}
+#settings #settings-resetButton {
+  display: inline-block;
+  width: 82.2vw;
+  height: 6.1vh;
+}
+#settings #settings-resetButton button {
+  width: 82.2vw;
+  height: 6.1vh;
+  background: #FF8585;
+  border-radius: 5px;
+  border-style: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+  color: #111111;
+}
+
+/*# sourceMappingURL=settings.css.map */
