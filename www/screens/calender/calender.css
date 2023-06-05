@@ -601,12 +601,15 @@
   width: 100%;
   height: 6.09vh;
 }
-.hu-calender-input-content hu-button input {
+.hu-calender-input-content hu-button button {
   width: 100%;
   height: 6.09vh;
   background: #FFFED5;
   border-radius: 5px;
   border-style: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: IBMPlexSansThaiLooped, serif;
   font-style: normal;
   font-weight: normal;
@@ -702,12 +705,15 @@ hu-navbar .navbar_icons #navbar_settings {
   width: 40vw;
   height: 6.1vh;
 }
-.smallButton input {
+.smallButton button {
   width: 40vw;
   height: 6.1vh;
   background: #FFFED5;
   border-radius: 5px;
   border-style: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: IBMPlexSansThaiLooped, serif;
   font-style: normal;
   font-weight: normal;

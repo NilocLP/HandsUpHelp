@@ -7,31 +7,26 @@ class Button extends HTMLElement{
     }
 
     static get observedAttributes(){
-        return ['text']
+        return []
     }
 
     attributeChangedCallback(name: string, oldValue: string, newValue: string){
         switch (name) {
-            case "text":
-                this.textAttributeChanged(newValue);
-                break;
-        }
-    }
 
-    private textAttributeChanged(newValue: string): void {
-        if (!(this.getElementsByTagName("input").length > 0)) return;
-        this.getElementsByTagName("input")[0].setAttribute("value", newValue);
+        }
     }
 
     private render(): void{
         fetch("../../elements/button/button.html").then((response: Response) => {
             response.text().then((text: string) => {
+                const content = this.innerHTML;
                 this.innerHTML = text;
+                this.querySelector("button").innerHTML = content;
+                //const shadow = this.attachShadow({mode: "open"});
+                //const content = document.createElement('span');
+                //content.textContent = this.textContent; // Zugriff auf den Inhalt zwischen den Tags
+                //shadow.appendChild(content);
 
-                try{
-                    const TEXT: string = this.getAttribute("text");
-                    this.getElementsByTagName("input")[0].setAttribute("value",TEXT);
-                }catch (e){}
             })
         });
     }

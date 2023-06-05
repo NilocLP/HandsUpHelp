@@ -6,29 +6,22 @@ class Button extends HTMLElement {
         this.render();
     }
     static get observedAttributes() {
-        return ['text'];
+        return [];
     }
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
-            case "text":
-                this.textAttributeChanged(newValue);
-                break;
         }
-    }
-    textAttributeChanged(newValue) {
-        if (!(this.getElementsByTagName("input").length > 0))
-            return;
-        this.getElementsByTagName("input")[0].setAttribute("value", newValue);
     }
     render() {
         fetch("../../elements/button/button.html").then((response) => {
             response.text().then((text) => {
+                const content = this.innerHTML;
                 this.innerHTML = text;
-                try {
-                    const TEXT = this.getAttribute("text");
-                    this.getElementsByTagName("input")[0].setAttribute("value", TEXT);
-                }
-                catch (e) { }
+                this.querySelector("button").innerHTML = content;
+                //const shadow = this.attachShadow({mode: "open"});
+                //const content = document.createElement('span');
+                //content.textContent = this.textContent; // Zugriff auf den Inhalt zwischen den Tags
+                //shadow.appendChild(content);
             });
         });
     }

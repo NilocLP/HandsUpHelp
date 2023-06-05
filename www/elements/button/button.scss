@@ -4,13 +4,17 @@
   display: inline-block;
   width: $width;
   height: $height;
-  input {
+  button {
     width: $width;
     height: $height;
 
     background: $color;
     border-radius: 5px;
     border-style: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @include buttonText();
   }
