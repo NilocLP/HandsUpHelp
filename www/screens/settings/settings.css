@@ -1,90 +1,108 @@
 @font-face {
   font-family: "IBMPlexSansThai";
-  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  src: url("/core/font/IBMPlexSansThai-Light.ttf") format("truetype");
   font-style: normal;
   font-weight: 300;
 }
 @font-face {
   font-family: "IBMPlexSansThaiLooped";
-  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  src: url("/core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
 }
 @font-face {
   font-family: "IBMPlexSansThaiLooped";
-  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  src: url("/core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
   font-style: normal;
   font-weight: 500;
 }
 @font-face {
   font-family: "IBMPlexSansThai";
-  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  src: url("/core/font/IBMPlexSansThai-Light.ttf") format("truetype");
   font-style: normal;
   font-weight: 300;
 }
 @font-face {
   font-family: "IBMPlexSansThaiLooped";
-  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  src: url("/core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
 }
 @font-face {
   font-family: "IBMPlexSansThaiLooped";
-  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  src: url("/core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
   font-style: normal;
   font-weight: 500;
 }
 @font-face {
   font-family: "IBMPlexSansThai";
-  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  src: url("/core/font/IBMPlexSansThai-Light.ttf") format("truetype");
   font-style: normal;
   font-weight: 300;
 }
 @font-face {
   font-family: "IBMPlexSansThaiLooped";
-  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  src: url("/core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
 }
 @font-face {
   font-family: "IBMPlexSansThaiLooped";
-  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  src: url("/core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
   font-style: normal;
   font-weight: 500;
 }
 @font-face {
   font-family: "IBMPlexSansThai";
-  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  src: url("/core/font/IBMPlexSansThai-Light.ttf") format("truetype");
   font-style: normal;
   font-weight: 300;
 }
 @font-face {
   font-family: "IBMPlexSansThaiLooped";
-  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  src: url("/core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
 }
 @font-face {
   font-family: "IBMPlexSansThaiLooped";
-  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  src: url("/core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
   font-style: normal;
   font-weight: 500;
 }
 @font-face {
   font-family: "IBMPlexSansThai";
-  src: url("../../core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  src: url("/core/font/IBMPlexSansThai-Light.ttf") format("truetype");
   font-style: normal;
   font-weight: 300;
 }
 @font-face {
   font-family: "IBMPlexSansThaiLooped";
-  src: url("../../core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  src: url("/core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
 }
 @font-face {
   font-family: "IBMPlexSansThaiLooped";
-  src: url("../../core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  src: url("/core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("/core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
   font-style: normal;
   font-weight: 500;
 }
@@ -134,8 +152,8 @@ hu-navbar .navbar_icons #navbar_stats {
   height: 5vh;
   width: 8.889vw;
   background-color: #FFFED5;
-  mask-image: url("../../elements/navbar/assets/bar-chart.svg");
-  -webkit-mask-image: url("../../elements/navbar/assets/bar-chart.svg");
+  mask-image: url("/elements/navbar/assets/bar-chart.svg");
+  -webkit-mask-image: url("/elements/navbar/assets/bar-chart.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-position: center;
@@ -147,8 +165,8 @@ hu-navbar .navbar_icons #navbar_calender {
   height: 5vh;
   width: 8.889vw;
   background-color: #FFFED5;
-  mask-image: url("../../elements/navbar/assets/calendar.svg");
-  -webkit-mask-image: url("../../elements/navbar/assets/calendar.svg");
+  mask-image: url("/elements/navbar/assets/calendar.svg");
+  -webkit-mask-image: url("/elements/navbar/assets/calendar.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-position: center;
@@ -160,8 +178,8 @@ hu-navbar .navbar_icons #navbar_settings {
   height: 5vh;
   width: 8.889vw;
   background-color: #FFFED5;
-  mask-image: url("../../elements/navbar/assets/cog.svg");
-  -webkit-mask-image: url("../../elements/navbar/assets/cog.svg");
+  mask-image: url("/elements/navbar/assets/cog.svg");
+  -webkit-mask-image: url("/elements/navbar/assets/cog.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-position: center;
@@ -300,6 +318,7 @@ main {
   box-sizing: border-box;
   background: transparent;
   max-width: 100%;
+  width: 100%;
   height: auto;
   font-family: IBMPlexSansThaiLooped, serif;
   font-style: normal;
