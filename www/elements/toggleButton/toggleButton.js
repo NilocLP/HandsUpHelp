@@ -37,7 +37,7 @@ class ToggleButton extends HTMLElement {
         }
     }
     render() {
-        fetch("../../elements/toggleButton/toggleButton.html").then((response) => {
+        fetch("/elements/toggleButton/toggleButton.html").then((response) => {
             response.text().then((text) => {
                 this.innerHTML = text;
                 const CHECKED = this.getAttribute("checked");

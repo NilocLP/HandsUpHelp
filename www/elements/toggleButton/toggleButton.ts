@@ -43,7 +43,7 @@ class ToggleButton extends HTMLElement {
     }
 
     private render(): void {
-        fetch("../../elements/toggleButton/toggleButton.html").then((response) => {
+        fetch("/elements/toggleButton/toggleButton.html").then((response) => {
             response.text().then((text) => {
                 this.innerHTML = text;
 
