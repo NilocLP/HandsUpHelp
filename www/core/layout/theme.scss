@@ -7,24 +7,32 @@ $color-normal-grey: #1C1C1C;
 
 $color-special-warning: #FF8585;
 
+$color-subject-red: #FF8585;
+$color-subject-orange: #FFC485;
+$color-subject-yellow: #FFE985;
+$color-subject-green: #85FF91;
+$color-subject-cyan: #85FBFF;
+$color-subject-blue: #8595FF;
+$color-subject-pink: #EF85FF;
+
 $background-overlaying: rgba(17, 17, 17, 0.9);
 
 //Fonts
 @font-face {
   font-family: 'IBMPlexSansThai';
-  src: url('../../core/font/IBMPlexSansThai-Light.ttf') format('truetype');
+  src: url('/core/font/IBMPlexSansThai-Light.ttf') format('truetype');
   font-style: normal;
   font-weight: 300;
 }
 @font-face {
   font-family: 'IBMPlexSansThaiLooped';
-  src: url('../../core/font/IBMPlexSansThaiLooped-Regular.ttf') format('truetype');
+  src: url('/core/font/IBMPlexSansThaiLooped-Regular.ttf') format('truetype');
   font-style: normal;
   font-weight: normal;
 }
 @font-face {
   font-family: 'IBMPlexSansThaiLooped';
-  src: url('../../core/font/IBMPlexSansThaiLooped-Medium.ttf') format('truetype');
+  src: url('/core/font/IBMPlexSansThaiLooped-Medium.ttf') format('truetype');
   font-style: normal;
   font-weight: 500;
 }
