@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="configureSubjects.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configure Subjects</title>
+
+    <script src="../../../../elements/navbar/navbar.js" type="module"></script>
+    <script src="../../../../elements/button/button.js" type="module"></script>
+
+</head>
+<body>
+<main>
+    <section id="title">
+        <h1>Configure Subjects</h1>
+    </section>
+    <section id="subjectList">
+        <!--TODO: Implement rendering automatically -->
+        <div class="subjectList-subject-element">
+            <div class="subjectList-subject-data">
+                <div class="subjectList-subject-color subjectList-color-red"></div>
+                <span class="subjectList-subject-text">German</span>
+            </div>
+            <hu-button class="subjectList-subject-settings">
+                <img src="/core/assets/svg/settings.svg" alt="Gear">
+            </hu-button>
+        </div>
+
+    </section>
+    <hu-button id="subjectList-addButton">Add Subject</hu-button>
+
+</main>
+<hu-navbar activepage="2"></hu-navbar>
+
+</body>
+</html>

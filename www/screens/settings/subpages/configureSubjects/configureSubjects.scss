@@ -1,0 +1,96 @@
+@import "../../../../core/layout/theme.scss";
+@import "../../../../elements/navbar/navbar";
+@import "../../../../elements/button/button";
+
+@include resetDefaultPage();
+
+html{
+  background-color: $color-normal-grey;
+}
+hu-navbar{
+  
+  @include navbar();
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+//Title Section
+#title{
+  margin-top: 5vh;
+  margin-bottom: 3.75vh;
+  h1{
+    margin: 0;
+    @include largeHeading()
+  }
+}
+
+//Subject List Section
+#subjectList{
+  width: 81.94vw;
+  margin-bottom: 3.8vh;
+
+  .subjectList-subject-element{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.2vh;
+    &:last-of-type{
+      margin-bottom: 0;
+    }
+    .subjectList-subject-data {
+      display: flex;
+      align-items: center;
+
+      .subjectList-subject-color {
+        position: relative;
+        top: -1px;
+        width: 5.6vw;
+        height: 5.6vw;
+        aspect-ratio: 1 / 1;
+        margin-right: 2.2vw;
+        border: 1px solid $color-normal-lightYellow;
+        border-radius: 5px;
+      }
+
+      .subjectList-subject-text{
+        @include bigText();
+      }
+    }
+
+    .subjectList-subject-settings{
+      @include button(5vh, 5vh);
+    }
+  }
+}
+
+#subjectList-addButton{
+  @include button(82.2vw,6.1vh);
+}
+
+//Subject Element Colors
+.subjectList-color-red{
+  background-color: $color-subject-red;
+}
+.subjectList-color-orange{
+  background-color: $color-subject-orange;
+}
+.subjectList-color-yellow{
+  background-color: $color-subject-yellow;
+}
+.subjectList-color-green{
+  background-color: $color-subject-green;
+}
+.subjectList-color-cyan{
+  background-color: $color-subject-cyan;
+}
+.subjectList-color-blue{
+  background-color: $color-subject-blue;
+}
+.subjectList-color-pink{
+  background-color: $color-subject-pink;
+}
