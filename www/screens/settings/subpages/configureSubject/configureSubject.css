@@ -1,0 +1,340 @@
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("/core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("/core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("/core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("/core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("/core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  background-color: #1C1C1C;
+}
+
+hu-navbar {
+  position: absolute;
+  width: 107.5%;
+  height: 17.188%;
+  left: -3.889%;
+  top: 88.75%;
+  background: #111111;
+  border-radius: 203px;
+}
+hu-navbar .navbar_icons {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  top: 18.18%;
+}
+hu-navbar .navbar_icons div {
+  margin: 0 9.167%;
+}
+hu-navbar .navbar_icons div.current {
+  background-color: #FEE402 !important;
+}
+hu-navbar .navbar_icons #navbar_stats {
+  height: 5vh;
+  width: 8.889vw;
+  background-color: #FFFED5;
+  mask-image: url("/elements/navbar/assets/bar-chart.svg");
+  -webkit-mask-image: url("/elements/navbar/assets/bar-chart.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+hu-navbar .navbar_icons #navbar_calender {
+  height: 5vh;
+  width: 8.889vw;
+  background-color: #FFFED5;
+  mask-image: url("/elements/navbar/assets/calendar.svg");
+  -webkit-mask-image: url("/elements/navbar/assets/calendar.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+hu-navbar .navbar_icons #navbar_settings {
+  height: 5vh;
+  width: 8.889vw;
+  background-color: #FFFED5;
+  mask-image: url("/elements/navbar/assets/cog.svg");
+  -webkit-mask-image: url("/elements/navbar/assets/cog.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#title {
+  margin-top: 5vh;
+  margin-bottom: 3.75vh;
+}
+#title h1 {
+  margin: 0;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 40px;
+  text-align: center;
+  color: #FFFED5;
+}
+
+#subjectSettings .subject-settingType {
+  width: 82.2vw;
+  margin-bottom: 3.8vh;
+}
+#subjectSettings .subject-settingType:last-of-type {
+  margin-bottom: 1.56vh;
+}
+#subjectSettings .subject-settingType span {
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 33px;
+  color: #FFFED5;
+  display: inline-block;
+  margin-bottom: 2.2vh;
+}
+#subjectSettings .subject-settingType hu-inputtext {
+  display: inline-block;
+  width: 82.2vw;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+#subjectSettings .subject-settingType hu-inputtext .hu-input {
+  display: inherit;
+  background: transparent;
+  max-width: 100%;
+  min-width: 100%;
+  height: 5.2vh;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+  border: 0;
+  border-bottom: 1px solid #FFFED5;
+  padding: 0 8px 7px 8px;
+}
+#subjectSettings .subject-settingType hu-inputtext .hu-input::placeholder {
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+}
+#subjectSettings .subject-settingType hu-inputnumber {
+  width: 82.2vw;
+  padding-right: 0px;
+  box-sizing: border-box;
+  height: 5.2vh;
+  display: flex;
+  align-items: center;
+}
+#subjectSettings .subject-settingType hu-inputnumber .hu-input {
+  box-sizing: border-box;
+  background: transparent;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+  border: 0;
+  border-bottom: 1px solid #FFFED5;
+  padding: 0 8px 7px 8px;
+}
+#subjectSettings .subject-settingType hu-inputnumber .hu-input::placeholder {
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #FFFED5;
+}
+#subjectSettings .subject-settingType #subject-colors .subject-color-active {
+  position: relative;
+  top: 0.31vh;
+  border: 3px solid #FEE402 !important;
+}
+#subjectSettings .subject-settingType #subject-colors .subject-color {
+  display: inline-block;
+  width: 5vh;
+  height: 5vh;
+  border: 1px solid #FFFED5;
+  border-radius: 5px;
+  margin-right: 2.2vh;
+  margin-bottom: 2.2vh;
+}
+
+#subject-save {
+  display: inline-block;
+  width: 82.2vw;
+  height: 6.1vh;
+}
+#subject-save button {
+  width: 82.2vw;
+  height: 6.1vh;
+  background: #FFFED5;
+  border-radius: 5px;
+  border-style: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+  color: #111111;
+}
+
+.subject-color-red {
+  background-color: #FF8585;
+}
+
+.subject-color-orange {
+  background-color: #FFC485;
+}
+
+.subject-color-yellow {
+  background-color: #FFE985;
+}
+
+.subject-color-green {
+  background-color: #85FF91;
+}
+
+.subject-color-cyan {
+  background-color: #85FBFF;
+}
+
+.subject-color-blue {
+  background-color: #8595FF;
+}
+
+.subject-color-pink {
+  background-color: #EF85FF;
+}
+
+/*# sourceMappingURL=configureSubject.css.map */

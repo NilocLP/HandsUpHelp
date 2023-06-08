@@ -1,0 +1,266 @@
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("/core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("/core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("/core/font/IBMPlexSansThai-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IBMPlexSansThaiLooped";
+  src: url("/core/font/IBMPlexSansThaiLooped-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  background-color: #1C1C1C;
+}
+
+hu-navbar {
+  position: absolute;
+  width: 107.5%;
+  height: 17.188%;
+  left: -3.889%;
+  top: 88.75%;
+  background: #111111;
+  border-radius: 203px;
+}
+hu-navbar .navbar_icons {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  top: 18.18%;
+}
+hu-navbar .navbar_icons div {
+  margin: 0 9.167%;
+}
+hu-navbar .navbar_icons div.current {
+  background-color: #FEE402 !important;
+}
+hu-navbar .navbar_icons #navbar_stats {
+  height: 5vh;
+  width: 8.889vw;
+  background-color: #FFFED5;
+  mask-image: url("/elements/navbar/assets/bar-chart.svg");
+  -webkit-mask-image: url("/elements/navbar/assets/bar-chart.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+hu-navbar .navbar_icons #navbar_calender {
+  height: 5vh;
+  width: 8.889vw;
+  background-color: #FFFED5;
+  mask-image: url("/elements/navbar/assets/calendar.svg");
+  -webkit-mask-image: url("/elements/navbar/assets/calendar.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+hu-navbar .navbar_icons #navbar_settings {
+  height: 5vh;
+  width: 8.889vw;
+  background-color: #FFFED5;
+  mask-image: url("/elements/navbar/assets/cog.svg");
+  -webkit-mask-image: url("/elements/navbar/assets/cog.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#title {
+  margin-top: 5vh;
+  margin-bottom: 3.75vh;
+}
+#title h1 {
+  margin: 0;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 40px;
+  text-align: center;
+  color: #FFFED5;
+}
+
+#subjectList {
+  width: 81.94vw;
+  margin-bottom: 3.8vh;
+}
+#subjectList .subjectList-subject-element {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.2vh;
+}
+#subjectList .subjectList-subject-element:last-of-type {
+  margin-bottom: 0;
+}
+#subjectList .subjectList-subject-element .subjectList-subject-data {
+  display: flex;
+  align-items: center;
+}
+#subjectList .subjectList-subject-element .subjectList-subject-data .subjectList-subject-color {
+  position: relative;
+  top: -1px;
+  width: 5.6vw;
+  height: 5.6vw;
+  aspect-ratio: 1/1;
+  margin-right: 2.2vw;
+  border: 1px solid #FFFED5;
+  border-radius: 5px;
+}
+#subjectList .subjectList-subject-element .subjectList-subject-data .subjectList-subject-text {
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 33px;
+  color: #FFFED5;
+}
+#subjectList .subjectList-subject-element .subjectList-subject-settings {
+  display: inline-block;
+  width: 5vh;
+  height: 5vh;
+}
+#subjectList .subjectList-subject-element .subjectList-subject-settings button {
+  width: 5vh;
+  height: 5vh;
+  background: #FFFED5;
+  border-radius: 5px;
+  border-style: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+  color: #111111;
+}
+
+#subjectList-addButton {
+  display: inline-block;
+  width: 82.2vw;
+  height: 6.1vh;
+}
+#subjectList-addButton button {
+  width: 82.2vw;
+  height: 6.1vh;
+  background: #FFFED5;
+  border-radius: 5px;
+  border-style: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: IBMPlexSansThaiLooped, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+  color: #111111;
+}
+
+.subjectList-color-red {
+  background-color: #FF8585;
+}
+
+.subjectList-color-orange {
+  background-color: #FFC485;
+}
+
+.subjectList-color-yellow {
+  background-color: #FFE985;
+}
+
+.subjectList-color-green {
+  background-color: #85FF91;
+}
+
+.subjectList-color-cyan {
+  background-color: #85FBFF;
+}
+
+.subjectList-color-blue {
+  background-color: #8595FF;
+}
+
+.subjectList-color-pink {
+  background-color: #EF85FF;
+}
+
+/*# sourceMappingURL=configureSubjects.css.map */
