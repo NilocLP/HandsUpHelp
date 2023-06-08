@@ -42,7 +42,7 @@ class PieChart extends HTMLElement{
     }
 
     private render(): void{
-        fetch("../../elements/pieChart/pieChart.html").then((response: Response) => {
+        fetch("/elements/pieChart/pieChart.html").then((response: Response) => {
             response.text().then((text: string) => {
                 this.innerHTML = text;
 

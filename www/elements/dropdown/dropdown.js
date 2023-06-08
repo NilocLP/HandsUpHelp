@@ -127,7 +127,7 @@ class Dropdown extends HTMLElement {
      * It fetches the HTML file and then renders it.
      */
     render() {
-        fetch("../../elements/dropdown/dropdown.html").then((response) => {
+        fetch("/elements/dropdown/dropdown.html").then((response) => {
             response.text().then((text) => {
                 this.innerHTML = text;
                 //ReRender Placeholder

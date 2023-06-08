@@ -27,7 +27,7 @@ class Navbar extends HTMLElement {
     }
 
     private render(): void {
-        fetch("../../elements/navbar/navbar.html").then((response) => {
+        fetch("/elements/navbar/navbar.html").then((response) => {
             response.text().then((text) => {
                 this.innerHTML = text;
 

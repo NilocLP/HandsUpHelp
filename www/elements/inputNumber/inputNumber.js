@@ -38,7 +38,7 @@ class InputNumber extends HTMLElement {
      * It fetches the HTML file and then renders it.
      */
     render() {
-        fetch("../../elements/inputNumber/inputNumber.html").then((response) => {
+        fetch("/elements/inputNumber/inputNumber.html").then((response) => {
             response.text().then((text) => {
                 this.innerHTML = text;
                 this.querySelector("input").addEventListener("input", this.handleMaxInput.bind(this));

@@ -35,7 +35,7 @@ class PieChart extends HTMLElement {
         this.renderChartRelation();
     }
     render() {
-        fetch("../../elements/pieChart/pieChart.html").then((response) => {
+        fetch("/elements/pieChart/pieChart.html").then((response) => {
             response.text().then((text) => {
                 this.innerHTML = text;
                 this.renderChartRelation();

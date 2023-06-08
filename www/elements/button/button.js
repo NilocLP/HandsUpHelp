@@ -13,7 +13,7 @@ class Button extends HTMLElement {
         }
     }
     render() {
-        fetch("../../elements/button/button.html").then((response) => {
+        fetch("/elements/button/button.html").then((response) => {
             response.text().then((text) => {
                 const content = this.innerHTML;
                 this.innerHTML = text;

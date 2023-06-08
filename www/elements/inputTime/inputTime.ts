@@ -11,7 +11,7 @@ class InputTime extends HTMLElement{
      * It fetches the HTML file and then renders it.
      */
     private render(): void{
-        fetch("../../elements/inputTime/inputTime.html").then((response) => {
+        fetch("/elements/inputTime/inputTime.html").then((response) => {
             response.text().then((text) => {
                 this.innerHTML = text;
             })

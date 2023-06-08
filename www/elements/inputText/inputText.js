@@ -37,7 +37,7 @@ class InputText extends HTMLElement {
      * It fetches the HTML file and then renders it.
      */
     render() {
-        fetch("../../elements/inputText/inputText.html").then((response) => {
+        fetch("/elements/inputText/inputText.html").then((response) => {
             response.text().then((text) => {
                 this.innerHTML = text;
                 //ReRender Placeholder

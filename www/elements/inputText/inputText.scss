@@ -4,14 +4,13 @@
   display: inline-block;
   width: $width;
   padding-right: 16px;
-  label{
-    display: inherit;
-    max-width: 100%;
-  }
+  box-sizing: border-box;
+
   .hu-input{
     display: inherit;
     background: transparent;
     max-width: 100%;
+    min-width: 100%;
     height: $height;
     @include normalText();
     &::placeholder {

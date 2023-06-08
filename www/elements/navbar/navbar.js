@@ -22,7 +22,7 @@ class Navbar extends HTMLElement {
         this.getElementsByClassName("navbar_icons")[0].getElementsByTagName("div")[newValue].classList.add("current");
     }
     render() {
-        fetch("../../elements/navbar/navbar.html").then((response) => {
+        fetch("/elements/navbar/navbar.html").then((response) => {
             response.text().then((text) => {
                 this.innerHTML = text;
                 try {

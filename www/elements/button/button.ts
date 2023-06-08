@@ -17,7 +17,7 @@ class Button extends HTMLElement{
     }
 
     private render(): void{
-        fetch("../../elements/button/button.html").then((response: Response) => {
+        fetch("/elements/button/button.html").then((response: Response) => {
             response.text().then((text: string) => {
                 const content = this.innerHTML;
                 this.innerHTML = text;

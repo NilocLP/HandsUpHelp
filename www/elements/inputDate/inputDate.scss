@@ -25,7 +25,7 @@
 
     &:after {
       content: "";
-      @include svg-icon("../../elements/inputDate/calendar.svg", 25px, 25px, $color-normal-lightYellow);
+      @include svg-icon("/elements/inputDate/calendar.svg", 25px, 25px, $color-normal-lightYellow);
       z-index: -1;
     }
 

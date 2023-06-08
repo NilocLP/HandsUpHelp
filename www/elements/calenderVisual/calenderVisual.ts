@@ -11,7 +11,7 @@ class CalenderVisual extends HTMLElement{
      * It fetches the HTML file, then it renders the HTML file, then it renders the lessons
      */
     private renderCalender(): void{
-        fetch("../../elements/calenderVisual/calenderVisual.html").then((response) => {
+        fetch("/elements/calenderVisual/calenderVisual.html").then((response) => {
             response.text().then((text) => {
                 this.innerHTML = text;
 
@@ -32,7 +32,7 @@ class CalenderVisual extends HTMLElement{
     }
     //TODO Uncomment Type, when Lesson class exists
     private renderInput(lesson/*: Lesson*/): void{
-        fetch("../../elements/calenderVisual/calenderVisualInput.html").then((response) => {
+        fetch("/elements/calenderVisual/calenderVisualInput.html").then((response) => {
             response.text().then((text: string) => {
                 const visualInput = document.createElement("section");
                 visualInput.setAttribute("id", "hu-calender-input");

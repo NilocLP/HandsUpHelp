@@ -11,7 +11,7 @@ class InputDate extends HTMLElement{
      * It fetches the HTML file and then renders it.
      */
     private render(): void{
-        fetch("../../elements/inputDate/inputDate.html").then((response) => {
+        fetch("/elements/inputDate/inputDate.html").then((response) => {
             response.text().then((text) => {
                 this.innerHTML = text;
             })
