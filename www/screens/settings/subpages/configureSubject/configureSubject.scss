@@ -1,0 +1,103 @@
+@import "../../../../core/layout/theme.scss";
+@import "../../../../elements/navbar/navbar";
+@import "../../../../elements/inputText/inputText";
+@import "../../../../elements/inputNumber/inputNumber";
+@import "../../../../elements/button/button";
+
+@include resetDefaultPage();
+
+html{
+  background-color: $color-normal-grey;
+}
+hu-navbar{
+
+  @include navbar();
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+//Title Section
+#title{
+  margin-top: 5vh;
+  margin-bottom: 3.75vh;
+  h1{
+    margin: 0;
+    @include largeHeading()
+  }
+}
+
+//Subject Section
+#subjectSettings{
+
+  .subject-settingType{
+    width: 82.2vw;
+    margin-bottom: 3.8vh;
+
+    &:last-of-type{
+      margin-bottom: 1.56vh;
+    }
+
+    span{
+      @include bigText();
+      display: inline-block;
+      margin-bottom: 2.2vh;
+    }
+    hu-inputtext{
+      @include inputText(82.2vw, 5.2vh);
+    }
+    hu-inputnumber{
+      @include inputNumber(82.2vw, 5.2vh);
+    }
+
+    #subject-colors{
+
+      .subject-color-active{
+        position: relative;
+        top: 0.31vh;
+        border: 3px solid $color-normal-yellow !important;
+      }
+      .subject-color{
+        display: inline-block;
+        width: 5vh;
+        height: 5vh;
+        border: 1px solid $color-normal-lightYellow;
+        border-radius: 5px;
+        margin-right: 2.2vh;
+        margin-bottom: 2.2vh;
+      }
+    }
+  }
+}
+
+#subject-save{
+  @include button(82.2vw,6.1vh);
+}
+
+//Subject Element Colors
+.subject-color-red{
+  background-color: $color-subject-red;
+}
+.subject-color-orange{
+  background-color: $color-subject-orange;
+}
+.subject-color-yellow{
+  background-color: $color-subject-yellow;
+}
+.subject-color-green{
+  background-color: $color-subject-green;
+}
+.subject-color-cyan{
+  background-color: $color-subject-cyan;
+}
+.subject-color-blue{
+  background-color: $color-subject-blue;
+}
+.subject-color-pink{
+  background-color: $color-subject-pink;
+}

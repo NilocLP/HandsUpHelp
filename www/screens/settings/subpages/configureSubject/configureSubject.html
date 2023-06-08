@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="configureSubject.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configure Subject</title>
+
+    <script src="../../../../elements/navbar/navbar.js" type="module"></script>
+    <script src="../../../../elements/inputText/inputText.js" type="module"></script>
+    <script src="../../../../elements/inputNumber/inputNumber.js" type="module"></script>
+    <script src="../../../../elements/button/button.js" type="module"></script>
+
+</head>
+<body>
+<main>
+    <section id="title">
+        <h1>Configure Subjects</h1>
+    </section>
+    <section id="subjectSettings">
+        <div id="subject-name" class="subject-settingType">
+            <span>Enter Subject Name</span>
+            <hu-inputtext placeholder="English"></hu-inputtext>
+        </div>
+        <div id="subject-goal" class="subject-settingType">
+            <span>Set “Hands Up” Goal</span>
+            <hu-inputnumber placeholder="10"></hu-inputnumber>
+        </div>
+        <div id="subject-color" class="subject-settingType">
+            <span>Select Subject Color</span>
+            <div id="subject-colors">
+                <div class="subject-color subject-color-red"></div>
+                <div class="subject-color subject-color-orange"></div>
+                <div class="subject-color subject-color-yellow"></div>
+                <div class="subject-color subject-color-green subject-color-active"></div>
+                <div class="subject-color subject-color-cyan"></div>
+                <div class="subject-color subject-color-blue"></div>
+                <div class="subject-color subject-color-pink"></div>
+            </div>
+        </div>
+    </section>
+    <hu-button id="subject-save">Save</hu-button>
+</main>
+<hu-navbar activepage="2"></hu-navbar>
+
+</body>
+</html>
