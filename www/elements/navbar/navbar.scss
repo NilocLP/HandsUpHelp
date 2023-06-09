@@ -1,9 +1,10 @@
 @import "../../core/layout/theme";
 
 @mixin navbar($autolayout: true){
-  position: absolute;
+  position: fixed;
   width: 107.5%;
   height: 17.188%;
+  z-index: 10;
   @if $autolayout == true {
     left: -3.889%;
     top: 88.75%;

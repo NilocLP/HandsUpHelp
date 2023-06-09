@@ -14,6 +14,7 @@ class InputDate extends HTMLElement{
         fetch("/elements/inputDate/inputDate.html").then((response) => {
             response.text().then((text) => {
                 this.innerHTML = text;
+
             })
         });
     }

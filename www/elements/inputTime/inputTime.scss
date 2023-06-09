@@ -7,13 +7,13 @@
 
   padding-right: 16px;
   label{
-    display: inherit;
+    display: inline-block;
     width: 100%;
   }
   .hu-input{
     position: relative;
     height: $height;
-    display: inherit;
+
     background: transparent;
     width: 100%;
     @if($smallText){
@@ -28,18 +28,23 @@
       }
     }
 
+    appearance: none;
+    -webkit-appearance: none;
+
     border: 0;
     border-bottom:  1px solid $color-normal-lightYellow;
     padding: 0 8px 6px 8px;
 
     &:after {
+      position: absolute;
+      left: 70%;
       content: "";
       $svg-size: 25px;
       @if($smallText){
         $svg-size: 19px;
       }
-      @include svg-icon("/www/elements/inputTime/clock.svg", $svg-size, $svg-size, $color-normal-lightYellow);
-      z-index: -1;
+      @include svg-icon("/elements/inputTime/clock.svg", $svg-size, $svg-size, $color-normal-lightYellow);
+      z-index: 1;
     }
 
     &::-webkit-calendar-picker-indicator{

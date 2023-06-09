@@ -9,10 +9,12 @@
     width: 100%;
   }
   .hu-input{
+    appearance: none;
+    -webkit-appearance: none;
+
     box-sizing: border-box;
     position: relative;
     height: $height;
-    display: inherit;
     background: transparent;
     width: 100%;
     @include normalText();
@@ -24,9 +26,12 @@
     padding: 0 8px 6px 8px;
 
     &:after {
+      position: absolute;
       content: "";
       @include svg-icon("/elements/inputDate/calendar.svg", 25px, 25px, $color-normal-lightYellow);
-      z-index: -1;
+      z-index: 1;
+      top: -2%;
+      left: 78%;
     }
 
     &::-webkit-calendar-picker-indicator{

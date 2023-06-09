@@ -117,7 +117,7 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 html {
@@ -125,9 +125,10 @@ html {
 }
 
 hu-navbar {
-  position: absolute;
+  position: fixed;
   width: 107.5%;
   height: 17.188%;
+  z-index: 10;
   left: -3.889%;
   top: 88.75%;
   background: #111111;
@@ -190,19 +191,19 @@ hu-navbar .navbar_icons #navbar_settings {
 
 hu-togglebutton {
   display: inline;
-  max-height: 11.999995vw;
+  max-height: 34.933314px;
 }
 hu-togglebutton .circle {
-  width: 5.9760956175vw;
-  height: 6vw;
+  width: 23.1075697211px;
+  height: 23.2px;
   border-radius: 300px;
   position: relative;
-  top: 0.9375vw;
+  top: 3.625px;
 }
 hu-togglebutton .togglebutton {
   margin: 0;
-  width: 15vw;
-  height: 7.999995vw;
+  width: 58px;
+  height: 30.933314px;
   display: inline-block;
   border: 2px solid #111111;
   border-radius: 300px;
@@ -212,7 +213,7 @@ hu-togglebutton .togglebutton.toggled {
 }
 hu-togglebutton .togglebutton.toggled .circle {
   background: #1C1C1C;
-  left: 8vw;
+  left: 30.9333333333px;
   transition: left 0.2s ease-out;
 }
 hu-togglebutton .togglebutton {
@@ -220,7 +221,7 @@ hu-togglebutton .togglebutton {
 }
 hu-togglebutton .togglebutton .circle {
   background: #FFFED5;
-  left: 1vw;
+  left: 3.8666666667px;
   transition: left 0.2s ease-out;
 }
 hu-togglebutton label {
@@ -287,12 +288,12 @@ main {
 }
 #settings #settings-setting-infoText-button {
   display: inline-block;
-  width: 5vh;
-  height: 5vh;
+  width: 32px;
+  height: 32px;
 }
 #settings #settings-setting-infoText-button button {
-  width: 5vh;
-  height: 5vh;
+  width: 32px;
+  height: 32px;
   background: #FFFED5;
   border-radius: 5px;
   border-style: hidden;
@@ -307,7 +308,7 @@ main {
   color: #111111;
 }
 #settings #settings-setting-length-input {
-  width: 10vw;
+  width: 36px;
   padding-right: 0px;
   box-sizing: border-box;
   height: auto;
@@ -388,8 +389,8 @@ main {
   height: 16px;
   width: 16px;
   background-color: #FFFED5;
-  mask-image: url("/www/elements/dropdown/assets/chevron-down.svg");
-  -webkit-mask-image: url("/www/elements/dropdown/assets/chevron-down.svg");
+  mask-image: url("/elements/dropdown/assets/chevron-down.svg");
+  -webkit-mask-image: url("/elements/dropdown/assets/chevron-down.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-position: center;

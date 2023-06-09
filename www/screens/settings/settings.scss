@@ -14,7 +14,7 @@ hu-navbar{
   @include navbar();
 }
 hu-togglebutton{
-  @include toggleButton(15vw);
+  @include toggleButton(58px);
 }
 
 main{
@@ -68,11 +68,11 @@ main{
   }
 
   #settings-setting-infoText-button{
-    @include button(5vh, 5vh);
+    @include button(32px, 32px);
   }
 
   #settings-setting-length-input{
-    @include inputNumber(10vw);
+    @include inputNumber(36px);
   }
 
   #settings-setting-language-dropdown{

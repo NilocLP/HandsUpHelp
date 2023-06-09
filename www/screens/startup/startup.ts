@@ -28,5 +28,7 @@ function onDeviceReady() {
 
     //Launch another file after loading
     window.location.href = "../../screens/calender/calender.html";
+
+
 }
 

@@ -8,4 +8,5 @@
     <content src="/screens/startup/startup.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+
 </widget>

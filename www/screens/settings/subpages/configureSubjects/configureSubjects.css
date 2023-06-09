@@ -63,7 +63,7 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 html {
@@ -71,9 +71,10 @@ html {
 }
 
 hu-navbar {
-  position: absolute;
+  position: fixed;
   width: 107.5%;
   height: 17.188%;
+  z-index: 10;
   left: -3.889%;
   top: 88.75%;
   background: #111111;
@@ -176,8 +177,8 @@ main {
 #subjectList .subjectList-subject-element .subjectList-subject-data .subjectList-subject-color {
   position: relative;
   top: -1px;
-  width: 5.6vw;
-  height: 5.6vw;
+  width: 22px;
+  height: 22px;
   aspect-ratio: 1/1;
   margin-right: 2.2vw;
   border: 1px solid #FFFED5;
@@ -193,12 +194,12 @@ main {
 }
 #subjectList .subjectList-subject-element .subjectList-subject-settings {
   display: inline-block;
-  width: 5vh;
-  height: 5vh;
+  width: 32px;
+  height: 32px;
 }
 #subjectList .subjectList-subject-element .subjectList-subject-settings button {
-  width: 5vh;
-  height: 5vh;
+  width: 32px;
+  height: 32px;
   background: #FFFED5;
   border-radius: 5px;
   border-style: hidden;
