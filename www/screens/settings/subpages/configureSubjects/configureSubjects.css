@@ -89,7 +89,7 @@ hu-navbar .navbar_icons {
   top: 18.18%;
 }
 hu-navbar .navbar_icons div {
-  margin: 0 9.167%;
+  padding: 0 9.167%;
 }
 hu-navbar .navbar_icons div.current {
   background-color: #FEE402 !important;

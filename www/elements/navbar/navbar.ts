@@ -1,6 +1,8 @@
 class Navbar extends HTMLElement {
     constructor() {
         super();
+
+        this.clickHandler = this.clickHandler.bind(this);
     }
 
     connectedCallback() {
@@ -35,8 +37,25 @@ class Navbar extends HTMLElement {
                     const ACTIVE_PAGE = this.getAttribute("activePage");
                     this.getElementsByClassName("navbar_icons")[0].getElementsByTagName("div")[ACTIVE_PAGE].classList.add("current");
                 } catch (e) {}
+
+                this.querySelector("#navbar_stats").addEventListener('click',this.clickHandler);
+                this.querySelector("#navbar_calender").addEventListener('click',this.clickHandler);
+                this.querySelector("#navbar_settings").addEventListener('click',this.clickHandler);
+
             })
         });
+    }
+
+    private clickHandler(e){
+
+        const clickedElement = e.target;
+        const navbarUsed = new CustomEvent("navbarused", {
+            detail: {
+                id: clickedElement.id,
+            },
+        });
+
+        this.dispatchEvent(navbarUsed);
     }
 }
 
