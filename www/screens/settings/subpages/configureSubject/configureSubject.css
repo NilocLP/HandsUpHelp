@@ -135,8 +135,8 @@ hu-navbar .navbar_icons #navbar_stats {
   height: 5vh;
   width: 8.889vw;
   background-color: #FFFED5;
-  mask-image: url("/elements/navbar/assets/bar-chart.svg");
-  -webkit-mask-image: url("/elements/navbar/assets/bar-chart.svg");
+  mask-image: url("/core/assets/svg/bar-chart.svg");
+  -webkit-mask-image: url("/core/assets/svg/bar-chart.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-position: center;
@@ -148,8 +148,8 @@ hu-navbar .navbar_icons #navbar_calender {
   height: 5vh;
   width: 8.889vw;
   background-color: #FFFED5;
-  mask-image: url("/elements/navbar/assets/calendar.svg");
-  -webkit-mask-image: url("/elements/navbar/assets/calendar.svg");
+  mask-image: url("/core/assets/svg/calendar.svg");
+  -webkit-mask-image: url("/core/assets/svg/calendar.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-position: center;
@@ -161,8 +161,8 @@ hu-navbar .navbar_icons #navbar_settings {
   height: 5vh;
   width: 8.889vw;
   background-color: #FFFED5;
-  mask-image: url("/elements/navbar/assets/cog.svg");
-  -webkit-mask-image: url("/elements/navbar/assets/cog.svg");
+  mask-image: url("/core/assets/svg/cog.svg");
+  -webkit-mask-image: url("/core/assets/svg/cog.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-position: center;

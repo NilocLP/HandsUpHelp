@@ -268,8 +268,8 @@
   height: 16px;
   width: 16px;
   background-color: #FFFED5;
-  mask-image: url("../../elements/calenderVisual/assets/plus.svg");
-  -webkit-mask-image: url("../../elements/calenderVisual/assets/plus.svg");
+  mask-image: url("/core/assets/svg/plus.svg");
+  -webkit-mask-image: url("/core/assets/svg/plus.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-position: center;
@@ -371,8 +371,8 @@
   height: 25px;
   width: 25px;
   background-color: #FFFED5;
-  mask-image: url("/elements/dropdown/assets/chevron-down.svg");
-  -webkit-mask-image: url("/elements/dropdown/assets/chevron-down.svg");
+  mask-image: url("/core/assets/svg/chevron-down.svg");
+  -webkit-mask-image: url("/core/assets/svg/chevron-down.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-position: center;
@@ -568,8 +568,8 @@
   height: 19px;
   width: 19px;
   background-color: #FFFED5;
-  mask-image: url("/elements/inputTime/clock.svg");
-  -webkit-mask-image: url("/elements/inputTime/clock.svg");
+  mask-image: url("/core/assets/svg/clock.svg");
+  -webkit-mask-image: url("/core/assets/svg/clock.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-position: center;
@@ -668,8 +668,8 @@ hu-navbar .navbar_icons #navbar_stats {
   height: 5vh;
   width: 8.889vw;
   background-color: #FFFED5;
-  mask-image: url("/elements/navbar/assets/bar-chart.svg");
-  -webkit-mask-image: url("/elements/navbar/assets/bar-chart.svg");
+  mask-image: url("/core/assets/svg/bar-chart.svg");
+  -webkit-mask-image: url("/core/assets/svg/bar-chart.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-position: center;
@@ -681,8 +681,8 @@ hu-navbar .navbar_icons #navbar_calender {
   height: 5vh;
   width: 8.889vw;
   background-color: #FFFED5;
-  mask-image: url("/elements/navbar/assets/calendar.svg");
-  -webkit-mask-image: url("/elements/navbar/assets/calendar.svg");
+  mask-image: url("/core/assets/svg/calendar.svg");
+  -webkit-mask-image: url("/core/assets/svg/calendar.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-position: center;
@@ -694,8 +694,8 @@ hu-navbar .navbar_icons #navbar_settings {
   height: 5vh;
   width: 8.889vw;
   background-color: #FFFED5;
-  mask-image: url("/elements/navbar/assets/cog.svg");
-  -webkit-mask-image: url("/elements/navbar/assets/cog.svg");
+  mask-image: url("/core/assets/svg/cog.svg");
+  -webkit-mask-image: url("/core/assets/svg/cog.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-position: center;

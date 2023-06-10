@@ -43,7 +43,7 @@
       @if($smallText){
         $svg-size: 19px;
       }
-      @include svg-icon("/elements/inputTime/clock.svg", $svg-size, $svg-size, $color-normal-lightYellow);
+      @include svg-icon("/core/assets/svg/clock.svg", $svg-size, $svg-size, $color-normal-lightYellow);
       z-index: 1;
     }
 

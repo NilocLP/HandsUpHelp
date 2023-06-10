@@ -28,7 +28,7 @@
     &:after {
       position: absolute;
       content: "";
-      @include svg-icon("/elements/inputDate/calendar.svg", 25px, 25px, $color-normal-lightYellow);
+      @include svg-icon("/core/assets/svg/calendar.svg", 25px, 25px, $color-normal-lightYellow);
       z-index: 1;
       top: -2%;
       left: 78%;

@@ -41,7 +41,7 @@
     .hu-dropdown-title-downarrow{
       min-width: $height*0.5;
       height: $height*0.5;
-      @include svg-icon("/elements/dropdown/assets/chevron-down.svg", $height*0.5, $height*0.5, $color-normal-lightYellow);
+      @include svg-icon("/core/assets/svg/chevron-down.svg", $height*0.5, $height*0.5, $color-normal-lightYellow);
       margin-right: $width/23.5;
     }
 

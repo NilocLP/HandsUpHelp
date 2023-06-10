@@ -27,13 +27,13 @@
     }
 
     #navbar_stats{
-      @include svg-icon("/elements/navbar/assets/bar-chart.svg", 5vh, 8.889vw, $color-normal-lightYellow)
+      @include svg-icon("/core/assets/svg/bar-chart.svg", 5vh, 8.889vw, $color-normal-lightYellow)
     }
     #navbar_calender{
-      @include svg-icon("/elements/navbar/assets/calendar.svg", 5vh, 8.889vw, $color-normal-lightYellow)
+      @include svg-icon("/core/assets/svg/calendar.svg", 5vh, 8.889vw, $color-normal-lightYellow)
     }
     #navbar_settings{
-      @include svg-icon("/elements/navbar/assets/cog.svg", 5vh, 8.889vw, $color-normal-lightYellow)
+      @include svg-icon("/core/assets/svg/cog.svg", 5vh, 8.889vw, $color-normal-lightYellow)
     }
   }
 
