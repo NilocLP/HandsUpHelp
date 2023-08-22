@@ -1,23 +1,41 @@
 class InputDate extends HTMLElement{
 
+    private _rendered: boolean = false;
+
+
     constructor() {
         super();
     }
-    connectedCallback(){
-        this.render();
+    async connectedCallback() {
+        await this.render();
+
+        this._rendered = true;
+        const event = new CustomEvent('objectRendered');
+        this.dispatchEvent(event);
+    }
+
+    get rendered(){
+        return this._rendered;
     }
 
     /**
      * It fetches the HTML file and then renders it.
      */
-    private render(): void{
-        fetch("/elements/inputDate/inputDate.html").then((response) => {
-            response.text().then((text) => {
-                this.innerHTML = text;
+    private async render(): Promise<void> {
+        const response = await fetch("/elements/inputDate/inputDate.html")
+        const text = await response.text()
 
-            })
-        });
+        this.innerHTML = text;
+
+
     }
 
 }
-window.customElements.define('hu-inputdate', InputDate);
+// @ts-ignore
+function init() {
+    if(window.customElements.get("hu-inputdate") === undefined) {
+        window.customElements.define('hu-inputdate', InputDate);
+    }
+}
+
+init();

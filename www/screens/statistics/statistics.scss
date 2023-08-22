@@ -1,4 +1,3 @@
-@import "../../elements/navbar/navbar";
 @import "../../elements/button/button";
 @import "../../elements/toggleButton/toggleButton";
 @import "../../elements/dropdown/dropdown";
@@ -7,16 +6,6 @@
 @import "../../elements/inputTime/inputTime";
 @import "../../elements/calenderVisual/calenderVisual";
 @import "../../elements/pieChart/pieChart";
-
-@include resetDefaultPage();
-
-html{
-  background-color: $color-normal-grey;
-}
-
-hu-navbar{
-  @include navbar();
-}
 
 hu-inputdate{
   @include inputDate(36.39vw);
@@ -29,14 +18,7 @@ hu-piechart{
   @include pieChart(20.15vh,20.15vh,$color-normal-lightYellow,$color-normal-yellow)
 }
 
-main{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
 
-}
 //Title Section
 #title{
   margin-top: 5vh;

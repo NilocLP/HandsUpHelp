@@ -1,48 +1,62 @@
 class CalenderVisual extends HTMLElement{
 
+    private _rendered: boolean = false;
+
     constructor() {
         super();
     }
-    connectedCallback(){
-        this.renderCalender();
+    async connectedCallback() {
+        await this.renderCalender();
+
+        this._rendered = true;
+        const event = new CustomEvent('objectRendered');
+        this.dispatchEvent(event);
+    }
+
+    get rendered(){
+        return this._rendered;
     }
 
     /**
      * It fetches the HTML file, then it renders the HTML file, then it renders the lessons
      */
-    private renderCalender(): void{
-        fetch("/elements/calenderVisual/calenderVisual.html").then((response) => {
-            response.text().then((text) => {
-                this.innerHTML = text;
+    private async renderCalender(): Promise<void> {
+        const response = await fetch("/elements/calenderVisual/calenderVisual.html")
+        const text = await   response.text();
 
-                for (let i = 0; i < 50; i++) {
-                    //TODO Render Lessons correctly by using Calender Class and Lesson Class values
-                    let placeholder = document.createElement("div");
-                    if(i < 5) {
-                        placeholder.classList.add("placeholder")
-                    }else{
-                        placeholder.classList.add("notUsed")
-                    }
-                    placeholder.appendChild(document.createElement("div"))
-                    placeholder.addEventListener("click", () => {this.renderInput(null);})
-                    this.querySelector(".body").appendChild(placeholder);
-                }
+        this.innerHTML = text;
+
+        for (let i = 0; i < 50; i++) {
+            //TODO Render Lessons correctly by using Calender Class and Lesson Class values
+            let placeholder = document.createElement("div");
+
+            //TODO Add checks to identify lesson
+            placeholder.classList.add("notUsed")
+
+            placeholder.appendChild(document.createElement("div"))
+            placeholder.addEventListener("click", () => {
+                this.renderInput(null);
             })
-        });
-    }
-    //TODO Uncomment Type, when Lesson class exists
-    private renderInput(lesson/*: Lesson*/): void{
-        fetch("/elements/calenderVisual/calenderVisualInput.html").then((response) => {
-            response.text().then((text: string) => {
-                const visualInput = document.createElement("section");
-                visualInput.setAttribute("id", "hu-calender-input");
-                visualInput.innerHTML = text;
-                document.querySelector("body").insertBefore(visualInput,document.querySelector("main"));
+            this.querySelector(".body").appendChild(placeholder);
+        }
 
-                document.querySelector("#hu-calender-input-save").addEventListener("click", () => {this.handelInputSubmit();})
-                //TODO Render Data provided by the Lesson
-            });
-        });
+
+    }
+
+    private async renderInput(lesson: Lesson): Promise<void> {
+        const response = await fetch("/elements/calenderVisual/calenderVisualInput.html")
+        const text = await response.text()
+
+        const visualInput = document.createElement("section");
+        visualInput.setAttribute("id", "hu-calender-input");
+        visualInput.innerHTML = text;
+        document.querySelector("body").insertBefore(visualInput, document.querySelector("main"));
+
+        document.querySelector("#hu-calender-input-save").addEventListener("click", () => {
+            this.handelInputSubmit();
+        })
+        //TODO Render Data provided by the Lesson
+
     }
     private handelInputSubmit(): void{
         //TODO Safe Data in Lesson
@@ -56,4 +70,12 @@ class CalenderVisual extends HTMLElement{
     }
 
 }
-window.customElements.define('hu-calender', CalenderVisual);
+
+// @ts-ignore
+function init() {
+    if(window.customElements.get("hu-calender") === undefined) {
+        window.customElements.define('hu-calender', CalenderVisual);
+    }
+}
+
+init();

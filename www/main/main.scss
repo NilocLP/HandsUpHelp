@@ -1,0 +1,25 @@
+@import "../core/layout/theme";
+@import "../elements/navbar/navbar";
+
+@include resetDefaultPage();
+
+html{
+  background-color: $color-normal-grey;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+}
+
+hu-navbar{
+  @include navbar();
+}
+
+.hiddenScreen{
+  visibility: hidden !important;
+}

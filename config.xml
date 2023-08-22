@@ -5,7 +5,7 @@
     <author email="contact@niloc.info" href="https://niloc.info/">
        Niloc
     </author>
-    <content src="/screens/startup/startup.html" />
+    <content src="/main/main.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
 

@@ -1,16 +1,34 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 class Dropdown extends HTMLElement {
     constructor() {
         super();
         this._options = [];
         this._menuOpen = false;
+        this._rendered = false;
     }
     connectedCallback() {
-        this.render();
-        this.closeMenu();
-        this.addEventListener("hu-selectionChange", evt => {
-            this.renderNewTitle(this._options[this._currentOption]);
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.render();
             this.closeMenu();
+            this.addEventListener("hu-selectionChange", evt => {
+                this.renderNewTitle(this._options[this._currentOption]);
+                this.closeMenu();
+            });
+            this._rendered = true;
+            const event = new CustomEvent('objectRendered');
+            this.dispatchEvent(event);
         });
+    }
+    get rendered() {
+        return this._rendered;
     }
     static get observedAttributes() {
         return ['placeholder'];
@@ -127,15 +145,15 @@ class Dropdown extends HTMLElement {
      * It fetches the HTML file and then renders it.
      */
     render() {
-        fetch("/elements/dropdown/dropdown.html").then((response) => {
-            response.text().then((text) => {
-                this.innerHTML = text;
-                //ReRender Placeholder
-                if (this.getAttribute("placeholder"))
-                    this.placeholderAttributeChanged(this.getAttribute("placeholder"));
-                this.querySelector(".hu-dropdown-title").addEventListener("click", evt => {
-                    this.openMenu();
-                });
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield fetch("/elements/dropdown/dropdown.html");
+            const text = yield response.text();
+            this.innerHTML = text;
+            //ReRender Placeholder
+            if (this.getAttribute("placeholder"))
+                this.placeholderAttributeChanged(this.getAttribute("placeholder"));
+            this.querySelector(".hu-dropdown-title").addEventListener("click", evt => {
+                this.openMenu();
             });
         });
     }
@@ -152,5 +170,11 @@ class Dropdown extends HTMLElement {
         TITLE_COLOR_BOX.style.backgroundColor = option.iconColor;
     }
 }
-window.customElements.define('hu-dropdown', Dropdown);
+// @ts-ignore
+function init() {
+    if (window.customElements.get("hu-dropdown") === undefined) {
+        window.customElements.define('hu-dropdown', Dropdown);
+    }
+}
+init();
 //# sourceMappingURL=dropdown.js.map

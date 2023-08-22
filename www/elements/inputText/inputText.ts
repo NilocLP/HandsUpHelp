@@ -1,10 +1,21 @@
 class InputText extends HTMLElement{
 
+    private _rendered: boolean = false;
+
     constructor() {
         super();
     }
-    connectedCallback(){
-        this.render();
+
+    async connectedCallback() {
+        await this.render();
+
+        this._rendered = true;
+        const event = new CustomEvent('objectRendered');
+        this.dispatchEvent(event);
+    }
+
+    get rendered(){
+        return this._rendered;
     }
 
     static get observedAttributes(){
@@ -39,17 +50,15 @@ class InputText extends HTMLElement{
     /**
      * It fetches the HTML file and then renders it.
      */
-    private render(): void{
-        fetch("/elements/inputText/inputText.html").then((response) => {
-            response.text().then((text) => {
-                this.innerHTML = text;
+    private async render(): Promise<void> {
+        const response = await fetch("/elements/inputText/inputText.html")
+        const text = await response.text()
 
-                //ReRender Placeholder
-                if(this.getAttribute("placeholder")) this.placeholderAttributeChanged(this.getAttribute("placeholder"))
-                if(this.getAttribute("length")) this.maxLengthAttributeChanged(this.getAttribute("length"))
+        this.innerHTML = text;
 
-            })
-        });
+        //ReRender Placeholder
+        if (this.getAttribute("placeholder")) this.placeholderAttributeChanged(this.getAttribute("placeholder"))
+        if (this.getAttribute("length")) this.maxLengthAttributeChanged(this.getAttribute("length"))
 
     }
     private renderNewTitle(placeholder: string): void{
@@ -57,4 +66,10 @@ class InputText extends HTMLElement{
         this.querySelector("input").setAttribute("placeholder", placeholder);
     }
 }
-window.customElements.define('hu-inputtext', InputText);
+function init() {
+    if(window.customElements.get("hu-inputtext") === undefined) {
+        window.customElements.define('hu-inputtext', InputText);
+    }
+}
+
+init();

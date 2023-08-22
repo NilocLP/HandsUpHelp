@@ -1,13 +1,24 @@
 class ToggleButton extends HTMLElement {
+
+    private _rendered: boolean = false;
+
     constructor() {
         super();
 
     }
 
-    connectedCallback() {
-        this.render();
+    async connectedCallback() {
+        await this.render();
 
         this.addEventListener("click", this.toggleChange);
+
+        this._rendered = true;
+        const event = new CustomEvent('objectRendered');
+        this.dispatchEvent(event);
+    }
+
+    get rendered(){
+        return this._rendered;
     }
 
     static get observedAttributes() {
@@ -42,18 +53,24 @@ class ToggleButton extends HTMLElement {
         }
     }
 
-    private render(): void {
-        fetch("/elements/toggleButton/toggleButton.html").then((response) => {
-            response.text().then((text) => {
-                this.innerHTML = text;
+    private async render(): Promise<void> {
+        const response = await fetch("/elements/toggleButton/toggleButton.html")
+        const text = await response.text()
 
-                const CHECKED = this.getAttribute("checked");
-                this.checkedAttributeChanged(CHECKED);
-            })
-        });
+        this.innerHTML = text;
+
+        const CHECKED = this.getAttribute("checked");
+        this.checkedAttributeChanged(CHECKED);
+
     }
 
 
 }
+// @ts-ignore
+function init() {
+    if(window.customElements.get("hu-togglebutton") === undefined) {
+        window.customElements.define('hu-togglebutton', ToggleButton);
+    }
+}
 
-window.customElements.define('hu-togglebutton', ToggleButton);
+init();

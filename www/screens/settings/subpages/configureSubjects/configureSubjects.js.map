@@ -1,0 +1,1 @@
+{"version":3,"file":"configureSubjects.js","sourceRoot":"","sources":["configureSubjects.ts"],"names":[],"mappings":"AAAA,SAAS,IAAI;IACT,MAAM,WAAW,GAAG,WAAW,CAAC,cAAc,EAAE,CAAC;IAEjD,QAAQ,CAAC,cAAc,CAAC,uBAAuB,CAAC,CAAC,gBAAgB,CAAC,OAAO,EAAE,GAAG,EAAE;QAC5E,WAAW,CAAC,aAAa,CAAC,YAAY,CAAC,CAAC,CAAC,CAAA;IAC7C,CAAC,CAAC,CAAA;AACN,CAAC"}

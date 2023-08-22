@@ -2,12 +2,22 @@ class InputNumber extends HTMLElement{
 
     private _maxNumber:number;
     private _numberBackup:string;
+    private _rendered: boolean = false;
+
 
     constructor() {
         super();
     }
-    connectedCallback(){
-        this.render();
+    async connectedCallback() {
+        await this.render();
+
+        this._rendered = true;
+        const event = new CustomEvent('objectRendered');
+        this.dispatchEvent(event);
+    }
+
+    get rendered(){
+        return this._rendered;
     }
 
     static get observedAttributes(){
@@ -43,18 +53,15 @@ class InputNumber extends HTMLElement{
     /**
      * It fetches the HTML file and then renders it.
      */
-    private render(): void{
-        fetch("/elements/inputNumber/inputNumber.html").then((response) => {
-            response.text().then((text) => {
-                this.innerHTML = text;
-                this.querySelector("input").addEventListener("input",this.handleMaxInput.bind(this));
-                //ReRender Placeholder
-                if(this.getAttribute("placeholder")) this.placeholderAttributeChanged(this.getAttribute("placeholder"))
-                if(this.getAttribute("maxValue")) this.maxValueAttributeChanged(this.getAttribute("maxValue"))
+    private async render(): Promise<void> {
+        const response = await fetch("/elements/inputNumber/inputNumber.html")
+        const text = await response.text();
 
-            })
-        });
-
+        this.innerHTML = text;
+        this.querySelector("input").addEventListener("input", this.handleMaxInput.bind(this));
+        //ReRender Placeholder
+        if (this.getAttribute("placeholder")) this.placeholderAttributeChanged(this.getAttribute("placeholder"))
+        if (this.getAttribute("maxValue")) this.maxValueAttributeChanged(this.getAttribute("maxValue"))
     }
     private renderNewTitle(placeholder: string): void{
         if(this.querySelector("input") === null) return;
@@ -72,4 +79,11 @@ class InputNumber extends HTMLElement{
         this._numberBackup = this.querySelector("input").value
     }
 }
-window.customElements.define('hu-inputnumber', InputNumber);
+// @ts-ignore
+function init() {
+    if(window.customElements.get("hu-inputnumber") === undefined) {
+        window.customElements.define('hu-inputnumber', InputNumber);
+    }
+}
+
+init();

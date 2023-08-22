@@ -3,9 +3,10 @@
   "displayName": "HandsUpHelper",
   "version": "1.0.0",
   "description": "An app to track how often you raised your hands in school.",
-  "main": "/www/screens/startup/startup.html",
+  "main": "/www/main/main.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "emulate": "cordova emulate android"
   },
   "keywords": [
     "ecosystem:cordova"
@@ -16,12 +17,19 @@
     "platforms": [
       "android"
     ],
-    "plugins": {}
+    "plugins": {
+      "cordova-plugin-file": {
+        "ANDROIDX_WEBKIT_VERSION": "1.4.0"
+      }
+    }
   },
   "devDependencies": {
-    "cordova-android": "^10.1.2"
+    "cordova-android": "^10.1.2",
+    "cordova-plugin-file": "^7.0.0"
   },
   "dependencies": {
+    "@types/cordova": "^11.0.0",
+    "common-js": "^0.3.8",
     "cordova": "^12.0.0"
   }
 }

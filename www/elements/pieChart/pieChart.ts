@@ -2,12 +2,22 @@
 class PieChart extends HTMLElement{
 
     private _percentage:number = 0;
+    private _rendered: boolean = false;
+
 
     constructor() {
         super();
     }
-    connectedCallback(){
-        this.render();
+    async connectedCallback(){
+        await this.render();
+
+        this._rendered = true;
+        const event = new CustomEvent('objectRendered');
+        this.dispatchEvent(event);
+    }
+
+    get rendered(){
+        return this._rendered;
     }
 
     static get observedAttributes(){
@@ -41,14 +51,13 @@ class PieChart extends HTMLElement{
         this.renderChartRelation();
     }
 
-    private render(): void{
-        fetch("/elements/pieChart/pieChart.html").then((response: Response) => {
-            response.text().then((text: string) => {
-                this.innerHTML = text;
+    private async render(): Promise<void> {
+        const response = await fetch("/elements/pieChart/pieChart.html");
+        const text = await response.text();
 
-                this.renderChartRelation()
-            })
-        });
+        this.innerHTML = text;
+        this.renderChartRelation()
+
     }
 
     private calculateAngelFromPercentage(percentage){
@@ -79,5 +88,11 @@ class PieChart extends HTMLElement{
     }
 
 }
+// @ts-ignore
+function init() {
+    if(window.customElements.get("hu-piechart") === undefined) {
+        window.customElements.define('hu-piechart', PieChart);
+    }
+}
 
-window.customElements.define('hu-piechart', PieChart);
+init();

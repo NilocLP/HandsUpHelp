@@ -16,14 +16,42 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
 document.addEventListener('deviceready', onDeviceReady, false);
-function onDeviceReady() {
+
+const mainManager = MainManager.getMainManager();
+
+
+async function onDeviceReady() {
     // Cordova is now initialized. Have fun!
     //console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
-    //Launch another file after loading
-    window.location.href = "../../screens/calender/calender.html";
+    //document.getElementById('deviceready').classList.add('ready');
+    let screenElement = document.getElementById("app-screens");
+    mainManager.createScreenManager(screenElement)
+    const screenManager = mainManager.screenManager;
+
+    await screenManager.fetchScreenIntoList("/screens/statistics/statistics.html")
+    await screenManager.fetchScreenIntoList("/screens/calender/calender.html")
+    await screenManager.fetchScreenIntoList("/screens/settings/settings.html")
+    await screenManager.fetchScreenIntoList("/screens/settings/subpages/configureSubjects/configureSubjects.html")
+    await screenManager.fetchScreenIntoList("/screens/settings/subpages/configureSubject/configureSubject.html")
+
+    screenManager.changeScreen(1);
+
+    document.getElementById("app-navbar").addEventListener("pageSwitch", onPageNavigation)
+
+    setTimeout(() => {
+
+    }, 1000)
+
+
 }
-//# sourceMappingURL=startup.js.map
+
+function onPageNavigation(e){
+    const screenManager = mainManager.screenManager;
+    screenManager.changeScreen(e.detail.page);
+}
+
+

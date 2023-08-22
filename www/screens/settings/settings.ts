@@ -1,8 +1,9 @@
-settingsInit();
+function init() {
+    const mainManager = MainManager.getMainManager();
 
-
-function settingsInit() {
-
+    document.getElementById("settings-setting-infoText-button").addEventListener("click", () => {
+        mainManager.screenManager.changeScreen(3)
+    })
 }
 
 

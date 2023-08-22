@@ -1,6 +1,5 @@
-statisticsInit();
 
-function statisticsInit() {
+function init() {
 
 }
 

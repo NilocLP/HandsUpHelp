@@ -3,18 +3,28 @@ class Dropdown extends HTMLElement{
     private _options: Array<any> = [];
     private _menuOpen: boolean = false;
     private _currentOption: string;
+    private _rendered: boolean = false;
+
 
     constructor() {
         super();
     }
-    connectedCallback(){
-        this.render();
+    async connectedCallback() {
+        await this.render();
         this.closeMenu()
 
         this.addEventListener("hu-selectionChange", evt => {
             this.renderNewTitle(this._options[this._currentOption]);
             this.closeMenu();
         });
+
+        this._rendered = true;
+        const event = new CustomEvent('objectRendered');
+        this.dispatchEvent(event);
+    }
+
+    get rendered(){
+        return this._rendered;
     }
 
     static get observedAttributes(){
@@ -136,19 +146,18 @@ class Dropdown extends HTMLElement{
     /**
      * It fetches the HTML file and then renders it.
      */
-    private render(): void{
-        fetch("/elements/dropdown/dropdown.html").then((response) => {
-            response.text().then((text) => {
-                this.innerHTML = text;
+    private async render(): Promise<void> {
+        const response = await fetch("/elements/dropdown/dropdown.html")
+        const text = await response.text()
 
-                //ReRender Placeholder
-                if(this.getAttribute("placeholder")) this.placeholderAttributeChanged(this.getAttribute("placeholder"))
+        this.innerHTML = text;
+        //ReRender Placeholder
+        if (this.getAttribute("placeholder")) this.placeholderAttributeChanged(this.getAttribute("placeholder"))
 
-                this.querySelector(".hu-dropdown-title").addEventListener("click", evt => {
-                    this.openMenu();
-                })
-            })
-        });
+        this.querySelector(".hu-dropdown-title").addEventListener("click", evt => {
+            this.openMenu();
+        })
+
 
     }
     /**
@@ -163,5 +172,11 @@ class Dropdown extends HTMLElement{
         TITLE_COLOR_BOX.style.backgroundColor = option.iconColor;
     }
 }
-window.customElements.define('hu-dropdown', Dropdown);
+// @ts-ignore
+function init() {
+    if(window.customElements.get("hu-dropdown") === undefined) {
+        window.customElements.define('hu-dropdown', Dropdown);
+    }
+}
 
+init();

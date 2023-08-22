@@ -1,4 +1,3 @@
-statisticsInit();
-function statisticsInit() {
+function init() {
 }
 //# sourceMappingURL=statistics.js.map

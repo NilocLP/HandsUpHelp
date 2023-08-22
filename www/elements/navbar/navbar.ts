@@ -1,10 +1,6 @@
 class Navbar extends HTMLElement {
 
-    private _locations = {
-        stats: "../../screens/statistics/statistics.html",
-        calender: "../../screens/calender/calender.html",
-        settings: "../../screens/settings/settings.html"
-    }
+    private _rendered: boolean = false;
 
     constructor() {
         super();
@@ -12,16 +8,16 @@ class Navbar extends HTMLElement {
         this.clickHandler = this.clickHandler.bind(this);
     }
 
-    get locations(): { settings: string; calender: string; stats: string } {
-        return this._locations;
+    async connectedCallback() {
+        await this.render();
+
+        this._rendered = true;
+        const event = new CustomEvent('objectRendered');
+        this.dispatchEvent(event);
     }
 
-    set locations(value: { settings: string; calender: string; stats: string }) {
-        this._locations = value;
-    }
-
-    connectedCallback() {
-        this.render();
+    get rendered(){
+        return this._rendered;
     }
 
     static get observedAttributes() {
@@ -43,43 +39,58 @@ class Navbar extends HTMLElement {
 
     }
 
-    private render(): void {
-        fetch("/elements/navbar/navbar.html").then((response) => {
-            response.text().then((text) => {
-                this.innerHTML = text;
+    private async render(): Promise<void> {
+        const response = await fetch("/elements/navbar/navbar.html")
+        const text = await response.text()
 
-                try {
-                    const ACTIVE_PAGE = this.getAttribute("activePage");
-                    this.getElementsByClassName("navbar_icons")[0].getElementsByTagName("div")[ACTIVE_PAGE].classList.add("current");
-                } catch (e) {
-                }
+        this.innerHTML = text;
 
-                this.querySelector("#navbar_stats").addEventListener('click', this.clickHandler);
-                this.querySelector("#navbar_calender").addEventListener('click', this.clickHandler);
-                this.querySelector("#navbar_settings").addEventListener('click', this.clickHandler);
+        try {
+            const ACTIVE_PAGE = this.getAttribute("activePage");
+            this.getElementsByClassName("navbar_icons")[0].getElementsByTagName("div")[ACTIVE_PAGE].classList.add("current");
+        } catch (e) {
+        }
 
-            })
-        });
+        this.querySelector("#navbar_stats").addEventListener('click', this.clickHandler);
+        this.querySelector("#navbar_calender").addEventListener('click', this.clickHandler);
+        this.querySelector("#navbar_settings").addEventListener('click', this.clickHandler);
+
+
     }
 
     private clickHandler(e) {
 
         const clickedElement = e.target;
+        let page = -1;
 
         switch (clickedElement.id) {
             case "navbar_stats":
-                if (!this.validLocation(this._locations.stats)) return
-                window.location.href = this._locations.stats;
-                break;
-            case "navbar_settings":
-                if (!this.validLocation(this._locations.settings)) return;
-                window.location.href = this._locations.settings;
+                page = 0
                 break;
             case "navbar_calender":
-                if (!this.validLocation(this._locations.calender)) return;
-                window.location.href = this._locations.calender;
+                page = 1
                 break;
+            case "navbar_settings":
+                page = 2
+                break;
+
         }
+
+        //If page to switch to already selected -> abort
+        const activePage = parseInt(this.getAttribute("activePage"));
+        if(activePage === page){
+            return
+        }
+
+        this.setAttribute("activePage", String(page));
+
+        const event = new CustomEvent('pageSwitch', {
+            detail: {
+                page: page,
+            },
+        });
+
+        this.dispatchEvent(event);
     }
 
     private validLocation(location: string): boolean {
@@ -89,5 +100,11 @@ class Navbar extends HTMLElement {
         return true;
     }
 }
+// @ts-ignore
+function init() {
+    if(window.customElements.get("hu-navbar") === undefined) {
+        window.customElements.define('hu-navbar', Navbar);
+    }
+}
 
-window.customElements.define('hu-navbar', Navbar);
+init();

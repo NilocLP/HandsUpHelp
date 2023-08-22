@@ -260,11 +260,11 @@
   align-items: center;
   justify-content: center;
 }
-#calender .body .placeholder {
+#calender .body .notUsed {
   margin: 3px 6px;
   border: 1px dashed #FFFED5;
 }
-#calender .body .placeholder div {
+#calender .body .notUsed div {
   height: 16px;
   width: 16px;
   background-color: #FFFED5;
@@ -277,6 +277,7 @@
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
 }
+
 #hu-calender-input {
   width: 100vw;
   height: 100vh;
@@ -621,89 +622,6 @@
   color: #111111;
 }
 
-html {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-body {
-  position: relative;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-}
-
-html {
-  background-color: #1C1C1C;
-}
-
-hu-navbar {
-  position: fixed;
-  width: 107.5%;
-  height: 17.188%;
-  z-index: 10;
-  left: -3.889%;
-  top: 88.75%;
-  background: #111111;
-  border-radius: 203px;
-}
-hu-navbar .navbar_icons {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-  top: 18.18%;
-}
-hu-navbar .navbar_icons div {
-  padding: 0 9.167%;
-}
-hu-navbar .navbar_icons div.current {
-  background-color: #FEE402 !important;
-}
-hu-navbar .navbar_icons #navbar_stats {
-  height: 5vh;
-  width: 8.889vw;
-  background-color: #FFFED5;
-  mask-image: url("/core/assets/svg/bar-chart.svg");
-  -webkit-mask-image: url("/core/assets/svg/bar-chart.svg");
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-}
-hu-navbar .navbar_icons #navbar_calender {
-  height: 5vh;
-  width: 8.889vw;
-  background-color: #FFFED5;
-  mask-image: url("/core/assets/svg/calendar.svg");
-  -webkit-mask-image: url("/core/assets/svg/calendar.svg");
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-}
-hu-navbar .navbar_icons #navbar_settings {
-  height: 5vh;
-  width: 8.889vw;
-  background-color: #FFFED5;
-  mask-image: url("/core/assets/svg/cog.svg");
-  -webkit-mask-image: url("/core/assets/svg/cog.svg");
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-}
-
 .smallButton {
   display: inline-block;
   width: 40vw;
@@ -724,14 +642,6 @@ hu-navbar .navbar_icons #navbar_settings {
   font-size: 16px;
   line-height: 26px;
   color: #111111;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
 }
 
 #title {

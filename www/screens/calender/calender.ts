@@ -1,7 +1,5 @@
-calenderInit();
-
-
-function calenderInit() {
+// @ts-ignore
+function init() {
 
 }
 

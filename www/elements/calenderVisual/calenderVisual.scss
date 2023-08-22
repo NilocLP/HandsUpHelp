@@ -62,16 +62,12 @@
       justify-content: center;
     }
 
-    .placeholder {
+    .notUsed {
       margin: 3px 6px;
       border: 1px dashed $color-normal-lightYellow;
       div {
         @include svg-icon("/core/assets/svg/plus.svg", 16px, 16px, $color-normal-lightYellow);
       }
-    }
-
-    .notUsed {
-
     }
   }
 }
