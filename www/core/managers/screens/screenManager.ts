@@ -40,7 +40,7 @@ class ScreenManager{
         return elementInArray;
     };
 
-    public changeScreen(screenNumber:number){
+    public async changeScreen(screenNumber:number){
         //Check if screen exists
         if(!(screenNumber >= 0 && screenNumber < this._screens.length)){
             return false;
@@ -65,104 +65,89 @@ class ScreenManager{
             element.remove();
         })
 
-        //Because of async loading, some elements(custom tags, styles, fonts, scripts) load after this function ends.
-        // To keep track in the load events, how many elements remain, this Variable is used
-        let elementsToLoad = 0;
-        //Keep track if fonts are currently loading
-        let fontsLoaded = false;
-
-        //Set Page scripts, load them and execute the init function
-        screenElement.scripts.forEach((element:HTMLElement) => {
-            let scriptElement = document.createElement("script")
-            scriptElement.src = element.getAttribute("src");
-            scriptElement.classList.add("screenElement");
-            scriptElement.type = "text/javascript";
-            elementsToLoad++;
-
-            scriptElement.addEventListener("load", () => {
-                console.log("loaded script" + scriptElement.getAttribute("src"))
-                elementsToLoad--;
-                this.showScreenIfRendered(elementsToLoad,fontsLoaded);
-
-                init();
-            });
-            document.head.appendChild(scriptElement);
-
-        })
-
-
         //Add Body to Page
         this._screenElement.innerHTML = screenElement.body.innerHTML;
 
         //Set Page Title
         headElement.innerHTML = screenElement.title;
 
+        //Load Scripts
+        let scriptPromises = []
+        screenElement.scripts.forEach((element:HTMLElement) => {
+           scriptPromises.push(this.loadScript(element));
+        });
 
-        //Wait until the custom elements are loaded.
+        //handle customElement loading
+        let customElementPromises = []
         let elements = this._screenElement.querySelectorAll('*');
         elements.forEach((element) => {
-            let isCustomElement = customElements.get(element.localName) !== undefined;
-            if(!isCustomElement) return;
-            // @ts-ignore
-            let isRendered = element.rendered;
-            if(isRendered) return;
-            console.info("current status: ");
-            console.info(element);
-            // @ts-ignore
-            console.info("rendered:" + isRendered);
+            customElementPromises.push(this.waitUntilCustomElementLoaded(element as HTMLElement));
+        });
 
-            elementsToLoad++;
-            element.addEventListener("objectRendered", () => {
-                // @ts-ignore
-                console.info("rendered:" + element.rendered + " on " + element);
-                elementsToLoad--;
-                console.info(elementsToLoad + " elements left");
-                this.showScreenIfRendered(elementsToLoad,fontsLoaded);
-
-            });
-        })
-
-        //Set Page style
+        //Load Page style
+        let stylePromises = []
         screenElement.styles.forEach((element:HTMLElement) => {
-            let styleElement =  document.createElement("link")
+            stylePromises.push(this.loadStylesheet(element));
+        });
+
+        //Wait until scripts, customElements and styles are loaded
+        let allPromises =  [...scriptPromises, ...customElementPromises, ...stylePromises]
+        await Promise.all(allPromises);
+
+        //Wait until fonts are ready
+        await document.fonts.ready
+
+        this._screenElement.classList.remove("hiddenScreen");
+        return true;
+
+    }
+
+    private loadScript(scriptElements: HTMLElement){
+        return new Promise<void>((resolve) => {
+            let scriptElement = document.createElement("script")
+            scriptElement.src = scriptElements.getAttribute("src");
+            scriptElement.classList.add("screenElement");
+            scriptElement.type = "text/javascript";
+
+            scriptElement.addEventListener("load", () => {
+                resolve();
+            });
+            document.head.appendChild(scriptElement);
+        });
+
+    }
+
+    private waitUntilCustomElementLoaded(customElement: HTMLElement){
+        return new Promise<void>((resolve) => {
+            let isCustomElement = customElements.get(customElement.localName) !== undefined;
+            if (!isCustomElement) resolve();
+            // @ts-ignore
+            let isRendered = customElement.rendered;
+            if (isRendered) resolve();
+
+            customElement.addEventListener("objectRendered", () => {
+                resolve();
+            });
+        });
+    }
+
+    private loadStylesheet(linkElement: HTMLElement){
+        return new Promise<void>((resolve) => {
+            let styleElement = document.createElement("link")
             styleElement.setAttribute("rel", "stylesheet")
             styleElement.classList.add("screenElement")
-            styleElement.setAttribute("href", element.getAttribute("href"))
-            elementsToLoad++;
+            styleElement.setAttribute("href", linkElement.getAttribute("href"))
             styleElement.addEventListener("load", () => {
-                console.log("loaded style" + styleElement.getAttribute("href"))
-                elementsToLoad--;
-                this.showScreenIfRendered(elementsToLoad,fontsLoaded);
-                //Wait until fonts are loaded
+                resolve();
+                /*Wait until fonts are loaded
                 document.fonts.ready.then(() => {
                     fontsLoaded = true
                     this.showScreenIfRendered(elementsToLoad,fontsLoaded);
-                })
+                })*/
             })
 
             document.head.appendChild(styleElement)
-        })
-
-
-        if(elementsToLoad == 0){
-            this._screenElement.classList.remove("hiddenScreen");
-        }
-
-        return true;
-    }
-
-    /**
-     * Show the screen, if all elements and fonts of it are rendered
-     * @param elementsToRender
-     * @param fontsRenderd
-     * @private
-     */
-    private showScreenIfRendered(elementsToRender: number, fontsRenderd: boolean){
-        if(elementsToRender > 0) return;
-        if(!fontsRenderd) return;
-        setTimeout(() =>{
-            this._screenElement.classList.remove("hiddenScreen");
-        },20);
+        });
     }
 
     public getActiveScreen():number{

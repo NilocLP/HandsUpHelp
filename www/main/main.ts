@@ -38,20 +38,17 @@ async function onDeviceReady() {
     await screenManager.fetchScreenIntoList("/screens/settings/subpages/configureSubjects/configureSubjects.html")
     await screenManager.fetchScreenIntoList("/screens/settings/subpages/configureSubject/configureSubject.html")
 
-    screenManager.changeScreen(1);
+    await screenManager.changeScreen(1);
 
     document.getElementById("app-navbar").addEventListener("pageSwitch", onPageNavigation)
 
-    setTimeout(() => {
-
-    }, 1000)
 
 
 }
 
 function onPageNavigation(e){
     const screenManager = mainManager.screenManager;
-    screenManager.changeScreen(e.detail.page);
+    screenManager.changeScreen(e.detail.page).then(r => {});
 }
 
 
