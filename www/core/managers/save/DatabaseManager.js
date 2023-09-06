@@ -40,10 +40,10 @@ class DatabaseManager {
      */
     openUpgradeNeeded(event) {
         const db = event.target.result;
-        db.createObjectStore("calenders", { autoIncrement: true });
-        const subjectStore = db.createObjectStore("subjects", { autoIncrement: true });
+        db.createObjectStore("calenders", { keyPath: "uuid" });
+        const subjectStore = db.createObjectStore("subjects", { keyPath: "uuid" });
         subjectStore.createIndex("name", "name");
-        const subjectEntryStore = db.createObjectStore("subjectEntries", { autoIncrement: true });
+        const subjectEntryStore = db.createObjectStore("subjectEntries", { keyPath: "uuid" });
         subjectEntryStore.createIndex("date", "date");
         subjectEntryStore.createIndex("handsUpCount", "handsUpCount");
         subjectEntryStore.createIndex("takenCount", "takenCount");

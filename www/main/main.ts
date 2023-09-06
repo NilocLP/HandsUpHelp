@@ -21,13 +21,20 @@
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
 document.addEventListener('deviceready', onDeviceReady, false);
 
-const mainManager = MainManager.getMainManager();
 
-
+/**
+ * Wait to Cordova Load Up, then start MainManager
+ */
 async function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
-    //console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    //document.getElementById('deviceready').classList.add('ready');
+    MainManager.getMainManager();
+    document.addEventListener("mainManagerLoadedUp", onAppReady);
+}
+
+/**
+ * Wait until MainManger is loaded
+ */
+async function onAppReady(){
+    const mainManager = MainManager.getMainManager();
     let screenElement = document.getElementById("app-screens");
     mainManager.createScreenManager(screenElement)
     const screenManager = mainManager.screenManager;
@@ -41,12 +48,10 @@ async function onDeviceReady() {
     await screenManager.changeScreen(1);
 
     document.getElementById("app-navbar").addEventListener("pageSwitch", onPageNavigation)
-
-
-
 }
 
 function onPageNavigation(e){
+    const mainManager = MainManager.getMainManager();
     const screenManager = mainManager.screenManager;
     screenManager.changeScreen(e.detail.page).then(r => {});
 }

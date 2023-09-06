@@ -19,6 +19,28 @@ class InputTime extends HTMLElement{
         return this._rendered;
     }
 
+    public valueAsDateTime(){
+        let inputElement:HTMLInputElement = this.querySelector(".hu-input");
+        let timeValue = inputElement.value;
+        let [hours, minutes] = timeValue.split(":").map(Number);
+        let currentDate = new Date();
+        let dateTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), hours, minutes);
+        return dateTime;
+    }
+
+    public setValue(date: Date){
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let timeValue = `${hours}:${minutes}`;
+        let inputElement:HTMLInputElement = this.querySelector(".hu-input");
+        inputElement.value = timeValue;
+    }
+
+    public clearValue(){
+        let inputElement:HTMLInputElement = this.querySelector(".hu-input");
+        inputElement.value = "";
+    }
+
     /**
      * It fetches the HTML file and then renders it.
      */

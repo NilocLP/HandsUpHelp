@@ -82,7 +82,6 @@ class PieChart extends HTMLElement{
         CHART.style.setProperty("background-image", currentBackground);
 
         let angel = this.calculateAngelFromPercentage(this._percentage);
-        console.log(angel);
         CHART_BAR.style.setProperty("transform", "rotate(" + angel.toString() + "deg)");
 
     }

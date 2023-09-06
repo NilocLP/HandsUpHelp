@@ -43,7 +43,7 @@ class ScreenManager {
         });
     }
     ;
-    changeScreen(screenNumber) {
+    changeScreen(screenNumber, data) {
         return __awaiter(this, void 0, void 0, function* () {
             //Check if screen exists
             if (!(screenNumber >= 0 && screenNumber < this._screens.length)) {
@@ -68,39 +68,46 @@ class ScreenManager {
             this._screenElement.innerHTML = screenElement.body.innerHTML;
             //Set Page Title
             headElement.innerHTML = screenElement.title;
-            //Load Scripts
-            let scriptPromises = [];
-            screenElement.scripts.forEach((element) => {
-                scriptPromises.push(this.loadScript(element));
+            //Load Page style
+            let stylePromises = [];
+            screenElement.styles.forEach((element) => {
+                stylePromises.push(this.loadStylesheet(element));
             });
+            yield Promise.all(stylePromises);
             //handle customElement loading
             let customElementPromises = [];
             let elements = this._screenElement.querySelectorAll('*');
             elements.forEach((element) => {
                 customElementPromises.push(this.waitUntilCustomElementLoaded(element));
             });
-            //Load Page style
-            let stylePromises = [];
-            screenElement.styles.forEach((element) => {
-                stylePromises.push(this.loadStylesheet(element));
+            yield Promise.all(customElementPromises);
+            //Load Scripts
+            let scriptPromises = [];
+            screenElement.scripts.forEach((element) => {
+                scriptPromises.push(this.loadScript(element, data));
             });
-            //Wait until scripts, customElements and styles are loaded
-            let allPromises = [...scriptPromises, ...customElementPromises, ...stylePromises];
-            yield Promise.all(allPromises);
+            yield Promise.all(scriptPromises);
             //Wait until fonts are ready
             yield document.fonts.ready;
             this._screenElement.classList.remove("hiddenScreen");
             return true;
         });
     }
-    loadScript(scriptElements) {
+    loadScript(scriptElements, data) {
         return new Promise((resolve) => {
             let scriptElement = document.createElement("script");
             scriptElement.src = scriptElements.getAttribute("src");
             scriptElement.classList.add("screenElement");
             scriptElement.type = "text/javascript";
             scriptElement.addEventListener("load", () => {
-                resolve();
+                resolve(scriptElement);
+                if (data) {
+                    // @ts-ignore
+                    init(data);
+                }
+                else {
+                    init();
+                }
             });
             document.head.appendChild(scriptElement);
         });
@@ -109,13 +116,13 @@ class ScreenManager {
         return new Promise((resolve) => {
             let isCustomElement = customElements.get(customElement.localName) !== undefined;
             if (!isCustomElement)
-                resolve();
+                resolve(undefined);
             // @ts-ignore
             let isRendered = customElement.rendered;
             if (isRendered)
-                resolve();
+                resolve(undefined);
             customElement.addEventListener("objectRendered", () => {
-                resolve();
+                resolve(customElement);
             });
         });
     }
@@ -125,19 +132,19 @@ class ScreenManager {
             styleElement.setAttribute("rel", "stylesheet");
             styleElement.classList.add("screenElement");
             styleElement.setAttribute("href", linkElement.getAttribute("href"));
+            document.head.appendChild(styleElement);
             styleElement.addEventListener("load", () => {
-                resolve();
+                resolve(styleElement);
                 /*Wait until fonts are loaded
                 document.fonts.ready.then(() => {
                     fontsLoaded = true
                     this.showScreenIfRendered(elementsToLoad,fontsLoaded);
                 })*/
             });
-            document.head.appendChild(styleElement);
         });
     }
     getActiveScreen() {
         return this._activScreen;
     }
 }
-//# sourceMappingURL=screenManager.js.map
+//# sourceMappingURL=ScreenManager.js.map

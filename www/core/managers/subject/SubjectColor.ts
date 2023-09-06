@@ -1,9 +1,13 @@
 enum SubjectColor {
-    RED,
-    ORANGE,
-    YELLOW,
-    GREEN,
-    BLUE,
-    PURPLE,
-    PINK
+    RED = "red",
+    ORANGE = "orange",
+    YELLOW = "yellow",
+    GREEN = "green",
+    CYAN = "cyan",
+    BLUE = "blue",
+    PINK = "pink",
 }
+
+
+
+

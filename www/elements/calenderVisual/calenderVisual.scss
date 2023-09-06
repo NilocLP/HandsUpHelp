@@ -4,7 +4,6 @@
 @import "../../elements/toggleButton/toggleButton";
 @import "../../elements/dropdown/dropdown";
 
-//Main Calender
 #calender {
   margin-top: 3.75vh;
   height: 50%;
@@ -41,7 +40,7 @@
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(10, 1fr);
     gap: 0px 0px;
-    grid-auto-flow: row;
+    grid-auto-flow: column;
     grid-template-areas:
     ". . . . ."
     ". . . . ."
@@ -60,19 +59,105 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      margin: 3px 6px;
+
+      font-family: IBMPlexSansThaiLooped, serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: normal;
+      text-align: center;
+      overflow: hidden;
+      padding-top: 3%;
     }
 
     .notUsed {
-      margin: 3px 6px;
+      padding-top: 0 !important;
       border: 1px dashed $color-normal-lightYellow;
       div {
         @include svg-icon("/core/assets/svg/plus.svg", 16px, 16px, $color-normal-lightYellow);
       }
     }
+
+    .calender-color-red {
+      color: $color-subject-red;
+      background-color: $color-subject-red;
+      border: 1px solid $color-subject-red;
+      filter: drop-shadow(0px 0px 6px $color-subject-red);
+    }
+
+    .calender-color-orange {
+      color: $color-subject-orange;
+      background-color: $color-subject-orange;
+      border: 1px solid $color-subject-orange;
+      filter: drop-shadow(0px 0px 6px $color-subject-orange);
+    }
+
+    .calender-color-yellow {
+      color: $color-subject-yellow;
+      background-color: $color-subject-yellow;
+      border: 1px solid $color-subject-yellow;
+      filter: drop-shadow(0px 0px 6px $color-subject-yellow);
+    }
+
+    .calender-color-green {
+      color: $color-subject-green;
+      background-color: $color-subject-green;
+      border: 1px solid $color-subject-green;
+      filter: drop-shadow(0px 0px 6px $color-subject-green);
+    }
+
+    .calender-color-cyan {
+      color: $color-subject-cyan;
+      background-color: $color-subject-cyan;
+      border: 1px solid $color-subject-cyan;
+      filter: drop-shadow(0px 0px 6px $color-subject-cyan);
+    }
+
+    .calender-color-blue {
+      color: $color-subject-blue;
+      background-color: $color-subject-blue;
+      border: 1px solid $color-subject-blue;
+      filter: drop-shadow(0px 0px 6px $color-subject-blue);
+    }
+
+    .calender-color-pink {
+      color: $color-subject-pink;
+      background-color: $color-subject-pink;
+      border: 1px solid $color-subject-pink;
+      filter: drop-shadow(0px 0px 6px $color-subject-pink);
+    }
+
+    .calender-notRunning{
+      filter: none !important;
+    }
+
+    .calender-notGoalReached{
+      background-color: transparent !important;
+    }
+
+    .calender-goalReached{
+      color: $color-normal-grey !important;
+    }
+
+    .calender-doubleLesson{
+      grid-row: span 2;
+    }
+
+    .calender-doubleLessonSecond{
+      display: none;
+    }
+
+
   }
 }
 
 //Input
+.hu-calender-input-hidden{
+  display: none;
+  visibility: hidden;
+}
+
 #hu-calender-input{
   width: 100vw;
   height: 100vh;

@@ -1,12 +1,11 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="de.niloc.handsuphelp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>HandsUpHelper</name>
-    <description>An app to track how often you raised your hands in school.</description>
-    <author email="contact@niloc.info" href="https://niloc.info/">
+  <name>HandsUpHelper</name>
+  <description>An app to track how often you raised your hands in school.</description>
+  <author email="contact@niloc.info" href="https://niloc.info/">
        Niloc
     </author>
-    <content src="/main/main.html" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-
+  <content src="/main/main.html"/>
+  <allow-intent href="http://*/*"/>
+  <allow-intent href="https://*/*"/>
 </widget>

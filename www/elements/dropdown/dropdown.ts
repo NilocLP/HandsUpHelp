@@ -1,6 +1,6 @@
 class Dropdown extends HTMLElement{
 
-    private _options: Array<any> = [];
+    private _options: Array<{id:string, name:string, hasIcon:boolean, iconColor:string}> = [];
     private _menuOpen: boolean = false;
     private _currentOption: string;
     private _rendered: boolean = false;
@@ -38,7 +38,7 @@ class Dropdown extends HTMLElement{
         }
     }
 
-    get options(){
+    get options():{id:string, name:string, hasIcon:boolean, iconColor:string}[]{
         return this._options;
     }
     get menuOpen(){
@@ -48,20 +48,30 @@ class Dropdown extends HTMLElement{
         return this._currentOption;
     }
 
+    set currentOption(optionId:string){
+        this.renderNewTitle(this._options[parseInt(optionId)]);
+        this._currentOption = optionId.toString();
+    }
+
     /**
      * It adds a new option to the dropdown menu
      * @param optionName - The name of the option.
      * @param hasIcon - boolean
      * @param iconColor - The color of the icon.
+     * @param id - OPTIONAL - The identifier of the option (if not defined, it gets assigned)
      */
-    public addOption(optionName:string, hasIcon: boolean, iconColor: string): void{
+    public addOption(optionName:string, hasIcon: boolean, iconColor: string, id?:string): void{
         if(typeof optionName !== "string" || typeof iconColor !== "string" || typeof hasIcon !== "boolean"){
             return;
         }
-        const OPTION = {
+        const OPTION:{id:string, name:string, hasIcon:boolean, iconColor:string} = {
+            id: id,
             name: optionName,
             hasIcon: hasIcon,
             iconColor: iconColor
+        }
+        if(!id){
+            OPTION.id = UUIDUtils.generateUUID();
         }
         this._options.push(OPTION);
         let node = this.renderNewOption(OPTION);
@@ -80,6 +90,27 @@ class Dropdown extends HTMLElement{
         delete this._options[id];
         this.renderRemoveOption(id);
     }
+
+    /**
+     * It removes all option from the _options object and calls the renderRemoveOptions function to remove the option
+     * from the DOM
+     * @param id - The id of the option to remove.
+     */
+    public removeOptions() {
+        for (let i = 0; i < this._options.length; i++) {
+            this.renderRemoveOption(i);
+        }
+        this._options = [];
+    }
+
+    /**
+     * Clears the current selected Option by going back to the placeholder value
+     */
+    public clearCurrentOption(){
+        this._currentOption = undefined;
+        this.placeholderAttributeChanged(this.getAttribute("placeholder"))
+    }
+
     /**
      * If the menu is already open, do nothing. Otherwise, set the _menuOpen variable to true and display the _options'
      * container.
@@ -132,8 +163,9 @@ class Dropdown extends HTMLElement{
         node.appendChild(colorDiv);
         node.appendChild(textSpan);
         node.setAttribute("hu-option", (this._options.length - 1).toString());
-
-        this.querySelector("div.hu-dropdown-frame div.hu-dropdown-options").appendChild(node);
+        //console.log(this);
+        //console.log(this.getElementsByClassName("div.hu-dropdown-options")[0])
+        this.querySelector("div.hu-dropdown-options").appendChild(node);
         return node;
     }
     /**

@@ -18,11 +18,18 @@ class SaveManager {
     get dbManager() {
         return this._dbManager;
     }
-    getCalenderById(id) {
+    getCalenderByUUID(uuid) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
-            const calenderStore = db.transaction('calenders', 'read').objectStore('calenders');
-            return this.getById(calenderStore, id);
+            const calenderStore = db.transaction('calenders', 'readonly').objectStore('calenders');
+            return this.getByUUID(calenderStore, uuid);
+        });
+    }
+    getAllCalenders() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const db = yield this._dbManager.getDatabase();
+            const calenderStore = db.transaction('calenders', 'readonly').objectStore('calenders');
+            return this.getAll(calenderStore);
         });
     }
     addCalender(data) {
@@ -32,31 +39,38 @@ class SaveManager {
             return this.add(calenderStore, data);
         });
     }
-    updateCalender(dataPlusId) {
+    updateCalender(data) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
             const calenderStore = db.transaction('calenders', 'readwrite').objectStore('calenders');
-            return this.update(calenderStore, dataPlusId);
+            return this.update(calenderStore, data);
         });
     }
-    deleteCalenderById(id) {
+    deleteCalenderByUUID(uuid) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
             const calenderStore = db.transaction('calenders', 'readwrite').objectStore('calenders');
-            return this.deleteById(calenderStore, id);
+            return this.deleteByUUID(calenderStore, uuid);
         });
     }
-    getSubjectEntryById(id) {
+    getSubjectEntryByUUID(uuid) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
-            const subjectEntryStore = db.transaction('subjectEntries', 'read').objectStore('subjectEntries');
-            return this.getById(subjectEntryStore, id);
+            const subjectEntryStore = db.transaction('subjectEntries', 'readonly').objectStore('subjectEntries');
+            return this.getByUUID(subjectEntryStore, uuid);
+        });
+    }
+    getAllSubjectEntrys() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const db = yield this._dbManager.getDatabase();
+            const subjectEntryStore = db.transaction('subjectEntries', 'readonly').objectStore('subjectEntries');
+            return this.getAll(subjectEntryStore);
         });
     }
     getSubjectEntrysByTakenCount(takenCount) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
-            const subjectStore = db.transaction('subjects', 'read').objectStore('subjects');
+            const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
             let keyRange = IDBKeyRange.only(takenCount);
             return this.searchWithCursor(takenCount, keyRange, subjectStore, "takenCount", true);
         });
@@ -64,7 +78,7 @@ class SaveManager {
     getSubjectEntrysByHandsUpCount(handsUpCount) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
-            const subjectStore = db.transaction('subjects', 'read').objectStore('subjects');
+            const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
             let keyRange = IDBKeyRange.only(handsUpCount);
             return this.searchWithCursor(handsUpCount, keyRange, subjectStore, "handsUpCount", true);
         });
@@ -72,7 +86,7 @@ class SaveManager {
     getSubjectEntrysByAssignedSubject(subjectId) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
-            const subjectStore = db.transaction('subjects', 'read').objectStore('subjects');
+            const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
             let keyRange = IDBKeyRange.only(subjectId);
             return this.searchWithCursor(subjectId, keyRange, subjectStore, "assignedSubject", true);
         });
@@ -80,7 +94,7 @@ class SaveManager {
     getSubjectEntrysByDate(date) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
-            const subjectStore = db.transaction('subjects', 'read').objectStore('subjects');
+            const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
             let keyRange = IDBKeyRange.only(date);
             return this.searchWithCursor(date, keyRange, subjectStore, "date", true);
         });
@@ -88,7 +102,7 @@ class SaveManager {
     getSubjectEntrysByDateRange(startDate, endDate) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
-            const subjectStore = db.transaction('subjects', 'read').objectStore('subjects');
+            const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
             let keyRange = IDBKeyRange.bound(startDate, endDate);
             return this.searchWithCursor(null, keyRange, subjectStore, "date", true);
         });
@@ -100,33 +114,40 @@ class SaveManager {
             return this.add(subjectEntryStore, data);
         });
     }
-    updateSubjectEntry(dataPlusId) {
+    updateSubjectEntry(data) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
             const subjectEntryStore = db.transaction('subjectEntries', 'readwrite').objectStore('subjectEntries');
-            return this.update(subjectEntryStore, dataPlusId);
+            return this.update(subjectEntryStore, data);
         });
     }
-    deleteSubjectEntryById(id) {
+    deleteSubjectEntryByUUID(uuid) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
             const subjectEntryStore = db.transaction('subjectEntries', 'readwrite').objectStore('subjectEntries');
-            return this.deleteById(subjectEntryStore, id);
+            return this.deleteByUUID(subjectEntryStore, uuid);
         });
     }
-    getSubjectById(id) {
+    getSubjectByUUID(uuid) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
-            const subjectStore = db.transaction('subjects', 'read').objectStore('subjects');
-            return this.getById(subjectStore, id);
+            const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
+            return this.getByUUID(subjectStore, uuid);
         });
     }
     getSubjectByName(name) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
-            const subjectStore = db.transaction('subjects', 'read').objectStore('subjects');
+            const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
             let keyRange = IDBKeyRange.only(name);
             return this.searchWithCursor(name, keyRange, subjectStore, "name");
+        });
+    }
+    getAllSubjects() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const db = yield this._dbManager.getDatabase();
+            const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
+            return this.getAll(subjectStore);
         });
     }
     addSubject(data) {
@@ -136,28 +157,51 @@ class SaveManager {
             return this.add(subjectStore, data);
         });
     }
-    updateSubject(dataPlusId) {
+    updateSubject(data) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
             const subjectStore = db.transaction('subjects', 'readwrite').objectStore('subjects');
-            return this.update(subjectStore, dataPlusId);
+            return this.update(subjectStore, data);
         });
     }
-    deleteSubjectById(id) {
+    deleteSubjectByUUID(uuid) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
             const subjectStore = db.transaction('subjects', 'readwrite').objectStore('subjects');
-            return this.deleteById(subjectStore, id);
+            return this.deleteByUUID(subjectStore, uuid);
         });
     }
-    getById(objectStore, id) {
+    getByUUID(objectStore, uuid) {
         return new Promise((resolve, reject) => {
-            const request = objectStore.get(id);
+            const request = objectStore.get(uuid);
             request.onsuccess = (e) => {
                 resolve(e.target.result);
             };
             request.onerror = (e) => {
                 reject(e.target.error);
+            };
+        });
+    }
+    getAll(objectStore) {
+        return new Promise((resolve, reject) => {
+            const request = objectStore.openCursor();
+            let resultArray = [];
+            request.onsuccess = (e) => {
+                let cursor = e.target.result;
+                if (!cursor) {
+                    resolve(resultArray);
+                    return;
+                }
+                let result = {
+                    id: cursor.key,
+                    value: cursor.value
+                };
+                resultArray.push(result);
+                cursor.continue();
+            };
+            request.onerror = (e) => {
+                reject(e.target.error);
+                return;
             };
         });
     }
@@ -174,18 +218,20 @@ class SaveManager {
     }
     update(objectStore, data) {
         return new Promise((resolve, reject) => {
-            const request = objectStore.update(data);
+            const request = objectStore.put(data);
             request.onsuccess = (e) => {
+                // @ts-ignore
                 resolve(e.target.result);
             };
             request.onerror = (e) => {
+                // @ts-ignore
                 reject(e.target.error);
             };
         });
     }
-    deleteById(objectStore, id) {
+    deleteByUUID(objectStore, uuid) {
         return new Promise((resolve, reject) => {
-            const request = objectStore.delete(id);
+            const request = objectStore.delete(uuid);
             request.onsuccess = (e) => {
                 resolve(e.target.result);
             };
@@ -220,9 +266,11 @@ class SaveManager {
                 if (!cursor) {
                     if (multiSearch) {
                         resolve(resultArray);
+                        return;
                     }
                     else {
                         reject("searchValue can't be found");
+                        return;
                     }
                 }
                 //Enter if statement, when the search Value is not null and not match the cursor key
@@ -238,11 +286,13 @@ class SaveManager {
                 }
                 else {
                     resolve(resultObject);
+                    return;
                 }
             };
             cursor.onerror = (e) => {
                 let request = e.target;
                 reject(request.error);
+                return;
             };
         });
     }

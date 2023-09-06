@@ -36,6 +36,12 @@ $background-overlaying: rgba(17, 17, 17, 0.9);
   font-style: normal;
   font-weight: 500;
 }
+@font-face {
+  font-family: 'IBMPlexSansThaiLooped';
+  src: url('/core/font/IBMPlexSansThaiLooped-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+}
 
 @mixin largeHeading($fontsize: 24px, $lineHeight: 40px){
   font-family: IBMPlexSansThaiLooped, serif;
@@ -95,6 +101,7 @@ $background-overlaying: rgba(17, 17, 17, 0.9);
   line-height: $lineHeight;
   color: $color-normal-black;
 }
+
 //Other
 @mixin resetDefaultPage(){
   html{

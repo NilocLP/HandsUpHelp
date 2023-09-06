@@ -44,13 +44,16 @@ class ToggleButton extends HTMLElement {
     }
 
     private toggleChange(event: any): void{
+        let checked: boolean;
         if (event.currentTarget.getAttribute("checked") === "true") {
             event.currentTarget.setAttribute("checked", "false");
-
+            checked = false;
         }else if (event.currentTarget.getAttribute("checked") === "false") {
             event.currentTarget.setAttribute("checked", "true");
-
+            checked = true;
         }
+        const toggleEvent = new CustomEvent("toggleChange", { detail: checked });
+        this.dispatchEvent(toggleEvent);
     }
 
     private async render(): Promise<void> {

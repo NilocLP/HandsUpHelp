@@ -40,7 +40,7 @@ class ScreenManager{
         return elementInArray;
     };
 
-    public async changeScreen(screenNumber:number){
+    public async changeScreen(screenNumber:number, data?: {}){
         //Check if screen exists
         if(!(screenNumber >= 0 && screenNumber < this._screens.length)){
             return false;
@@ -71,11 +71,13 @@ class ScreenManager{
         //Set Page Title
         headElement.innerHTML = screenElement.title;
 
-        //Load Scripts
-        let scriptPromises = []
-        screenElement.scripts.forEach((element:HTMLElement) => {
-           scriptPromises.push(this.loadScript(element));
+        //Load Page style
+        let stylePromises = []
+        screenElement.styles.forEach((element:HTMLElement) => {
+            stylePromises.push(this.loadStylesheet(element));
         });
+        await Promise.all(stylePromises);
+
 
         //handle customElement loading
         let customElementPromises = []
@@ -83,16 +85,15 @@ class ScreenManager{
         elements.forEach((element) => {
             customElementPromises.push(this.waitUntilCustomElementLoaded(element as HTMLElement));
         });
+        await Promise.all(customElementPromises);
 
-        //Load Page style
-        let stylePromises = []
-        screenElement.styles.forEach((element:HTMLElement) => {
-            stylePromises.push(this.loadStylesheet(element));
+
+        //Load Scripts
+        let scriptPromises = []
+        screenElement.scripts.forEach((element:HTMLElement) => {
+            scriptPromises.push(this.loadScript(element, data));
         });
-
-        //Wait until scripts, customElements and styles are loaded
-        let allPromises =  [...scriptPromises, ...customElementPromises, ...stylePromises]
-        await Promise.all(allPromises);
+        await Promise.all(scriptPromises);
 
         //Wait until fonts are ready
         await document.fonts.ready
@@ -102,15 +103,21 @@ class ScreenManager{
 
     }
 
-    private loadScript(scriptElements: HTMLElement){
-        return new Promise<void>((resolve) => {
+    private loadScript(scriptElements: HTMLElement, data?: {}){
+        return new Promise((resolve) => {
             let scriptElement = document.createElement("script")
             scriptElement.src = scriptElements.getAttribute("src");
             scriptElement.classList.add("screenElement");
             scriptElement.type = "text/javascript";
 
             scriptElement.addEventListener("load", () => {
-                resolve();
+                resolve(scriptElement);
+                if(data){
+                    // @ts-ignore
+                    init(data);
+                }else{
+                    init();
+                }
             });
             document.head.appendChild(scriptElement);
         });
@@ -118,27 +125,28 @@ class ScreenManager{
     }
 
     private waitUntilCustomElementLoaded(customElement: HTMLElement){
-        return new Promise<void>((resolve) => {
+        return new Promise((resolve) => {
             let isCustomElement = customElements.get(customElement.localName) !== undefined;
-            if (!isCustomElement) resolve();
+            if (!isCustomElement) resolve(undefined);
             // @ts-ignore
             let isRendered = customElement.rendered;
-            if (isRendered) resolve();
+            if (isRendered) resolve(undefined);
 
             customElement.addEventListener("objectRendered", () => {
-                resolve();
+                resolve(customElement);
             });
         });
     }
 
     private loadStylesheet(linkElement: HTMLElement){
-        return new Promise<void>((resolve) => {
+        return new Promise((resolve) => {
             let styleElement = document.createElement("link")
             styleElement.setAttribute("rel", "stylesheet")
             styleElement.classList.add("screenElement")
             styleElement.setAttribute("href", linkElement.getAttribute("href"))
+            document.head.appendChild(styleElement)
             styleElement.addEventListener("load", () => {
-                resolve();
+                resolve(styleElement);
                 /*Wait until fonts are loaded
                 document.fonts.ready.then(() => {
                     fontsLoaded = true
@@ -146,7 +154,6 @@ class ScreenManager{
                 })*/
             })
 
-            document.head.appendChild(styleElement)
         });
     }
 

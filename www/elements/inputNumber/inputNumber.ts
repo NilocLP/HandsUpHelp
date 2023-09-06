@@ -59,6 +59,8 @@ class InputNumber extends HTMLElement{
 
         this.innerHTML = text;
         this.querySelector("input").addEventListener("input", this.handleMaxInput.bind(this));
+        this.querySelector("input").addEventListener("input", this.handleValueChanged.bind(this));
+
         //ReRender Placeholder
         if (this.getAttribute("placeholder")) this.placeholderAttributeChanged(this.getAttribute("placeholder"))
         if (this.getAttribute("maxValue")) this.maxValueAttributeChanged(this.getAttribute("maxValue"))
@@ -66,6 +68,17 @@ class InputNumber extends HTMLElement{
     private renderNewTitle(placeholder: string): void{
         if(this.querySelector("input") === null) return;
         this.querySelector("input").setAttribute("placeholder", placeholder);
+    }
+
+    private handleValueChanged(event){
+        let value = event.currentTarget.value;
+        const toggleEvent = new CustomEvent("inputChanged", { detail: value });
+        this.dispatchEvent(toggleEvent);
+    }
+
+    public setValue(value: number){
+        let inputElement = this.querySelector("input");
+        inputElement.value = value.toString();
     }
 
     private handleMaxInput(){

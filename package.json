@@ -20,11 +20,13 @@
     "plugins": {
       "cordova-plugin-file": {
         "ANDROIDX_WEBKIT_VERSION": "1.4.0"
-      }
+      },
+      "cordova-plugin-dialogs": {}
     }
   },
   "devDependencies": {
     "cordova-android": "^10.1.2",
+    "cordova-plugin-dialogs": "^2.0.2",
     "cordova-plugin-file": "^7.0.0"
   },
   "dependencies": {

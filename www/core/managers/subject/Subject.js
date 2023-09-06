@@ -1,7 +1,11 @@
 class Subject {
-    constructor(name, handsUpGoal, color) {
-        this._uuid = self.crypto.randomUUID();
-        this._subjectEntries = new Map();
+    constructor(name, handsUpGoal, color, uuid) {
+        if (uuid) {
+            this._uuid = uuid;
+        }
+        else {
+            this._uuid = UUIDUtils.generateUUID();
+        }
         this._name = name;
         this._handsUpGoal = handsUpGoal;
         this._color = color;
@@ -18,18 +22,19 @@ class Subject {
     get color() {
         return this._color;
     }
-    get subjectEntries() {
-        return this._subjectEntries;
-    }
     updateSettings(name, handsUpGoal, color) {
         this._name = name;
         this._handsUpGoal = handsUpGoal;
         this._color = color;
     }
-    addSubjectEntry(weekday, handsUpCount, takenCount) {
-        let date = new Date(Date.now());
-        let subjectEntry = new SubjectEntry(date, handsUpCount, takenCount);
-        this._subjectEntries.set(subjectEntry.uuid, subjectEntry);
+    toJSON() {
+        let json = {
+            uuid: this._uuid,
+            name: this._name,
+            handsUpGoal: this._handsUpGoal,
+            color: this._color
+        };
+        return json;
     }
 }
 //# sourceMappingURL=Subject.js.map
