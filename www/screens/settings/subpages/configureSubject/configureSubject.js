@@ -7,6 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+//@ts-ignore
 function init(data) {
     if (data.subjectUUID) {
         fillInSubjectInformations(data.subjectUUID);

@@ -1,3 +1,4 @@
+//@ts-ignore
 function init(data){
     if(data.subjectUUID){
         fillInSubjectInformations(data.subjectUUID)

@@ -26,6 +26,10 @@
   height: 16.72%;
   width: 87%;
 
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
   #currentLesson{
     display: flex;
     flex-direction: column;
@@ -46,5 +50,10 @@
       }
     }
   }
+}
+
+.hideActions{
+  display: none !important;
+  visibility: hidden;
 }
 

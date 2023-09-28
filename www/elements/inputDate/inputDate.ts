@@ -9,6 +9,11 @@ class InputDate extends HTMLElement{
     async connectedCallback() {
         await this.render();
 
+        this.querySelector(".hu-input").addEventListener("input", (e) => {
+            const event = new CustomEvent('hu-dateChanged');
+            this.dispatchEvent(event);
+        });
+
         this._rendered = true;
         const event = new CustomEvent('objectRendered');
         this.dispatchEvent(event);
@@ -16,6 +21,16 @@ class InputDate extends HTMLElement{
 
     get rendered(){
         return this._rendered;
+    }
+
+    get value(){
+        let input = this.querySelector(".hu-input") as HTMLInputElement;
+        return input.value;
+    }
+
+    set value(value:string){
+        let input = this.querySelector(".hu-input") as HTMLInputElement;
+        input.value = value;
     }
 
     /**

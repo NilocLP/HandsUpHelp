@@ -59,6 +59,7 @@ function handleLessonLengthUpdate(event){
 }
 
 function handleLanguageUpdate(event){
+    let mainManager = MainManager.getMainManager();
     let dropdown:Dropdown = event.currentTarget;
     let value = dropdown.options[dropdown.currentOption].name
     switch (value){

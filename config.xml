@@ -8,4 +8,8 @@
   <content src="/main/main.html"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
+  <platform name="android">
+    <preference name="android-gradle-plugin" value="7.6" />
+  </platform>
+  <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 </widget>

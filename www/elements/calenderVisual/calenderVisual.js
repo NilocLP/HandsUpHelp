@@ -51,9 +51,15 @@ class CalenderVisual extends HTMLElement {
     }
     openInput(calenderSlot) {
         this._opendCalenderSlot = calenderSlot;
-        document.getElementById("hu-calender-input").classList.remove("hu-calender-input-hidden");
         const mainManger = MainManager.getMainManager();
         let calenderSlotLesson = this._assignedCalender.getLessonFromSlot(calenderSlot);
+        //Check if Lesson is running
+        if (calenderSlotLesson) {
+            if (calenderSlotLesson.isRunning) {
+                this.showInputSubmitError("It's not allowed to edit a running lesson");
+                return;
+            }
+        }
         //Reset dropdown
         const inputDropdown = document.querySelector("#hu-calender-input hu-dropdown");
         inputDropdown.removeOptions();
@@ -76,6 +82,7 @@ class CalenderVisual extends HTMLElement {
         toggleButton.setAttribute("checked", "false");
         inputTimeStart.clearValue();
         inputTimeEnd.clearValue();
+        document.getElementById("hu-calender-input").classList.remove("hu-calender-input-hidden");
         if (!calenderSlotLesson) {
             return;
         }
@@ -96,15 +103,17 @@ class CalenderVisual extends HTMLElement {
         let mainManager = MainManager.getMainManager();
         //Get Subject
         let currentOption = parseInt(inputDropdown.currentOption);
-        let subjetcUUID = inputDropdown.options[currentOption].id;
-        let subject = mainManager.subjects.filter((subject) => subject.uuid === subjetcUUID)[0];
+        let subjectUUID = inputDropdown.options[currentOption].id;
+        let subject = mainManager.subjects.filter((subject) => subject.uuid === subjectUUID)[0];
         let isDoubleLesson = toggleButton.getAttribute("checked");
         let weekday = Math.floor(currentSlot / 10);
         let startTime = inputTimeStart.valueAsDateTime();
         let endTime = inputTimeEnd.valueAsDateTime();
-        let newLesson = new Lesson(JSON.parse(isDoubleLesson), weekday, startTime, endTime, subject);
+        let lessonToUpdate = this._assignedCalender.getLessonFromSlot(this._opendCalenderSlot);
+        let lesson;
+        lesson = new Lesson(JSON.parse(isDoubleLesson), weekday, startTime, endTime, subject);
         calender.removeLessonFromSlot(currentSlot);
-        let addCode = calender.addLessonToSlot(currentSlot, newLesson);
+        let addCode = calender.addLessonToSlot(currentSlot, lesson);
         switch (addCode) {
             case 1:
                 this.showInputSubmitError("It is not possible to create a double-lesson here");
@@ -116,9 +125,19 @@ class CalenderVisual extends HTMLElement {
                 this.showInputSubmitError("End time is before start time or equal to it, which is not allowed");
                 return;
         }
+        if (lessonToUpdate) {
+            if (lessonToUpdate.subject.uuid == subject.uuid) {
+                let newLesson = calender.getLessonFromSlot(currentSlot);
+                newLesson.handsUpCount = lessonToUpdate.handsUpCount;
+                newLesson.takenCount = lessonToUpdate.takenCount;
+                newLesson.isRunning = lessonToUpdate.isRunning;
+                newLesson.goalReached = lessonToUpdate.goalReached;
+            }
+        }
         mainManager.saveManager.updateCalender(mainManager.mainCalender.toJSON()).then(r => {
             this.hideInput();
             this.renderTimeSlots();
+            mainManager.runPhase();
         });
     }
     showInputSubmitError(message) {

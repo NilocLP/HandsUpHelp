@@ -278,7 +278,7 @@ hu-togglebutton input {
   display: flex;
   align-items: center;
   position: relative;
-  z-index: 1;
+  z-index: 3;
   justify-content: space-between;
 }
 #settings #settings-setting-language-dropdown .hu-dropdown-title .hu-dropdown-title-inner {
@@ -331,6 +331,7 @@ hu-togglebutton input {
   border-bottom-right-radius: 5px;
   border-top: 0px;
   margin-top: -3px;
+  z-index: 2;
 }
 #settings #settings-setting-language-dropdown .hu-dropdown-options-container .hu-dropdown-options {
   width: 96%;

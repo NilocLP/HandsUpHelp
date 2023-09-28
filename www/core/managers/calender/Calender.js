@@ -84,11 +84,8 @@ class Calender {
         }
         return null;
     }
-    /*
-        TODO: aktuelle Lessons und kommende können ermittelt werden. Jetzt muss das System implementiert werden im Main Manager, was den Zyklus regelt und die Einträge
-         erstellt.
-     */
     getUpcomingLesson(date) {
+        let nextLesson = null;
         for (const [, lesson] of this._calenderSlots) {
             if (!lesson.lessonInSameDay(date)) {
                 continue;
@@ -97,10 +94,17 @@ class Calender {
                 continue;
             }
             if (lesson.timeframeBeforeLesson(date)) {
-                return lesson;
+                if (nextLesson === null) {
+                    nextLesson = lesson;
+                    continue;
+                }
+                if (DateUtils.getTimeDifferenceHours(nextLesson.startTime, lesson.startTime) <= 0) {
+                    continue;
+                }
+                nextLesson = lesson;
             }
         }
-        return null;
+        return nextLesson;
     }
     updateCurrentWeek(newCurrentWeek) {
         this._currentWeek = newCurrentWeek;

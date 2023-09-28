@@ -459,7 +459,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  z-index: 1;
+  z-index: 3;
   justify-content: space-between;
 }
 .hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-title .hu-dropdown-title-inner {
@@ -512,6 +512,7 @@
   border-bottom-right-radius: 5px;
   border-top: 0px;
   margin-top: -3px;
+  z-index: 2;
 }
 .hu-calender-input-content .hu-calender-input-subject hu-dropdown .hu-dropdown-options-container .hu-dropdown-options {
   width: 96%;
@@ -854,7 +855,7 @@ hu-dropdown .hu-dropdown-title {
   display: flex;
   align-items: center;
   position: relative;
-  z-index: 1;
+  z-index: 3;
   justify-content: space-between;
 }
 hu-dropdown .hu-dropdown-title .hu-dropdown-title-inner {
@@ -907,6 +908,7 @@ hu-dropdown .hu-dropdown-options-container {
   border-bottom-right-radius: 5px;
   border-top: 0px;
   margin-top: -3px;
+  z-index: 2;
 }
 hu-dropdown .hu-dropdown-options-container .hu-dropdown-options {
   width: 96%;
@@ -1027,6 +1029,10 @@ hu-piechart .hu-chart .hu-separator-Two {
   line-height: 26px;
   color: #FFFED5;
   margin-bottom: 1vh;
+}
+
+.statisticsHidden {
+  display: none;
 }
 
 #statistics {

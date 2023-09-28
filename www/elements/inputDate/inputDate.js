@@ -15,6 +15,10 @@ class InputDate extends HTMLElement {
     connectedCallback() {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.render();
+            this.querySelector(".hu-input").addEventListener("input", (e) => {
+                const event = new CustomEvent('hu-dateChanged');
+                this.dispatchEvent(event);
+            });
             this._rendered = true;
             const event = new CustomEvent('objectRendered');
             this.dispatchEvent(event);
@@ -22,6 +26,14 @@ class InputDate extends HTMLElement {
     }
     get rendered() {
         return this._rendered;
+    }
+    get value() {
+        let input = this.querySelector(".hu-input");
+        return input.value;
+    }
+    set value(value) {
+        let input = this.querySelector(".hu-input");
+        input.value = value;
     }
     /**
      * It fetches the HTML file and then renders it.

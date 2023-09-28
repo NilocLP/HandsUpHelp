@@ -51,43 +51,43 @@ class SaveManager {
         return this.getByUUID(subjectEntryStore, uuid);
     }
 
-    public async getAllSubjectEntrys() {
+    public async getAllSubjectEntries() {
         const db = await this._dbManager.getDatabase()
         const subjectEntryStore = db.transaction('subjectEntries', 'readonly').objectStore('subjectEntries');
         return this.getAll(subjectEntryStore);
     }
 
-    public async getSubjectEntrysByTakenCount(takenCount: number) {
+    public async getSubjectEntriesByTakenCount(takenCount: number) {
         const db = await this._dbManager.getDatabase()
-        const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
+        const subjectStore = db.transaction('subjectEntries', 'readonly').objectStore('subjectEntries');
         let keyRange: IDBKeyRange = IDBKeyRange.only(takenCount);
         return this.searchWithCursor(takenCount, keyRange, subjectStore, "takenCount", true);
     }
 
-    public async getSubjectEntrysByHandsUpCount(handsUpCount: number) {
+    public async getSubjectEntriesByHandsUpCount(handsUpCount: number) {
         const db = await this._dbManager.getDatabase()
-        const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
+        const subjectStore = db.transaction('subjectEntries', 'readonly').objectStore('subjectEntries');
         let keyRange: IDBKeyRange = IDBKeyRange.only(handsUpCount);
         return this.searchWithCursor(handsUpCount, keyRange, subjectStore, "handsUpCount", true);
     }
 
-    public async getSubjectEntrysByAssignedSubject(subjectId: number) {
+    public async getSubjectEntriesByAssignedSubject(subjectId: number) {
         const db = await this._dbManager.getDatabase()
-        const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
+        const subjectStore = db.transaction('subjectEntries', 'readonly').objectStore('subjectEntries');
         let keyRange = IDBKeyRange.only(subjectId)
         return this.searchWithCursor(subjectId, keyRange, subjectStore, "assignedSubject", true);
     }
 
-    public async getSubjectEntrysByDate(date: string) {
+    public async getSubjectEntriesByDate(date: string) {
         const db = await this._dbManager.getDatabase()
-        const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
+        const subjectStore = db.transaction('subjectEntries', 'readonly').objectStore('subjectEntries');
         let keyRange = IDBKeyRange.only(date)
         return this.searchWithCursor(date, keyRange, subjectStore, "date", true);
     }
 
-    public async getSubjectEntrysByDateRange(startDate: string, endDate: string) {
-        const db = await this._dbManager.getDatabase()
-        const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
+    public async getSubjectEntriesByDateRange(startDate: Date, endDate: Date) {
+        const db:IDBDatabase = await this._dbManager.getDatabase();
+        const subjectStore = db.transaction('subjectEntries', 'readonly').objectStore('subjectEntries');
         let keyRange = IDBKeyRange.bound(startDate, endDate)
         return this.searchWithCursor(null, keyRange, subjectStore, "date", true);
 

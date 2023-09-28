@@ -5,20 +5,23 @@ class Lesson{
     private _weekday: number;
     private _startTime: Date;
     private _endTime: Date;
-    private _handsUpCount: number;
-    private _takenCount: number ;
+    private _handsUpCount: number = 0;
+    private _takenCount: number = 0;
     private _isRunning: boolean;
     private _goalReached: boolean;
     private _subject: Subject;
 
 
 
-    constructor(isDoubleLesson: boolean, weekday: number, startTime: Date, endTime: Date, subject: Subject, uuid?:string) {
+    constructor(isDoubleLesson: boolean, weekday: number, startTime: Date, endTime: Date, subject: Subject, uuid?:string, handsUpCount?: number, takenCount?: number, goalReached?:boolean) {
         this._isDoubleLesson = isDoubleLesson;
         this._weekday = weekday;
         this._startTime = startTime;
         this._endTime = endTime;
         this._subject = subject;
+        if(handsUpCount) this._handsUpCount = handsUpCount;
+        if(takenCount) this._takenCount = takenCount;
+        if(goalReached) this._goalReached = goalReached;
         if(uuid){
             this._uuid = uuid;
         }else{
@@ -67,6 +70,23 @@ class Lesson{
         return this._subject;
     }
 
+
+    set handsUpCount(value: number) {
+        this._handsUpCount = value;
+    }
+
+    set takenCount(value: number) {
+        this._takenCount = value;
+    }
+
+    set isRunning(value: boolean) {
+        this._isRunning = value;
+    }
+
+    set goalReached(value: boolean) {
+        this._goalReached = value;
+    }
+
     public startLesson(){
         this._isRunning = true;
     }
@@ -92,7 +112,8 @@ class Lesson{
         const endMinutes = this._endTime.getMinutes() + endHours * 60;
 
         // Compare the times
-        return (targetMinutes >= startMinutes) && (targetMinutes <= endMinutes)
+        console.log(`Lesson: ${this._subject.name} is in timeframe: ${(targetMinutes >= startMinutes) && (targetMinutes <= endMinutes)}`)
+        return(targetMinutes >= startMinutes) && (targetMinutes <= endMinutes)
 
     }
 
@@ -125,20 +146,30 @@ class Lesson{
     }
 
     public addTaken(){
+        if(!this.isRunning){
+            return;
+        }
         this._takenCount++;
     }
 
     public addHandsUp(){
+        if(!this.isRunning){
+            return;
+        }
         this._handsUpCount++;
         let goal = this.subject.handsUpGoal;
-        if(this._handsUpCount >= goal){
+        if(this._handsUpCount == goal){
             this._goalReached = true;
+            let lessonGoalReachedEvent = new CustomEvent("lessonGoal");
+            window.dispatchEvent(lessonGoalReachedEvent);
         }
 
     }
 
     public resetGoalReached(){
         this._goalReached = false;
+        this._handsUpCount = 0;
+        this._takenCount = 0;
     }
 
     public toJSON(){
@@ -148,6 +179,10 @@ class Lesson{
             weekday: this._weekday,
             startTime: this._startTime,
             endTime: this._endTime,
+            handsUpCount: this.handsUpCount,
+            takenCount: this.takenCount,
+            isRunning: this.isRunning,
+            goalReached: this.goalReached,
             subjectUUID: this._subject.uuid
         }
 

@@ -17,14 +17,14 @@
         </section>
         <hu-calender id="calender"></hu-calender>
         <section id="actions">
-            <div id="currentLesson"><span>Current Lesson: <span id="currentLessonTitle">NONE</span></span></div>
-            <div id="quickActions">
+            <div id="currentLesson"><span id="currentLessonSpan">No lesson running</span></div>
+            <div id="quickActions" class="hideActions">
                 <div id="handsUp" class="action">
-                    <hu-button class="smallButton">Add "Hands Up"</hu-button>
+                    <hu-button id="handsUpButton" class="smallButton">Add "Hands Up"</hu-button>
                     <span>Count: <span id="handsUpCount">0</span></span>
                 </div>
                 <div id="taken" class="action">
-                    <hu-button class="smallButton">Add "Taken"</hu-button>
+                    <hu-button id="takenButton" class="smallButton">Add "Taken"</hu-button>
                     <span>Count: <span id="takenCount">0</span></span>
                 </div>
             </div>

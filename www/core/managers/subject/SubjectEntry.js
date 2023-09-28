@@ -1,5 +1,5 @@
 class SubjectEntry {
-    constructor(date, handsUpCount, takenCount, subject, uuid) {
+    constructor(date, handsUpCount, takenCount, subjectUUID, uuid) {
         if (uuid) {
             this._uuid = uuid;
         }
@@ -9,7 +9,7 @@ class SubjectEntry {
         this._date = date;
         this._handsUpCount = handsUpCount;
         this._takenCount = takenCount;
-        this._assignedSubject = subject;
+        this._assignedSubjectUUID = subjectUUID;
     }
     get uuid() {
         return this._uuid;
@@ -30,10 +30,10 @@ class SubjectEntry {
         this._takenCount = value;
     }
     get assignedSubject() {
-        return this._assignedSubject;
+        return this._assignedSubjectUUID;
     }
     set assignedSubject(value) {
-        this._assignedSubject = value;
+        this._assignedSubjectUUID = value;
     }
     toJSON() {
         let json = {
@@ -41,7 +41,7 @@ class SubjectEntry {
             date: this._date,
             handsUpCount: this._handsUpCount,
             takenCount: this._takenCount,
-            subjectId: this._assignedSubject
+            subjectId: this._assignedSubjectUUID
         };
         return json;
     }

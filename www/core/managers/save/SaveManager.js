@@ -60,49 +60,49 @@ class SaveManager {
             return this.getByUUID(subjectEntryStore, uuid);
         });
     }
-    getAllSubjectEntrys() {
+    getAllSubjectEntries() {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
             const subjectEntryStore = db.transaction('subjectEntries', 'readonly').objectStore('subjectEntries');
             return this.getAll(subjectEntryStore);
         });
     }
-    getSubjectEntrysByTakenCount(takenCount) {
+    getSubjectEntriesByTakenCount(takenCount) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
-            const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
+            const subjectStore = db.transaction('subjectEntries', 'readonly').objectStore('subjectEntries');
             let keyRange = IDBKeyRange.only(takenCount);
             return this.searchWithCursor(takenCount, keyRange, subjectStore, "takenCount", true);
         });
     }
-    getSubjectEntrysByHandsUpCount(handsUpCount) {
+    getSubjectEntriesByHandsUpCount(handsUpCount) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
-            const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
+            const subjectStore = db.transaction('subjectEntries', 'readonly').objectStore('subjectEntries');
             let keyRange = IDBKeyRange.only(handsUpCount);
             return this.searchWithCursor(handsUpCount, keyRange, subjectStore, "handsUpCount", true);
         });
     }
-    getSubjectEntrysByAssignedSubject(subjectId) {
+    getSubjectEntriesByAssignedSubject(subjectId) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
-            const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
+            const subjectStore = db.transaction('subjectEntries', 'readonly').objectStore('subjectEntries');
             let keyRange = IDBKeyRange.only(subjectId);
             return this.searchWithCursor(subjectId, keyRange, subjectStore, "assignedSubject", true);
         });
     }
-    getSubjectEntrysByDate(date) {
+    getSubjectEntriesByDate(date) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
-            const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
+            const subjectStore = db.transaction('subjectEntries', 'readonly').objectStore('subjectEntries');
             let keyRange = IDBKeyRange.only(date);
             return this.searchWithCursor(date, keyRange, subjectStore, "date", true);
         });
     }
-    getSubjectEntrysByDateRange(startDate, endDate) {
+    getSubjectEntriesByDateRange(startDate, endDate) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this._dbManager.getDatabase();
-            const subjectStore = db.transaction('subjects', 'readonly').objectStore('subjects');
+            const subjectStore = db.transaction('subjectEntries', 'readonly').objectStore('subjectEntries');
             let keyRange = IDBKeyRange.bound(startDate, endDate);
             return this.searchWithCursor(null, keyRange, subjectStore, "date", true);
         });

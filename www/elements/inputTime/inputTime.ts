@@ -29,11 +29,10 @@ class InputTime extends HTMLElement{
     }
 
     public setValue(date: Date){
-        let hours = date.getHours();
-        let minutes = date.getMinutes();
-        let timeValue = `${hours}:${minutes}`;
+        let time = date.toISOString().substring(11,16);
         let inputElement:HTMLInputElement = this.querySelector(".hu-input");
-        inputElement.value = timeValue;
+        date.toISOString()
+        inputElement.value = time;
     }
 
     public clearValue(){
