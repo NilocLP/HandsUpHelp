@@ -20,4 +20,14 @@ class DateUtils {
             return (newDateOne.getTime() - newDateTwo.getTime());
     }
 
+    /**
+     * Get the difference between the current date and the start of the next day
+     * @return number - timestamp as number
+     */
+    public static timeUntilNextDay():number{
+        let currentDate = new Date();
+        let nextDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 1);
+        return (nextDay.getTime() - currentDate.getTime());
+    }
+
 }

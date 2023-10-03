@@ -116,5 +116,4 @@ async function grapSubjectEntriesFromForm(){
     return subjectEntries;
 }
 
-//TODO: Bux fixen, dass wenn der Tag wechselt, der Kalender nicht weiter geht(Basis Funktionen sind dann soweit fertig)
 

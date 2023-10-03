@@ -32,6 +32,7 @@ class MainManager{
         if(time == null){
             let noLessonLeftEvent = new CustomEvent("mainManagerLessonNoLeft");
             window.dispatchEvent(noLessonLeftEvent);
+            this._nextLessonTimeout = setTimeout(this.runPhase.bind(this), DateUtils.timeUntilNextDay());
             return;
         }
         //Check if Lesson should run but is not registered (Triggers for example on Start)
