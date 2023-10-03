@@ -77,11 +77,15 @@ class MainManager {
     }
     finishCurrentLesson() {
         return __awaiter(this, void 0, void 0, function* () {
+            let ignoreZeroLesson = !this.settingsManager.countZeroLessons;
+            const countLesson = !(ignoreZeroLesson && this._currentLesson.handsUpCount === 0);
             this._currentLesson.finishLesson();
             let lessonEndEvent = new CustomEvent("mainManagerLessonEnd");
             window.dispatchEvent(lessonEndEvent);
-            let subjectEntry = new SubjectEntry(new Date(), this._currentLesson.handsUpCount, this._currentLesson.takenCount, this._currentLesson.subject.uuid);
-            yield this.saveManager.addSubjectEntry(subjectEntry.toJSON());
+            if (countLesson) {
+                let subjectEntry = new SubjectEntry(new Date(), this._currentLesson.handsUpCount, this._currentLesson.takenCount, this._currentLesson.subject.uuid);
+                yield this.saveManager.addSubjectEntry(subjectEntry.toJSON());
+            }
             this._currentLesson = null;
             yield this.saveManager.updateCalender(this._mainCalender.toJSON());
         });
@@ -90,14 +94,12 @@ class MainManager {
         let currentDate = new Date();
         let currentLesson = this._mainCalender.getCurrentLesson(currentDate);
         let timeUntilSwitch;
-        console.log("current lesson search");
         if (currentLesson) {
             console.log(currentLesson);
             timeUntilSwitch = DateUtils.getTimeDifferenceHours(currentLesson.endTime, currentDate);
             if (timeUntilSwitch > 0)
                 return timeUntilSwitch;
         }
-        console.log("next lesson search");
         let nextLesson = this._mainCalender.getUpcomingLesson(currentDate);
         if (nextLesson) {
             console.log(nextLesson);
