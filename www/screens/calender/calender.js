@@ -9,6 +9,11 @@ function init() {
     calender.assignCalender(mainManager.mainCalender);
     if (mainManager.currentLesson) {
         this.handleLessonStart(mainManager.currentLesson);
+        return;
+    }
+    if (mainManager.timeUntilPhaseSwitch() == null) {
+        this.handleNoLessonLeft();
+        return;
     }
 }
 function handleNoLessonLeft() {

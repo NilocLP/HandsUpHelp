@@ -94,7 +94,7 @@ class MainManager{
         await this.saveManager.updateCalender(this._mainCalender.toJSON());
     }
 
-    private timeUntilPhaseSwitch():number{
+    public timeUntilPhaseSwitch():number{
         let currentDate = new Date();
         let currentLesson = this._mainCalender.getCurrentLesson(currentDate);
         let timeUntilSwitch: number;

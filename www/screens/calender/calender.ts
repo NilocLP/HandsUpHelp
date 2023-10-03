@@ -12,10 +12,16 @@ function init() {
 
     if(mainManager.currentLesson){
         this.handleLessonStart(mainManager.currentLesson);
+        return;
+    }
+    if(mainManager.timeUntilPhaseSwitch() == null){
+        this.handleNoLessonLeft();
+        return;
     }
 }
 
 function handleNoLessonLeft(){
+
     document.getElementById("currentLessonSpan").innerText = "No lesson left for today";
     document.getElementById("quickActions").classList.add("hideActions");
 }
