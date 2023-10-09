@@ -23,9 +23,7 @@ class MainManager {
         });
     }
     runPhase() {
-        console.log("-----");
         let time = this.timeUntilPhaseSwitch();
-        console.log("time: " + time);
         if (time == null) {
             let noLessonLeftEvent = new CustomEvent("mainManagerLessonNoLeft");
             window.dispatchEvent(noLessonLeftEvent);
@@ -149,6 +147,7 @@ class MainManager {
             });
             this._subjects = subjectObjects;
             //Load Calender
+            console.log("Load Calender");
             let calenders = yield this.saveManager.getAllCalenders();
             let calender;
             let currentWeekNumber = DateUtils.getWeekNumber(new Date());
@@ -159,10 +158,11 @@ class MainManager {
             else {
                 calender = new Calender(calenders[0].value.currentWeek, calenders[0].value.uuid);
                 calenders[0].value.lessons.forEach((lessonData) => {
+                    console.log(lessonData);
                     let subject = this._subjects.find((subject) => {
                         return subject.uuid === lessonData.data.subjectUUID;
                     });
-                    let lesson = new Lesson(lessonData.data.isDoubleLesson, lessonData.data.weekday, lessonData.data.startTime, lessonData.data.endTime, subject, lessonData.data.uuid, lessonData.data.handsUpCount, lessonData.data.takenCount, lessonData.data.goalReached);
+                    let lesson = new Lesson(lessonData.data.isDoubleLesson, lessonData.data.weekday, lessonData.data.startTime, lessonData.data.endTime, subject, lessonData.data.uuid, lessonData.data.handsUpCount, lessonData.data.takenCount, lessonData.data.goalReached, lessonData.data.notificationId);
                     calender.addLessonToSlot(lessonData.timeSlot, lesson);
                 });
                 if (calenders[0].value.currentWeek != currentWeekNumber) {

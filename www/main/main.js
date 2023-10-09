@@ -35,7 +35,12 @@ function onDeviceReady() {
     return __awaiter(this, void 0, void 0, function* () {
         MainManager.getMainManager();
         document.addEventListener("mainManagerLoadedUp", onAppReady);
+        document.addEventListener('pause', onPause, false);
     });
+}
+function onPause() {
+    const mainManager = MainManager.getMainManager();
+    mainManager.saveManager.updateCalender(mainManager.mainCalender.toJSON()).then(() => { });
 }
 /**
  * Wait until MainManger is loaded

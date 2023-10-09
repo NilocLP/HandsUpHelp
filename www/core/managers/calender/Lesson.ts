@@ -10,10 +10,12 @@ class Lesson{
     private _isRunning: boolean;
     private _goalReached: boolean;
     private _subject: Subject;
+    private _notificationManager: NotificationLessonManager;
+    private _sameNotification: boolean;
 
 
 
-    constructor(isDoubleLesson: boolean, weekday: number, startTime: Date, endTime: Date, subject: Subject, uuid?:string, handsUpCount?: number, takenCount?: number, goalReached?:boolean) {
+    constructor(isDoubleLesson: boolean, weekday: number, startTime: Date, endTime: Date, subject: Subject, uuid?:string, handsUpCount?: number, takenCount?: number, goalReached?:boolean, messageId?: number) {
         this._isDoubleLesson = isDoubleLesson;
         this._weekday = weekday;
         this._startTime = startTime;
@@ -26,6 +28,14 @@ class Lesson{
             this._uuid = uuid;
         }else{
             this._uuid = UUIDUtils.generateUUID();
+        }
+        if(messageId) {
+            this._notificationManager = new NotificationLessonManager(this, messageId);
+            this._sameNotification = true;
+
+        }else{
+            this._notificationManager = new NotificationLessonManager(this);
+            this._sameNotification = false;
         }
 
     }
@@ -71,6 +81,10 @@ class Lesson{
     }
 
 
+    get notificationManager(): NotificationLessonManager {
+        return this._notificationManager;
+    }
+
     set handsUpCount(value: number) {
         this._handsUpCount = value;
     }
@@ -88,11 +102,20 @@ class Lesson{
     }
 
     public startLesson(){
+        console.log(this._sameNotification);
+        console.log(this._notificationManager.messageID);
         this._isRunning = true;
+        const mainManager = MainManager.getMainManager();
+        const settingsManager = mainManager.settingsManager;
+        if(settingsManager.notificationCounter) {
+            this._notificationManager.showNotification();
+        }
     }
 
     public finishLesson(){
         this._isRunning = false;
+        this._notificationManager.removeNotification();
+
     }
 
     public lessonInTimeframe(date:Date){
@@ -112,7 +135,6 @@ class Lesson{
         const endMinutes = this._endTime.getMinutes() + endHours * 60;
 
         // Compare the times
-        console.log(`Lesson: ${this._subject.name} is in timeframe: ${(targetMinutes >= startMinutes) && (targetMinutes <= endMinutes)}`)
         return(targetMinutes >= startMinutes) && (targetMinutes <= endMinutes)
 
     }
@@ -150,6 +172,7 @@ class Lesson{
             return;
         }
         this._takenCount++;
+        this.notificationManager.updateNotification();
     }
 
     public addHandsUp(){
@@ -157,6 +180,7 @@ class Lesson{
             return;
         }
         this._handsUpCount++;
+        this.notificationManager.updateNotification();
         let goal = this.subject.handsUpGoal;
         if(this._handsUpCount == goal){
             this._goalReached = true;
@@ -173,6 +197,7 @@ class Lesson{
     }
 
     public toJSON(){
+
         let json = {
             uuid: this._uuid,
             isDoubleLesson: this._isDoubleLesson,
@@ -183,7 +208,8 @@ class Lesson{
             takenCount: this.takenCount,
             isRunning: this.isRunning,
             goalReached: this.goalReached,
-            subjectUUID: this._subject.uuid
+            subjectUUID: this._subject.uuid,
+            notificationId: this._notificationManager.messageID,
         }
 
         return json;

@@ -9,27 +9,27 @@ class SettingsManager {
     initializeSettings() {
         let notificationCounter = localStorage.getItem("setting_notificationCounter");
         let countZeroLessons = localStorage.getItem("setting_countZeroLessons");
-        let lessonLength = localStorage.getItem("setting_lessonLength");
+        //let lessonLength = localStorage.getItem("setting_lessonLength");
         let language = localStorage.getItem("setting_language");
         if (!notificationCounter) {
-            localStorage.setItem("setting_notificationCounter", "true");
-            notificationCounter = "true";
+            localStorage.setItem("setting_notificationCounter", "false");
+            notificationCounter = "false";
         }
         if (!countZeroLessons) {
             localStorage.setItem("setting_countZeroLessons", "false");
             countZeroLessons = "false";
         }
-        if (!lessonLength) {
+        /*if(!lessonLength){
             localStorage.setItem("setting_lessonLength", "45");
-            lessonLength = "45";
-        }
+            lessonLength = "45"
+        }*/
         if (!language) {
             localStorage.setItem("setting_language", "en");
             language = "en";
         }
         this._notificationCounter = (notificationCounter === "true");
         this._countZeroLessons = (countZeroLessons === "true");
-        this._lessonLength = parseInt(lessonLength);
+        //this._lessonLength = parseInt(lessonLength);
         this._language = language;
     }
     get notificationCounter() {
@@ -46,13 +46,15 @@ class SettingsManager {
         this._countZeroLessons = value;
         localStorage.setItem("setting_countZeroLessons", value.toString());
     }
-    get lessonLength() {
+    /*get lessonLength(): number {
         return this._lessonLength;
     }
-    set lessonLength(value) {
+
+    set lessonLength(value: number) {
         this._lessonLength = value;
         localStorage.setItem("setting_lessonLength", value.toString());
-    }
+
+    }*/
     get language() {
         return this._language;
     }

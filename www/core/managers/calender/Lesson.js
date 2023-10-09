@@ -1,5 +1,5 @@
 class Lesson {
-    constructor(isDoubleLesson, weekday, startTime, endTime, subject, uuid, handsUpCount, takenCount, goalReached) {
+    constructor(isDoubleLesson, weekday, startTime, endTime, subject, uuid, handsUpCount, takenCount, goalReached, messageId) {
         this._handsUpCount = 0;
         this._takenCount = 0;
         this._isDoubleLesson = isDoubleLesson;
@@ -18,6 +18,14 @@ class Lesson {
         }
         else {
             this._uuid = UUIDUtils.generateUUID();
+        }
+        if (messageId) {
+            this._notificationManager = new NotificationLessonManager(this, messageId);
+            this._sameNotification = true;
+        }
+        else {
+            this._notificationManager = new NotificationLessonManager(this);
+            this._sameNotification = false;
         }
     }
     get uuid() {
@@ -50,6 +58,9 @@ class Lesson {
     get subject() {
         return this._subject;
     }
+    get notificationManager() {
+        return this._notificationManager;
+    }
     set handsUpCount(value) {
         this._handsUpCount = value;
     }
@@ -63,10 +74,18 @@ class Lesson {
         this._goalReached = value;
     }
     startLesson() {
+        console.log(this._sameNotification);
+        console.log(this._notificationManager.messageID);
         this._isRunning = true;
+        const mainManager = MainManager.getMainManager();
+        const settingsManager = mainManager.settingsManager;
+        if (settingsManager.notificationCounter) {
+            this._notificationManager.showNotification();
+        }
     }
     finishLesson() {
         this._isRunning = false;
+        this._notificationManager.removeNotification();
     }
     lessonInTimeframe(date) {
         //In Same Day
@@ -81,7 +100,6 @@ class Lesson {
         const endHours = this._endTime.getHours();
         const endMinutes = this._endTime.getMinutes() + endHours * 60;
         // Compare the times
-        console.log(`Lesson: ${this._subject.name} is in timeframe: ${(targetMinutes >= startMinutes) && (targetMinutes <= endMinutes)}`);
         return (targetMinutes >= startMinutes) && (targetMinutes <= endMinutes);
     }
     timeframeAfterLesson(date) {
@@ -110,12 +128,14 @@ class Lesson {
             return;
         }
         this._takenCount++;
+        this.notificationManager.updateNotification();
     }
     addHandsUp() {
         if (!this.isRunning) {
             return;
         }
         this._handsUpCount++;
+        this.notificationManager.updateNotification();
         let goal = this.subject.handsUpGoal;
         if (this._handsUpCount == goal) {
             this._goalReached = true;
@@ -139,7 +159,8 @@ class Lesson {
             takenCount: this.takenCount,
             isRunning: this.isRunning,
             goalReached: this.goalReached,
-            subjectUUID: this._subject.uuid
+            subjectUUID: this._subject.uuid,
+            notificationId: this._notificationManager.messageID,
         };
         return json;
     }

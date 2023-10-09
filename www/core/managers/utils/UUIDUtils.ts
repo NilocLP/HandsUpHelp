@@ -12,4 +12,8 @@ class UUIDUtils{
         }
         return uuid;
     }
+
+    public static generateNumberID(): number{
+        return Math.floor(Math.random() * 100000000000000);
+    }
 }

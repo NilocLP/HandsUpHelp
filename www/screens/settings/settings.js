@@ -10,19 +10,19 @@ function init() {
     });
     document.querySelector("#settings-setting-notify .settings-setting-element").addEventListener("toggleChange", handleNotificationCountingUpdate);
     document.querySelector("#settings-setting-countZero .settings-setting-element").addEventListener("toggleChange", handleCountingZerosUpdate);
-    document.querySelector("#settings-setting-length-input").addEventListener("inputChanged", handleLessonLengthUpdate);
+    //document.querySelector("#settings-setting-length-input").addEventListener("inputChanged",handleLessonLengthUpdate)
     document.querySelector("#settings-setting-language-dropdown").addEventListener("hu-selectionChange", handleLanguageUpdate);
 }
 function loadSettings() {
     let mainManager = MainManager.getMainManager();
     let notificationCounter = mainManager.settingsManager.notificationCounter;
     let zeroCounter = mainManager.settingsManager.countZeroLessons;
-    let length = mainManager.settingsManager.lessonLength;
+    //let length = mainManager.settingsManager.lessonLength;
     let language = mainManager.settingsManager.language;
     document.querySelector("#settings-setting-notify .settings-setting-element").setAttribute("checked", notificationCounter.toString());
     document.querySelector("#settings-setting-countZero .settings-setting-element").setAttribute("checked", zeroCounter.toString());
-    let inputNumber = document.querySelector("#settings-setting-length-input");
-    inputNumber.setValue(length);
+    //let inputNumber:InputNumber = document.querySelector("#settings-setting-length-input")
+    //inputNumber.setValue(length)
     let dropdown = document.querySelector("#settings-setting-language-dropdown");
     switch (language) {
         case "en":
@@ -34,17 +34,35 @@ function loadSettings() {
     }
 }
 function handleNotificationCountingUpdate(event) {
-    let mainManager = MainManager.getMainManager();
-    mainManager.settingsManager.notificationCounter = event.detail;
+    cordova.plugins.notification.local.hasPermission((granted) => {
+        if (granted === true) {
+            let mainManager = MainManager.getMainManager();
+            mainManager.settingsManager.notificationCounter = event.detail;
+            if (!mainManager.currentLesson)
+                return;
+            mainManager.currentLesson.notificationManager.updateNotificationEnabledStatus();
+            console.log(event.detail);
+            if (event.detail === true) {
+                mainManager.currentLesson.notificationManager.showNotification();
+            }
+            else {
+                mainManager.currentLesson.notificationManager.removeNotification();
+            }
+        }
+        else {
+            navigator.notification.alert("Please allow the app to send notifications in the settings of your device:\n\n Apps -> HandsUpHelp -> Permissions -> Notifications -> Allow", () => { }, "Permission required");
+            event.target.setAttribute("checked", (!event.detail).toString());
+        }
+    });
 }
 function handleCountingZerosUpdate(event) {
     let mainManager = MainManager.getMainManager();
     mainManager.settingsManager.countZeroLessons = event.detail;
 }
-function handleLessonLengthUpdate(event) {
+/*function handleLessonLengthUpdate(event){
     let mainManager = MainManager.getMainManager();
     mainManager.settingsManager.lessonLength = event.detail;
-}
+}*/
 function handleLanguageUpdate(event) {
     let mainManager = MainManager.getMainManager();
     let dropdown = event.currentTarget;

@@ -19,6 +19,7 @@
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
+
 document.addEventListener('deviceready', onDeviceReady, false);
 
 
@@ -28,6 +29,13 @@ document.addEventListener('deviceready', onDeviceReady, false);
 async function onDeviceReady() {
     MainManager.getMainManager();
     document.addEventListener("mainManagerLoadedUp", onAppReady);
+    document.addEventListener('pause', onPause, false);
+}
+
+function onPause() {
+    const mainManager = MainManager.getMainManager();
+    mainManager.saveManager.updateCalender(mainManager.mainCalender.toJSON()).then(() => {});
+
 }
 
 /**
@@ -47,7 +55,8 @@ async function onAppReady(){
 
     await screenManager.changeScreen(1);
 
-    document.getElementById("app-navbar").addEventListener("pageSwitch", onPageNavigation)
+    document.getElementById("app-navbar").addEventListener("pageSwitch", onPageNavigation);
+
 }
 
 function onPageNavigation(e){

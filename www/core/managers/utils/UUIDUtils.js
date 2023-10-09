@@ -11,5 +11,8 @@ class UUIDUtils {
         }
         return uuid;
     }
+    static generateNumberID() {
+        return Math.floor(Math.random() * 100000000000000);
+    }
 }
 //# sourceMappingURL=UUIDUtils.js.map

@@ -2,7 +2,7 @@ class SettingsManager{
 
     private _notificationCounter:boolean;
     private _countZeroLessons:boolean;
-    private _lessonLength:number;
+    //private _lessonLength:number;
     private _language:string;
 
     constructor() {
@@ -16,21 +16,21 @@ class SettingsManager{
     private initializeSettings(){
         let notificationCounter = localStorage.getItem("setting_notificationCounter");
         let countZeroLessons = localStorage.getItem("setting_countZeroLessons");
-        let lessonLength = localStorage.getItem("setting_lessonLength");
+        //let lessonLength = localStorage.getItem("setting_lessonLength");
         let language = localStorage.getItem("setting_language");
 
         if(!notificationCounter){
-            localStorage.setItem("setting_notificationCounter", "true");
-            notificationCounter = "true"
+            localStorage.setItem("setting_notificationCounter", "false");
+            notificationCounter = "false"
         }
         if(!countZeroLessons){
             localStorage.setItem("setting_countZeroLessons", "false");
             countZeroLessons = "false"
         }
-        if(!lessonLength){
+        /*if(!lessonLength){
             localStorage.setItem("setting_lessonLength", "45");
             lessonLength = "45"
-        }
+        }*/
         if(!language){
             localStorage.setItem("setting_language", "en")
             language = "en"
@@ -38,7 +38,7 @@ class SettingsManager{
 
         this._notificationCounter = (notificationCounter === "true");
         this._countZeroLessons = (countZeroLessons === "true");
-        this._lessonLength = parseInt(lessonLength);
+        //this._lessonLength = parseInt(lessonLength);
         this._language = language;
     }
 
@@ -62,7 +62,7 @@ class SettingsManager{
 
     }
 
-    get lessonLength(): number {
+    /*get lessonLength(): number {
         return this._lessonLength;
     }
 
@@ -70,7 +70,7 @@ class SettingsManager{
         this._lessonLength = value;
         localStorage.setItem("setting_lessonLength", value.toString());
 
-    }
+    }*/
 
     get language(): string {
         return this._language;
