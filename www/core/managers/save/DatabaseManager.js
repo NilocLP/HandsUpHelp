@@ -58,5 +58,12 @@ class DatabaseManager {
             return this._db;
         });
     }
+    deleteDatabase() {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this._dbOpenPromise;
+            const deleteRequest = window.indexedDB.deleteDatabase(this._dbName);
+            deleteRequest.addEventListener("success", (e) => { });
+        });
+    }
 }
 //# sourceMappingURL=DatabaseManager.js.map

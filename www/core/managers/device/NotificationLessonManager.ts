@@ -106,7 +106,6 @@ class NotificationLessonManager {
 
 
 
-    //TODO: Anzeigen funktioniert. Aktuell am herausfinden, warum die Notification beim Button klick nicht das hochzählen speichert
 
 
 }

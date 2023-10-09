@@ -61,6 +61,12 @@ class DatabaseManager {
         return this._db;
     }
 
+    public async deleteDatabase(){
+        await this._dbOpenPromise;
+        const deleteRequest = window.indexedDB.deleteDatabase(this._dbName);
+        deleteRequest.addEventListener("success", (e) => {});
+    }
+
 
 }
 
